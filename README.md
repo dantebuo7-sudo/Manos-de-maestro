@@ -1,6 +1,6 @@
 # Manos de Maestro · sitio web
 
-Sitio de una sola página para **Manos de Maestro**, de Miguel Saldivia e Ignacio Mora: construcción y remodelaciones en la Región de Los Ríos. WhatsApp: +56 9 7710 7052.
+Sitio de una sola página para **Manos de Maestro**, de Miguel Saldivia e Ignacio Mora: construcción y remodelaciones en la Región de Los Ríos. WhatsApp: +56 9 7710 7052 (número principal, el del formulario y los botones) e Ignacio: +56 9 6583 6682 (en su tarjeta de Nosotros, en el contacto y en el pie de página).
 
 Es HTML, CSS y JavaScript estático. No hay que compilar nada: Vercel lo publica tal cual.
 
