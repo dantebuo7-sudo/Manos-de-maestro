@@ -51,6 +51,16 @@ Para cambiar una foto, reemplaza los dos archivos (`-800.webp` y `-1600.webp`) m
 
 Sección `#cotizar`, antes del contacto. Son 4 pasos: tipo de trabajo, comuna (Valdivia marcada), tamaño y plazo, nombre y descripción. Como la web no tiene servidor, al final la persona elige si escribirle a Miguel o a Ignacio y se abre WhatsApp con el mensaje escrito y ordenado, terminando en "Te envío fotos del espacio por aquí". No se guarda ningún dato en la web.
 
+## Código QR
+
+En `qr/` está el QR que abre https://manosdemaestro.vercel.app:
+
+- `manos-de-maestro-qr-tarjeta.png`: tarjeta con logo, QR y los teléfonos de Miguel e Ignacio, lista para compartir o imprimir.
+- `manos-de-maestro-qr.png`: solo el QR, en alta resolución.
+- `manos-de-maestro-qr.svg`: solo el QR en vector, para imprenta (letreros, autoadhesivos, ropa de trabajo).
+
+Si la web se cambia a un dominio propio, hay que generar un QR nuevo.
+
 ## Antes de usar un dominio propio
 
 En `index.html`, `robots.txt` y `sitemap.xml` está `https://manosdemaestro.vercel.app`. Si el sitio queda en otra dirección, por ejemplo `manosdemaestro.cl`, hay que reemplazarla en esos tres archivos. Sin eso, la imagen de WhatsApp no aparece.
