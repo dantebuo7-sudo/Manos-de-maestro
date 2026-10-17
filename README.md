@@ -9,7 +9,7 @@ Es HTML, CSS y JavaScript estático. No hay que compilar nada: Vercel lo publica
 | Ruta | Qué es |
 |---|---|
 | `index.html` | La página completa, con el CSS dentro |
-| `app.js` | Animaciones, galería, visor de fotos, comparador y preguntas frecuentes |
+| `app.js` | Animaciones, galería, visor de fotos, comparador, preguntas frecuentes y formulario de cotización |
 | `vendor/` | GSAP 3.12.5, ScrollTrigger y Lenis 1.1.13 (dentro del proyecto, no dependen de otros servidores) |
 | `fonts/` | Geist, Geist Mono y Bodoni Moda (woff2, solo caracteres latinos) |
 | `img/` | Fotos en `.webp`, en dos tamaños: `-800` (celular) y `-1600` (computador). Hero también en `-2400` |
@@ -27,13 +27,23 @@ Todas son reales. Las restauradas se limpiaron con IA. Las demás se agrandaron 
 | `hero` | Portada | Cocina terminada (restaurada) |
 | `story-1/2/3` | Escalera destacada | Antes, proceso, terminado |
 | `bano-1/2/3` | Obra 01 · Baños | Mampara, ducha negra, espejo con viga |
-| `cocina-1/2/3` | Obra 02 · Cocinas | Cocina de día, campana y encimera, cerámica en proceso |
+| `cocina-1/2/3` | Obra 02 · Cocinas | Cocina con cielo de doble nivel y ventanal, campana y encimera, cerámica en proceso |
 | `pasillo-1/2/3` | Obra 03 · Pisos y carpintería | Pasillo, puerta granero, taller |
 | `obra-1/2/3` | Obra 04 · Ampliaciones | Maestros en la techumbre, interior del segundo piso, casa con la estructura |
-| `g-*` | Galería "Hecho a mano" | Escalera, vanitorio, muro de madera, cielo de madera, fachada |
+| `g-*` | Galería "Hecho a mano" | Escalera, vanitorio, muro de madera, cielo de madera, fachada de madera café con alero negro |
 | `antes` / `despues` | Comparador | Baño rosado y el mismo baño remodelado |
 
 Para cambiar una foto, reemplaza los dos archivos (`-800.webp` y `-1600.webp`) manteniendo el nombre.
+
+## Animaciones
+
+- **Intro del logo**: al entrar por primera vez en la visita, el logo se dibuja, los martillos dan un golpe con chispas y se abre la portada (unos 2 segundos). No vuelve a salir hasta cerrar la pestaña. Está en el `<script>` del `<head>` y en el CSS (`.intro`), así que nunca bloquea la página aunque falle `app.js`.
+- **Logo del encabezado**: un brillo pasa por el logo cada tanto y al pasar el mouse. El brillo usa el mismo logo como máscara, así que el dibujo no cambia.
+- Quien tenga activado "reducir movimiento" en su teléfono o computador ve la web sin animaciones.
+
+## Formulario de cotización
+
+Sección `#cotizar`, antes del contacto. Son 4 pasos: tipo de trabajo, comuna (Valdivia marcada), tamaño y plazo, nombre y descripción. Como la web no tiene servidor, al final se abre WhatsApp al +56 9 7710 7052 con el mensaje escrito y ordenado, terminando en "Te envío fotos del espacio por aquí". No se guarda ningún dato en la web.
 
 ## Antes de usar un dominio propio
 

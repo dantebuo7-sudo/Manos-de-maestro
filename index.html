@@ -23,6 +23,7 @@
 <link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="img/hero-1600.webp" imagesrcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w, img/hero-2400.webp 2400w" imagesizes="(max-aspect-ratio: 1/1) 170vh, 100vw" fetchpriority="high">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "GeneralContractor", "name": "Manos de Maestro", "url": "https://manosdemaestro.vercel.app", "image": "https://manosdemaestro.vercel.app/og.jpg", "logo": "https://manosdemaestro.vercel.app/icon-512.png", "description": "Remodelaciones y construcción en Valdivia, Región de Los Ríos, Chile.", "telephone": "+56977107052", "areaServed": [{"@type": "City", "name": "Valdivia"}, {"@type": "City", "name": "Corral"}, {"@type": "City", "name": "Lanco"}, {"@type": "City", "name": "Los Lagos"}, {"@type": "City", "name": "Máfil"}, {"@type": "City", "name": "Mariquina"}, {"@type": "City", "name": "Paillaco"}, {"@type": "City", "name": "Panguipulli"}, {"@type": "City", "name": "La Unión"}, {"@type": "City", "name": "Futrono"}, {"@type": "City", "name": "Lago Ranco"}, {"@type": "City", "name": "Río Bueno"}], "address": {"@type": "PostalAddress", "addressLocality": "Valdivia", "addressRegion": "Región de Los Ríos", "addressCountry": "CL"}, "founder": [{"@type": "Person", "name": "Miguel Saldivia"}, {"@type": "Person", "name": "Ignacio Mora"}], "knowsAbout": ["Remodelación de baños", "Remodelación de cocinas", "Escaleras de madera", "Techumbres", "Ampliaciones", "Pisos y revestimientos"]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cómo pido un presupuesto?", "acceptedAnswer": {"@type": "Answer", "text": "Escríbenos por WhatsApp con fotos del espacio, la comuna y lo que quieres hacer. Con eso coordinamos una visita para medir y te enviamos un presupuesto claro."}}, {"@type": "Question", "name": "¿Quién hace el trabajo?", "acceptedAnswer": {"@type": "Answer", "text": "Nosotros mismos: Miguel Saldivia e Ignacio Mora. Los mismos que te cotizan son los que trabajan en tu obra."}}, {"@type": "Question", "name": "¿En qué comunas trabajan?", "acceptedAnswer": {"@type": "Answer", "text": "Principalmente en Valdivia. También vamos a las comunas cercanas: Corral, Lanco, Los Lagos, Máfil, Mariquina, Paillaco, Panguipulli, La Unión, Futrono, Lago Ranco y Río Bueno."}}, {"@type": "Question", "name": "¿Puedo ver cómo avanza mi obra?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Te mandamos fotos del antes, de cada etapa del proceso y del resultado final."}}, {"@type": "Question", "name": "¿Qué tipo de trabajos hacen?", "acceptedAnswer": {"@type": "Answer", "text": "Baños, cocinas, escaleras y carpintería, pisos y revestimientos, techumbres, ampliaciones y segundos pisos."}}]}]</script>
+<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('mm-intro')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('seen');else{d.classList.add('intro-on');sessionStorage.setItem('mm-intro','1');setTimeout(function(){d.classList.remove('intro-on');d.classList.add('seen');},2600);}}catch(e){d.classList.add('seen');}})(document.documentElement);</script>
 <style>
 @font-face{font-family:'Geist';src:url(fonts/geist-latin-wght-normal.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:'Geist Mono';src:url(fonts/geist-mono-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
@@ -46,7 +47,7 @@ html{-webkit-text-size-adjust:100%;scroll-padding-top:80px}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-stopped{overflow:hidden}
-body{background:var(--ink);color:var(--bone);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--ink);color:var(--bone);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
 ::selection{background:var(--wood);color:var(--ink)}
 img,video{max-width:100%;display:block}
@@ -76,7 +77,7 @@ p{margin:0}
 .hdr .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand img{width:66px;height:auto}
-.brand span{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase}
+.brand .name{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase}
 .nav{display:flex;align-items:center;gap:4px;font-size:14px;font-weight:500}
 .nav a{text-decoration:none;padding:10px 14px;border-radius:999px;transition:background .18s var(--ease)}
 .nav a:hover{background:rgba(245,245,243,.1)}
@@ -162,6 +163,7 @@ p{margin:0}
 .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
 .ph:hover img{transform:scale(1.03)}
 .ph.big{grid-column:span 2;aspect-ratio:4/3}
+.ph.big.wide{aspect-ratio:16/9}
 .ph.tall{aspect-ratio:4/5}
 .ph::after{content:"";position:absolute;right:12px;bottom:12px;width:34px;height:34px;border-radius:999px;background:rgba(11,13,15,.6) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23F5F5F3' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center/16px no-repeat;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transform:scale(.9);transition:opacity .25s var(--ease),transform .25s var(--ease)}
 .ph:hover::after{opacity:1;transform:none}
@@ -180,7 +182,14 @@ p{margin:0}
 .gal-nav button{width:48px;height:48px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--bone);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s var(--ease),border-color .18s var(--ease),opacity .18s}
 .gal-nav button:hover{background:var(--surface);border-color:#3A4046}
 .gal-nav button:disabled{opacity:.35;cursor:default}
-.gal{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(var(--gutter),calc((100vw - 1280px)/2 + 20px));padding-inline:max(var(--gutter),calc((100vw - 1280px)/2 + 20px));padding-bottom:6px;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.gal{overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(var(--gutter),calc((100vw - 1280px)/2 + 20px));padding-bottom:6px;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.gal-track{display:flex;gap:14px;width:max-content;padding-inline:max(var(--gutter),calc((100vw - 1280px)/2 + 20px))}
+.gal.pinned{overflow:hidden;scroll-snap-type:none;padding-block:44px;margin-block:-44px}
+.gallery:has(.gal.pinned) .gal-nav{display:none}
+.gal-foot{display:flex;align-items:center;gap:20px;margin-top:28px}
+.gal-prog{flex:1;height:1px;background:var(--line);overflow:hidden}
+.gal-prog i{display:block;height:100%;background:var(--bone);transform-origin:0 50%;transform:scaleX(.18)}
+.gal-hint{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .gal::-webkit-scrollbar{display:none}
 .gal figure{margin:0;flex:0 0 clamp(260px,28vw,380px);scroll-snap-align:start;display:flex;flex-direction:column;gap:14px}
 .gal img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:10px;background:var(--surface);cursor:zoom-in;transition:transform .9s var(--ease),filter .4s var(--ease)}
@@ -275,7 +284,7 @@ p{margin:0}
 /* contact */
 .contact{position:relative;overflow:hidden;border-top:1px solid var(--line);background:radial-gradient(60% 70% at 50% 100%,rgba(194,154,107,.16),transparent 70%)}
 .contact .wrap{padding-block:clamp(110px,13vw,180px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
-.contact img{width:200px}
+.contact .mark-lg{width:200px}
 .contact h2{font-size:clamp(46px,6.4vw,96px)}
 .contact p{color:#C9CCCF;max-width:44ch;font-size:18px}
 .contact .num{font-family:var(--mono);font-size:15px;color:var(--muted);user-select:all}
@@ -306,11 +315,178 @@ footer{border-top:1px solid var(--line)}
 .lb-n{right:max(14px,env(safe-area-inset-right,0px));top:50%;margin-top:-24px}
 .lb-c{position:absolute;top:calc(26px + env(safe-area-inset-top,0px));left:max(20px,env(safe-area-inset-left,0px));font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--muted)}
 
+
+/* ---------- motion layer ---------- */
+/* logo: shine is masked by the logo itself, so the drawing never changes */
+.mark{position:relative;display:block;line-height:0}
+.mark img{width:100%;height:auto}
+.mark .shine{position:absolute;inset:0;pointer-events:none;-webkit-mask:url(img/logo.webp) center/100% 100% no-repeat;mask:url(img/logo.webp) center/100% 100% no-repeat;background:linear-gradient(105deg,transparent 38%,rgba(255,236,205,.0) 42%,rgba(255,240,215,.95) 50%,rgba(255,236,205,0) 58%,transparent 62%) no-repeat;background-size:260% 100%;background-position:120% 0}
+.brand .mark{width:66px;transition:transform .5s var(--ease)}
+.brand .mark .shine{animation:gleam 11s var(--ease) 3s infinite}
+.brand:hover .mark .shine{animation:gleamNow .9s var(--ease)}
+.brand:hover .mark{transform:translateY(-1px)}
+.brand:active .mark{transform:scale(.94)}
+@keyframes gleam{0%,90%{background-position:120% 0}100%{background-position:-20% 0}}
+@keyframes gleamNow{from{background-position:120% 0}to{background-position:-20% 0}}
+.mark-lg.on .shine{animation:gleamNow 1.2s var(--ease) .5s both}
+
+/* header scroll progress */
+.prog{position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,var(--wood),var(--wood-soft));transform-origin:0 50%;transform:scaleX(var(--p,0));opacity:0;transition:opacity .3s}
+.hdr.solid .prog{opacity:1}
+
+/* intro: short, once per visit */
+.intro{display:none}
+html.js.intro-on .intro{display:flex;position:fixed;inset:0;z-index:100;background:var(--ink);flex-direction:column;align-items:center;justify-content:center;gap:26px;animation:introOut .8s cubic-bezier(.76,0,.24,1) 1.75s forwards}
+html.intro-on{overflow:hidden}
+.intro-logo{position:relative;width:min(230px,56vw);aspect-ratio:440/200;animation:strike .34s cubic-bezier(.3,1.6,.5,1) .82s both}
+.intro-logo img{width:100%;height:auto;clip-path:inset(0 100% 0 0);filter:blur(6px);animation:draw .9s cubic-bezier(.65,0,.35,1) .1s forwards}
+.intro-logo .shine{animation:gleamNow .8s var(--ease) 1.05s both}
+.intro .shine{position:absolute;inset:0;-webkit-mask:url(img/logo.webp) center/100% 100% no-repeat;mask:url(img/logo.webp) center/100% 100% no-repeat;background:linear-gradient(105deg,transparent 40%,rgba(255,240,215,.95) 50%,transparent 60%) no-repeat;background-size:260% 100%;background-position:120% 0}
+.spark{position:absolute;left:50%;top:76%;width:46%;margin:-23% 0 0 -23%;aspect-ratio:1;overflow:visible;fill:none;stroke:var(--wood-soft);stroke-width:2.2;opacity:0;transform:scale(.4);animation:spark .55s var(--ease) .84s}
+.intro-t{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin:0;opacity:0;animation:fadeUp .7s var(--ease) .55s forwards}
+.intro-t span{color:var(--wood)}
+.intro-line{width:120px;height:1px;background:var(--line);overflow:hidden}
+.intro-line i{display:block;height:100%;background:var(--wood);transform-origin:0 50%;transform:scaleX(0);animation:fill 1.6s cubic-bezier(.65,0,.35,1) .1s forwards}
+@keyframes draw{to{clip-path:inset(0 0 0 0);filter:blur(0)}}
+@keyframes strike{0%{transform:none}35%{transform:translateY(3px) scale(.975)}100%{transform:none}}
+@keyframes spark{0%{opacity:0;transform:scale(.4)}25%{opacity:1}100%{opacity:0;transform:scale(1.25)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes fill{to{transform:scaleX(1)}}
+@keyframes introOut{0%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 100% 0);visibility:hidden}}
+
+/* chapter indicator (desktop) */
+.chap{position:fixed;left:max(24px,env(safe-area-inset-left,0px));bottom:26px;z-index:40;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;mix-blend-mode:difference;opacity:0;transform:translateY(8px);transition:opacity .4s var(--ease),transform .4s var(--ease);pointer-events:none}
+.chap.on{opacity:.85;transform:none}
+.chap i{width:28px;height:1px;background:currentColor;opacity:.6}
+.chap span{display:inline-block;transition:opacity .25s,transform .35s var(--ease)}
+.chap.swap span{opacity:0;transform:translateY(-6px)}
+
+/* masked word reveal for headings */
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.wi{display:inline-block;will-change:transform}
+
+/* light sections rise in like a card and settle full width */
+.morph{will-change:clip-path}
+
+/* photo CTA band */
+.band{border-top:1px solid var(--line);background:radial-gradient(80% 120% at 0% 0%,rgba(194,154,107,.12),transparent 60%),var(--ink)}
+.band .wrap{padding-block:clamp(80px,10vw,130px);display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.band h2{font-size:clamp(36px,4.6vw,68px);max-width:18ch}
+
+/* pointer spotlight on cards */
+.svc article,.pcard{--mx:50%;--my:0%}
+.svc article::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(320px circle at var(--mx) var(--my),rgba(194,154,107,.16),transparent 60%);opacity:0;transition:opacity .35s var(--ease)}
+.svc article:hover::before{opacity:1}
+.pcard{position:relative;overflow:hidden}
+.pcard::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(194,154,107,.12),transparent 60%);opacity:0;transition:opacity .35s var(--ease)}
+.pcard:hover::before{opacity:1}
+.svc svg{transition:transform .5s var(--ease)}
+.svc article:hover svg{transform:translateY(-2px) rotate(-4deg)}
+
+/* buttons: arrow nudge + shine on hover */
+.btn-solid{position:relative;overflow:hidden;isolation:isolate}
+.btn-solid::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 35%,rgba(194,154,107,.28) 50%,transparent 65%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+.btn-solid:hover::after{transform:translateX(120%)}
+.magnet{will-change:transform}
+.ph:active img{transform:scale(.985)}
+.comunas li{transition:color .25s var(--ease),padding .35s var(--ease)}
+.comunas li:not(.main):hover{color:var(--bone);padding-left:6px}
+.steps li{transition:background .3s var(--ease)}
+.qa summary{transition:color .2s}
+.qa summary:hover{color:var(--wood-soft)}
+
+
+/* quote form */
+.quote{border-top:1px solid var(--line);background:radial-gradient(70% 60% at 100% 0%,rgba(194,154,107,.10),transparent 65%),var(--ink)}
+.quote .wrap{padding-block:clamp(88px,11vw,150px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,5vw,72px);align-items:start}
+.quote-intro{position:sticky;top:120px;display:flex;flex-direction:column;gap:18px}
+.quote h2{font-size:clamp(38px,4.4vw,64px)}
+.quote-sub{color:var(--muted);max-width:38ch}
+.quote-note{color:#7D8389;font-size:14px;max-width:40ch;padding-top:16px;border-top:1px solid var(--line)}
+.quote-sum{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;min-height:0}
+.quote-sum li{font-family:var(--mono);font-size:12px;letter-spacing:.04em;border:1px solid rgba(194,154,107,.45);color:var(--wood-soft);border-radius:999px;padding:7px 12px;animation:pop .45s var(--ease)}
+@keyframes pop{from{opacity:0;transform:scale(.9) translateY(4px)}to{opacity:1;transform:none}}
+.qf{position:relative;background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);border-radius:16px;padding:clamp(20px,3vw,36px);box-shadow:0 50px 100px -60px rgba(0,0,0,.8)}
+.qf-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.qf-count{color:var(--wood)}
+.qf-title{color:var(--muted)}
+.qf-bar{height:2px;background:var(--line);border-radius:2px;margin:14px 0 28px;overflow:hidden}
+.qf-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--wood),var(--wood-soft));transform-origin:0 50%;transform:scaleX(.25);transition:transform .6s var(--ease)}
+.qf-steps{position:relative;transition:height .45s var(--ease)}
+.qs{border:0;margin:0;padding:0;min-width:0}
+html.js .qs{display:none}
+html.js .qs.on{display:block}
+.qs+.qs{margin-top:32px}
+html.js .qs+.qs{margin-top:0}
+.qs legend{padding:0;font-size:clamp(24px,2.4vw,32px);font-weight:500;letter-spacing:-.03em;line-height:1.15;outline:none}
+.qs-help{color:var(--muted);font-size:15px;margin:8px 0 22px}
+.qcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.qcard{position:relative;display:block;cursor:pointer}
+.qcard input,.qpill input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.qcard-in{position:relative;display:flex;flex-direction:column;gap:14px;min-height:118px;padding:18px;border:1px solid var(--line);border-radius:12px;background:rgba(11,13,15,.35);transition:border-color .25s var(--ease),background .25s var(--ease),transform .2s var(--ease)}
+.qcard-in svg{width:26px;height:26px;color:var(--wood);transition:transform .45s var(--ease)}
+.qcard-in b{font-weight:600;font-size:15px;line-height:1.3;margin-top:auto;letter-spacing:-.01em}
+.qcard .tick{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:999px;border:1px solid #3A4046;transition:background .25s var(--ease),border-color .25s var(--ease),transform .35s cubic-bezier(.3,1.6,.5,1)}
+.qcard .tick::after{content:"";position:absolute;left:7px;top:4px;width:5px;height:10px;border:solid var(--ink);border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.qcard:last-child{grid-column:1/-1}
+.qcard:last-child .qcard-in{min-height:0;flex-direction:row;align-items:center}
+.qcard:last-child .qcard-in b{margin-top:0}
+.qcard:hover .qcard-in{border-color:#3A4046}
+.qcard:active .qcard-in{transform:scale(.97)}
+.qcard input:checked+.qcard-in{border-color:var(--wood);background:rgba(194,154,107,.09)}
+.qcard input:checked+.qcard-in svg{transform:translateY(-2px) rotate(-6deg)}
+.qcard input:checked+.qcard-in .tick{background:var(--wood);border-color:var(--wood);transform:scale(1.05)}
+.qcard input:checked+.qcard-in .tick::after{transform:rotate(45deg) scale(1)}
+.qcard input:focus-visible+.qcard-in,.qpill input:focus-visible+span{outline:2px solid var(--wood);outline-offset:3px}
+.qpills{display:flex;flex-wrap:wrap;gap:8px}
+.qpill{position:relative;cursor:pointer}
+.qpill span{display:inline-flex;align-items:center;min-height:46px;padding:0 18px;border:1px solid var(--line);border-radius:999px;font-size:15px;font-weight:500;color:#D9DBDD;background:rgba(11,13,15,.35);transition:border-color .2s var(--ease),background .2s var(--ease),color .2s,transform .2s var(--ease)}
+.qpill:hover span{border-color:#3A4046}
+.qpill:active span{transform:scale(.96)}
+.qpill input:checked+span{background:var(--bone);border-color:var(--bone);color:var(--ink)}
+.qpill.main{flex-basis:100%}
+.qpill.main span{min-height:56px;font-size:18px;padding:0 22px;gap:10px}
+.qpill.main span::after{content:"Base";font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.qrow{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.qrow:first-of-type{margin-top:22px}
+.qlabel{font-size:14px;font-weight:600;color:#D9DBDD}
+.qm2{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.qinput{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;background:rgba(11,13,15,.45);transition:border-color .2s var(--ease),box-shadow .25s var(--ease),opacity .2s}
+.qinput:focus-within{border-color:var(--wood);box-shadow:0 0 0 4px rgba(194,154,107,.14)}
+.qinput input,.qinput textarea{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--bone);font:500 16px/1.5 var(--sans);padding:14px 16px;min-height:52px}
+.qinput textarea{resize:vertical;min-height:120px}
+.qinput ::placeholder{color:#5F656B}
+.qinput-m2{width:160px}
+.qinput-m2 span{padding-right:16px;color:var(--muted);font-family:var(--mono);font-size:14px}
+.qinput.off{opacity:.4}
+.qinput.bad{border-color:#C9806B}
+.qerr{min-height:0;margin:0;color:#E3A48F;font-size:14px}
+.qerr:not(:empty){margin-top:18px}
+.qerr:not(:empty)::before{content:"";display:inline-block;width:6px;height:6px;border-radius:999px;background:currentColor;margin-right:10px;vertical-align:middle}
+.qs.shake{animation:shake .4s var(--ease)}
+@keyframes shake{20%{transform:translateX(-6px)}45%{transform:translateX(5px)}70%{transform:translateX(-3px)}100%{transform:none}}
+.qf-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+.qback{display:inline-flex;align-items:center;gap:6px;min-height:48px;padding:0 10px 0 4px;background:none;border:0;color:var(--muted);font:600 15px var(--sans);cursor:pointer;transition:color .2s,opacity .3s var(--ease)}
+.qback:hover{color:var(--bone)}
+.qback[hidden]{display:inline-flex;visibility:hidden;opacity:0}
+.qnext svg{transition:transform .25s var(--ease)}
+.qnext:hover svg{transform:translateX(3px)}
+.qdone{text-align:left}
+.qdone-ic{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:999px;background:var(--wood);color:var(--ink);margin-bottom:22px;animation:pop .6s cubic-bezier(.3,1.6,.5,1)}
+.qdone-ic svg{width:28px;height:28px;stroke-dasharray:24;stroke-dashoffset:24;animation:check .5s var(--ease) .25s forwards}
+@keyframes check{to{stroke-dashoffset:0}}
+.qdone h3{font-size:clamp(26px,2.6vw,36px);outline:none}
+.qdone p{color:var(--muted);margin-top:10px}
+.qdone-btns{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:26px}
+.qlink{background:none;border:0;color:var(--muted);font:600 15px var(--sans);cursor:pointer;min-height:48px;text-decoration:underline;text-underline-offset:4px}
+.qlink:hover{color:var(--bone)}
+.qf.done .qf-nav{display:none}
+
 /* mobile bar */
 .mbar{display:none}
 @media (max-width:899px){
   .nav a:not(.btn){display:none}
-  .brand span{display:none}
+  .brand .name{display:none}
   .nav .btn{min-height:40px;padding:0 14px;font-size:13px}
   .story-inner,.compare .wrap,.process .wrap,.coverage .wrap,.why .wrap,.faq .wrap{grid-template-columns:minmax(0,1fr)}
   .why .wrap{gap:32px}
@@ -337,7 +513,16 @@ footer{border-top:1px solid var(--line)}
   .proj-text{position:static}
   .ph::after{opacity:1;transform:none;width:30px;height:30px}
   .gal-nav{display:none}
-  .gal figure{flex-basis:78%}
+  .chap{display:none}
+  .quote .wrap{grid-template-columns:minmax(0,1fr)}
+  .quote-intro{position:static}
+  .quote-note{display:none}
+  .qcards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .qcard-in{min-height:104px;padding:16px}
+  .qf{margin-inline:-6px}
+  .qnext{flex:1;max-width:260px}
+  .gal-foot{margin-top:20px}
+  .gal figure{flex-basis:78vw}
   .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
   .pair{grid-template-columns:minmax(0,1fr)}
   .cmp{justify-self:stretch;max-width:none}
@@ -357,29 +542,42 @@ footer{border-top:1px solid var(--line)}
   .ticker{padding-block:16px}
 }
 @media (hover:none){.ph:hover img{transform:none}.svc article:hover{transform:none;box-shadow:none}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.ticker-track{transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.ticker-track{transform:none}.intro{display:none!important}}
 </style>
 </head>
 <body>
 <header class="hdr" id="hdr">
   <div class="wrap">
-    <a class="brand" href="#inicio" aria-label="Manos de Maestro, inicio"><img src="img/logo.webp" alt="" width="66" height="30"><span>Manos de Maestro</span></a>
+    <a class="brand" href="#inicio" aria-label="Manos de Maestro, inicio"><span class="mark"><img src="img/logo.webp" alt="" width="66" height="30"><i class="shine" aria-hidden="true"></i></span><span class="name">Manos de Maestro</span></a>
     <nav class="nav" aria-label="Principal">
       <a href="#obras">Obras</a><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#preguntas">Preguntas</a>
       <a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">Hablemos por WhatsApp</a>
     </nav>
   </div>
+  <span class="prog" id="prog" aria-hidden="true"></span>
 </header>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-logo">
+    <img src="img/logo.webp" alt="" width="440" height="200">
+    <i class="shine"></i>
+    <svg class="spark" viewBox="-50 -50 100 100"><g stroke-linecap="round"><path d="M0-18V-34"/><path d="M13-13l11-11"/><path d="M18 0h16"/><path d="M13 13l11 11"/><path d="M-13-13l-11-11"/><path d="M-18 0h-16"/><path d="M-13 13l-11 11"/><path d="M0 18v16"/></g></svg>
+  </div>
+  <p class="intro-t">Manos de Maestro <span>·</span> Valdivia</p>
+  <span class="intro-line"><i></i></span>
+</div>
+
+<div class="chap" id="chap" aria-hidden="true"><span id="chapN">01</span><i></i><span id="chapT">El oficio</span></div>
 
 <main id="inicio">
 <section class="hero">
   <div class="hero-media"><img id="heroImg" src="img/hero-1600.webp" srcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w, img/hero-2400.webp 2400w" sizes="(max-aspect-ratio: 1/1) 170vh, 100vw" width="2400" height="1350" alt="Cocina terminada por Manos de Maestro" fetchpriority="high" decoding="async"></div>
   <div class="wrap">
     <p class="eyebrow rv">Construcción y remodelaciones · Valdivia</p>
-    <h1 class="rv">Oficio <em>que se nota.</em></h1>
+    <h1 class="split">Oficio <em>que se nota.</em></h1>
     <p class="lead rv">Miguel Saldivia e Ignacio Mora. Remodelamos y construimos espacios en Valdivia y sus alrededores, con más de 50 años de oficio entre los dos.</p>
     <div class="ctas rv">
-      <a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">Cuéntanos tu proyecto</a>
+      <a class="btn btn-solid magnet" href="#cotizar">Cotiza tu proyecto</a>
       <a class="link-arrow" href="#obras">Ver obras <span aria-hidden="true">→</span></a>
     </div>
     <div class="meta rv"><span><b>Fotos reales</b> de cada obra</span><span><b>Atención directa</b> de los socios</span><span><b>Base en Valdivia</b> y comunas cercanas</span></div>
@@ -394,7 +592,7 @@ footer{border-top:1px solid var(--line)}
   </div>
 </div>
 
-<section class="manifesto" id="manifiesto" aria-label="Quiénes somos">
+<section class="manifesto morph" id="manifiesto" aria-label="Quiénes somos" data-chap="01|El oficio">
   <div class="wrap"><p id="manifesto"><span class="w">Dos maestros al mismo nivel.</span> <span class="w">Más de cincuenta años de oficio entre los dos.</span> <span class="w">Cada obra la trazamos, la cortamos y la terminamos nosotros.</span></p></div>
 </section>
 
@@ -415,11 +613,11 @@ footer{border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="story" id="obras" aria-label="Obra destacada: escalera a medida">
+<section class="story" id="obras" aria-label="Obra destacada: escalera a medida" data-chap="02|Las obras">
   <div class="wrap story-inner" id="story">
     <div class="story-steps">
       <p class="eyebrow">Obra destacada · Carpintería</p>
-      <h2>Una escalera <em>hecha a medida.</em></h2>
+      <h2 class="split">Una escalera <em>hecha a medida.</em></h2>
       <p class="sub">De una abertura en el piso a una escalera terminada.</p>
       <div class="step on" data-i="0"><span class="n">01</span><div><b>Antes</b><span>El vano abierto, sin escalera ni estructura.</span></div></div>
       <div class="step" data-i="1"><span class="n">02</span><div><b>Proceso</b><span>Estructura de pino armada y nivelada peldaño por peldaño.</span></div></div>
@@ -443,7 +641,7 @@ footer{border-top:1px solid var(--line)}
 
 <section class="projects">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>Obras <em>terminadas.</em></h2><p>Fotos reales de nuestros trabajos. Lo que queda escondido al terminar, también lo mostramos. Toca una foto para verla en grande.</p></div>
+    <div class="sec-head reveal"><h2 class="split">Obras <em>terminadas.</em></h2><p>Fotos reales de nuestros trabajos. Lo que queda escondido al terminar, también lo mostramos. Toca una foto para verla en grande.</p></div>
 
     <article class="proj">
       <div class="proj-media">
@@ -462,7 +660,7 @@ footer{border-top:1px solid var(--line)}
 
     <article class="proj flip">
       <div class="proj-media">
-        <div class="ph big img-reveal"><img src="img/cocina-1-1600.webp" srcset="img/cocina-1-800.webp 800w, img/cocina-1-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 58vw" width="1600" height="720" alt="Cocina terminada con muebles grises y ventanal" loading="lazy" decoding="async" data-lb="cocina" data-full="img/cocina-1-1600.webp"></div>
+        <div class="ph big wide img-reveal"><img src="img/cocina-1-1600.webp" srcset="img/cocina-1-800.webp 800w, img/cocina-1-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 58vw" width="1600" height="773" alt="Cocina terminada con cielo de doble nivel, ventanal con marco de madera y cubierta de madera" loading="lazy" decoding="async" data-lb="cocina" data-full="img/cocina-1-1600.webp" style="object-position:50% 60%"></div>
         <div class="ph tall img-reveal"><img src="img/cocina-2-800.webp" width="800" height="1000" alt="Detalle de campana y encimera de la cocina terminada" loading="lazy" decoding="async" data-lb="cocina" data-full="img/cocina-2-1600.webp"></div>
         <div class="ph tall img-reveal"><img src="img/cocina-3-800.webp" width="800" height="595" alt="Cerámica de muro instalada con niveladores" loading="lazy" decoding="async" data-lb="cocina" data-full="img/cocina-3-1600.webp"></div>
       </div>
@@ -509,16 +707,25 @@ footer{border-top:1px solid var(--line)}
 
 <section class="gallery" aria-label="Más trabajos">
   <div class="wrap gal-head">
-    <div class="reveal"><p class="eyebrow">Más trabajos</p><h2 style="margin-top:14px">Hecho <em>a mano.</em></h2></div>
+    <div class="reveal"><p class="eyebrow">Más trabajos</p><h2 class="split" style="margin-top:14px">Hecho <em>a mano.</em></h2></div>
     <div class="gal-nav"><button type="button" id="galPrev" aria-label="Anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="galNext" aria-label="Siguiente"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
   </div>
-  <div class="gal" id="gal" tabindex="0" aria-label="Galería de trabajos, desliza hacia el lado">
+  <div class="gal" id="gal" tabindex="0" aria-label="Galería de trabajos, desliza hacia el lado"><div class="gal-track" id="galTrack">
     <figure><img src="img/g-escalera-800.webp" width="800" height="1222" alt="Escalera de madera en caracol con peldaños de madera" loading="lazy" decoding="async" data-lb="gal" data-full="img/g-escalera-1600.webp"><figcaption><b>Escalera de madera</b><span>Carpintería</span></figcaption></figure>
     <figure><img src="img/g-bano-800.webp" width="800" height="1067" alt="Baño con mueble vanitorio de madera y grifería negra" loading="lazy" decoding="async" data-lb="gal" data-full="img/g-bano-1600.webp"><figcaption><b>Vanitorio de madera</b><span>Baños</span></figcaption></figure>
     <figure><img src="img/g-muro-800.webp" width="800" height="327" alt="Muro revestido con tablas de madera en distintos tonos" loading="lazy" decoding="async" data-lb="gal" data-full="img/g-muro-1600.webp" style="object-position:40% 50%"><figcaption><b>Muro de madera</b><span>Revestimientos</span></figcaption></figure>
     <figure><img src="img/g-pieza-800.webp" width="800" height="1497" alt="Dormitorio con cielo de madera a la vista y piso flotante" loading="lazy" decoding="async" data-lb="gal" data-full="img/g-pieza-1600.webp"><figcaption><b>Cielo de madera</b><span>Interiores</span></figcaption></figure>
-    <figure><img src="img/g-fachada-800.webp" width="800" height="325" alt="Fachada con revestimiento de madera oscura" loading="lazy" decoding="async" data-lb="gal" data-full="img/g-fachada-1600.webp" style="object-position:35% 50%"><figcaption><b>Fachada revestida</b><span>Exteriores</span></figcaption></figure>
+    <figure><img src="img/g-fachada-800.webp" srcset="img/g-fachada-800.webp 800w, img/g-fachada-1600.webp 1600w" sizes="(max-width: 899px) 140vw, 50vw" width="800" height="450" alt="Fachada con revestimiento de madera café, alero negro, pilar de madera y puerta de madera" loading="lazy" decoding="async" data-lb="gal" data-full="img/g-fachada-1600.webp" style="object-position:42% 50%"><figcaption><b>Fachada revestida</b><span>Exteriores</span></figcaption></figure>
     <figure><img src="img/bano-2-800.webp" width="800" height="1422" alt="Ducha con muros negros veteados" loading="lazy" decoding="async" data-lb="gal" data-full="img/bano-2-1600.webp"><figcaption><b>Ducha de mármol negro</b><span>Baños</span></figcaption></figure>
+  </div></div>
+  <div class="wrap gal-foot"><span class="gal-prog" aria-hidden="true"><i id="galProg"></i></span><span class="gal-hint">Toca una foto para verla en grande</span></div>
+</section>
+
+<section class="band" aria-label="Cotiza con una foto">
+  <div class="wrap">
+    <p class="eyebrow">¿Tienes un espacio parecido?</p>
+    <h2 class="split">Mándanos una foto. <em>Te decimos cómo lo haríamos.</em></h2>
+    <a class="btn btn-solid btn-lg magnet" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Les%20env%C3%ADo%20fotos%20de%20un%20espacio%20que%20quiero%20remodelar." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/></svg>Enviar fotos por WhatsApp</a>
   </div>
 </section>
 
@@ -541,7 +748,7 @@ footer{border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="process" aria-label="Cómo trabajamos">
+<section class="process" aria-label="Cómo trabajamos" data-chap="03|Cómo trabajamos">
   <div class="wrap">
     <div class="vid img-reveal">
       <video id="procVid" src="video/empaste.mp4" poster="img/empaste-poster.webp" muted loop playsinline preload="none" aria-label="Timelapse real de empaste de un cielo"></video>
@@ -550,7 +757,7 @@ footer{border-top:1px solid var(--line)}
     </div>
     <div>
       <p class="eyebrow">Cómo trabajamos</p>
-      <h2 style="margin-top:14px">Paso a paso, <em>sin sorpresas.</em></h2>
+      <h2 class="split" style="margin-top:14px">Paso a paso, <em>sin sorpresas.</em></h2>
       <ol class="steps reveal-group">
         <li><span class="n">01</span><span><b>Nos cuentas tu idea</b><span>Por WhatsApp, con fotos del espacio.</span></span></li>
         <li><span class="n">02</span><span><b>Visita y medición</b><span>Vemos el lugar y lo que realmente necesita.</span></span></li>
@@ -561,9 +768,9 @@ footer{border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="services" id="servicios">
+<section class="services morph" id="servicios" data-chap="04|Servicios">
   <div class="wrap">
-    <div class="svc-head"><h2 class="reveal">Todo lo que <em>hacemos.</em></h2><p class="reveal">Desde un baño hasta un segundo piso. Si no ves lo que buscas, escríbenos igual.</p></div>
+    <div class="svc-head"><h2 class="split">Todo lo que <em>hacemos.</em></h2><p class="reveal">Desde un baño hasta un segundo piso. Si no ves lo que buscas, escríbenos igual.</p></div>
     <div class="svc reveal-group">
       <article><span class="sn">01</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/><path d="M6 12V5a2 2 0 0 1 4 0"/></svg><b>Baños</b><p>Remodelación completa: revestimientos, duchas, vanitorios e iluminación.</p></article>
       <article><span class="sn">02</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 10h18M8 14h2M14 14h2"/></svg><b>Cocinas</b><p>Muebles, cubiertas, cerámica de muro y conexiones listas para usar.</p></article>
@@ -575,10 +782,10 @@ footer{border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="partners" id="nosotros">
+<section class="partners" id="nosotros" data-chap="05|Nosotros">
   <div class="wrap">
     <p class="eyebrow">Nosotros</p>
-    <h2 class="reveal">Dos maestros. <em>Un mismo estándar.</em></h2>
+    <h2 class="split">Dos maestros. <em>Un mismo estándar.</em></h2>
     <div class="pair reveal-group">
       <article class="pcard"><span class="mono" aria-hidden="true">MS</span><h3>Miguel Saldivia</h3><p class="role">Socio y maestro constructor.</p><div class="yrs"><strong>30+</strong><span>años de oficio</span></div></article>
       <article class="pcard"><span class="mono" aria-hidden="true">IM</span><h3>Ignacio Mora</h3><p class="role">Socio y maestro constructor.</p><div class="yrs"><strong>20+</strong><span>años de oficio</span></div></article>
@@ -587,16 +794,16 @@ footer{border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="coverage" id="valdivia" aria-label="Zona de trabajo">
+<section class="coverage" id="valdivia" aria-label="Zona de trabajo" data-chap="06|Valdivia">
   <div class="wrap">
-    <div class="reveal"><p class="eyebrow">Dónde trabajamos</p><h2 style="margin-top:14px">Valdivia <em>y alrededores.</em></h2><p class="cov-sub">Trabajamos principalmente en Valdivia. También vamos a las comunas cercanas de la Región de Los Ríos.</p></div>
+    <div class="reveal"><p class="eyebrow">Dónde trabajamos</p><h2 class="split" style="margin-top:14px">Valdivia <em>y alrededores.</em></h2><p class="cov-sub">Trabajamos principalmente en Valdivia. También vamos a las comunas cercanas de la Región de Los Ríos.</p></div>
     <ol class="comunas reveal-group"><li class="main">Valdivia</li><li>Corral</li><li>Lanco</li><li>Los Lagos</li><li>Máfil</li><li>Mariquina</li><li>Paillaco</li><li>Panguipulli</li><li>La Unión</li><li>Futrono</li><li>Lago Ranco</li><li>Río Bueno</li></ol>
   </div>
 </section>
 
-<section class="faq" id="preguntas" aria-label="Preguntas frecuentes">
+<section class="faq" id="preguntas" aria-label="Preguntas frecuentes" data-chap="07|Preguntas">
   <div class="wrap">
-    <div class="reveal"><p class="eyebrow">Preguntas frecuentes</p><h2 style="margin-top:14px">Antes de <em>escribirnos.</em></h2></div>
+    <div class="reveal"><p class="eyebrow">Preguntas frecuentes</p><h2 class="split" style="margin-top:14px">Antes de <em>escribirnos.</em></h2></div>
     <div class="qa reveal-group">
       <details><summary>¿Cómo pido un presupuesto?</summary><div><p>Escríbenos por WhatsApp con fotos del espacio, la comuna y lo que quieres hacer. Con eso coordinamos una visita para medir y te enviamos un presupuesto claro.</p></div></details>
       <details><summary>¿Quién hace el trabajo?</summary><div><p>Nosotros mismos: Miguel Saldivia e Ignacio Mora. Los mismos que te cotizan son los que trabajan en tu obra.</p></div></details>
@@ -607,12 +814,82 @@ footer{border-top:1px solid var(--line)}
   </div>
 </section>
 
-<section class="contact" id="contacto">
+<section class="quote" id="cotizar" aria-label="Formulario de cotización" data-chap="08|Cotiza">
   <div class="wrap">
-    <img src="img/logo.webp" alt="Logo Manos de Maestro" width="200" height="91" class="reveal" loading="lazy">
-    <h2 class="reveal">Conversemos <em>tu proyecto.</em></h2>
+    <div class="quote-intro">
+      <p class="eyebrow">Cotiza en 4 pasos</p>
+      <h2 class="split" style="margin-top:14px">Cuéntanos <em>tu proyecto.</em></h2>
+      <p class="quote-sub">Responde cuatro preguntas cortas. Al final se abre WhatsApp con tu mensaje ya escrito y ordenado: tú decides si lo envías.</p>
+      <ul class="quote-sum" id="qSum" aria-live="polite"></ul>
+      <p class="quote-note">No te pedimos teléfono ni correo. Nos escribes desde tu propio WhatsApp y ahí mismo nos mandas las fotos.</p>
+    </div>
+    <form class="qf" id="qf" novalidate>
+      <div class="qf-top">
+        <span class="qf-count" id="qCount">Paso 1 de 4</span>
+        <span class="qf-title" id="qTitle">Tipo de trabajo</span>
+      </div>
+      <div class="qf-bar" aria-hidden="true"><i id="qBar"></i></div>
+      <div class="qf-steps" id="qSteps">
+        <fieldset class="qs on" data-title="Tipo de trabajo">
+          <legend tabindex="-1">¿Qué quieres hacer?</legend>
+          <p class="qs-help">Puedes elegir más de uno.</p>
+          <div class="qcards"><label class="qcard"><input type="checkbox" name="tipo" value="Baño"><span class="qcard-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/><path d="M6 12V5a2 2 0 0 1 4 0"/></svg><b>Baño</b><i class="tick" aria-hidden="true"></i></span></label><label class="qcard"><input type="checkbox" name="tipo" value="Cocina"><span class="qcard-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 10h18M8 14h2M14 14h2"/></svg><b>Cocina</b><i class="tick" aria-hidden="true"></i></span></label><label class="qcard"><input type="checkbox" name="tipo" value="Escalera / carpintería"><span class="qcard-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h4v-4h4v-4h4V9h4V5h2"/></svg><b>Escalera / carpintería</b><i class="tick" aria-hidden="true"></i></span></label><label class="qcard"><input type="checkbox" name="tipo" value="Pisos y revestimientos"><span class="qcard-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v6M15 9v6M9 15v6"/></svg><b>Pisos y revestimientos</b><i class="tick" aria-hidden="true"></i></span></label><label class="qcard"><input type="checkbox" name="tipo" value="Techumbre"><span class="qcard-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12L12 4l10 8"/><path d="M5 10v10h14V10"/></svg><b>Techumbre</b><i class="tick" aria-hidden="true"></i></span></label><label class="qcard"><input type="checkbox" name="tipo" value="Ampliación / segundo piso"><span class="qcard-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V11l8-6 8 6v10"/><path d="M4 15h16M10 21v-6h4v6"/></svg><b>Ampliación / segundo piso</b><i class="tick" aria-hidden="true"></i></span></label><label class="qcard"><input type="checkbox" name="tipo" value="Otro"><span class="qcard-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><b>Otro</b><i class="tick" aria-hidden="true"></i></span></label></div>
+          <p class="qerr" role="alert"></p>
+        </fieldset>
+        <fieldset class="qs" data-title="Comuna">
+          <legend tabindex="-1">¿Dónde es la obra?</legend>
+          <p class="qs-help">Trabajamos principalmente en Valdivia y vamos a las comunas cercanas.</p>
+          <div class="qpills"><label class="qpill main"><input type="radio" name="comuna" value="Valdivia" checked><span>Valdivia</span></label><label class="qpill"><input type="radio" name="comuna" value="Corral"><span>Corral</span></label><label class="qpill"><input type="radio" name="comuna" value="Lanco"><span>Lanco</span></label><label class="qpill"><input type="radio" name="comuna" value="Los Lagos"><span>Los Lagos</span></label><label class="qpill"><input type="radio" name="comuna" value="Máfil"><span>Máfil</span></label><label class="qpill"><input type="radio" name="comuna" value="Mariquina"><span>Mariquina</span></label><label class="qpill"><input type="radio" name="comuna" value="Paillaco"><span>Paillaco</span></label><label class="qpill"><input type="radio" name="comuna" value="Panguipulli"><span>Panguipulli</span></label><label class="qpill"><input type="radio" name="comuna" value="La Unión"><span>La Unión</span></label><label class="qpill"><input type="radio" name="comuna" value="Futrono"><span>Futrono</span></label><label class="qpill"><input type="radio" name="comuna" value="Lago Ranco"><span>Lago Ranco</span></label><label class="qpill"><input type="radio" name="comuna" value="Río Bueno"><span>Río Bueno</span></label></div>
+          <p class="qerr" role="alert"></p>
+        </fieldset>
+        <fieldset class="qs" data-title="Tamaño y plazo">
+          <legend tabindex="-1">¿De qué tamaño y para cuándo?</legend>
+          <div class="qrow">
+            <label class="qlabel" for="qM2">Tamaño aproximado</label>
+            <div class="qm2">
+              <div class="qinput qinput-m2"><input id="qM2" name="m2" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej: 12" maxlength="6"><span>m²</span></div>
+              <label class="qpill qnose"><input type="checkbox" name="nose" id="qNose"><span>No sé</span></label>
+            </div>
+          </div>
+          <div class="qrow">
+            <span class="qlabel" id="qWhenL">¿Cuándo te gustaría empezar?</span>
+            <div class="qpills" role="radiogroup" aria-labelledby="qWhenL"><label class="qpill"><input type="radio" name="cuando" value="Lo antes posible"><span>Lo antes posible</span></label><label class="qpill"><input type="radio" name="cuando" value="En 1 a 3 meses"><span>En 1 a 3 meses</span></label><label class="qpill"><input type="radio" name="cuando" value="Solo estoy cotizando"><span>Solo estoy cotizando</span></label></div>
+          </div>
+          <p class="qerr" role="alert"></p>
+        </fieldset>
+        <fieldset class="qs" data-title="Tus datos">
+          <legend tabindex="-1">Último paso</legend>
+          <div class="qrow">
+            <label class="qlabel" for="qName">Tu nombre</label>
+            <div class="qinput"><input id="qName" name="nombre" type="text" autocomplete="given-name" autocapitalize="words" placeholder="Ej: Carolina" maxlength="60"></div>
+          </div>
+          <div class="qrow">
+            <label class="qlabel" for="qDesc">Cuéntanos brevemente tu proyecto</label>
+            <div class="qinput qarea"><textarea id="qDesc" name="desc" rows="4" maxlength="600" placeholder="Ej: Quiero cambiar la tina por una ducha y renovar la cerámica del baño."></textarea></div>
+          </div>
+          <p class="qerr" role="alert"></p>
+        </fieldset>
+        <div class="qs qdone" data-title="Listo">
+          <span class="qdone-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <h3 tabindex="-1">Tu mensaje está listo en WhatsApp.</h3>
+          <p>Envíalo y adjunta fotos del espacio. Te respondemos personalmente.</p>
+          <div class="qdone-btns"><a class="btn btn-solid" id="qAgain" href="https://wa.me/56977107052" target="_blank" rel="noopener">¿No se abrió? Abrir WhatsApp</a><button type="button" class="qlink" id="qReset">Empezar de nuevo</button></div>
+        </div>
+      </div>
+      <div class="qf-nav" id="qNav">
+        <button type="button" class="qback" id="qBack" aria-label="Paso anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>Atrás</button>
+        <button type="submit" class="btn btn-solid qnext" id="qNext"><span id="qNextT">Continuar</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="contact" id="contacto" data-chap="09|Hablemos">
+  <div class="wrap">
+    <span class="mark mark-lg" id="contactMark"><img src="img/logo.webp" alt="Logo Manos de Maestro" width="200" height="91" loading="lazy"><i class="shine" aria-hidden="true"></i></span>
+    <h2 class="split">Conversemos <em>tu proyecto.</em></h2>
     <p class="reveal">Escríbenos con fotos del espacio, la comuna y lo que tienes en mente. Te respondemos personalmente.</p>
-    <a class="btn btn-solid btn-lg reveal" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Escribir por WhatsApp</a>
+    <a class="btn btn-solid btn-lg magnet reveal" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Escribir por WhatsApp</a>
     <p class="num">+56 9 7710 7052</p>
   </div>
 </section>
@@ -621,7 +898,7 @@ footer{border-top:1px solid var(--line)}
 <footer>
   <div class="wrap foot">
     <div class="foot-brand"><img src="img/logo.webp" alt="" width="88" height="40" loading="lazy"><p>Construcción y remodelaciones en Valdivia. Miguel Saldivia e Ignacio Mora, maestros constructores.</p></div>
-    <nav aria-label="Pie de página"><b>Sitio</b><a href="#obras">Obras</a><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#preguntas">Preguntas</a></nav>
+    <nav aria-label="Pie de página"><b>Sitio</b><a href="#obras">Obras</a><a href="#cotizar">Cotizar</a><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#preguntas">Preguntas</a></nav>
     <div><b>Contacto</b><a href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">WhatsApp</a><span class="mono-t">+56 9 7710 7052</span><span>Valdivia, Región de Los Ríos</span></div>
   </div>
   <div class="wrap foot-end"><span>© 2026 Manos de Maestro</span><span>Fotos reales de nuestras obras</span></div>
