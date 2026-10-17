@@ -35,6 +35,12 @@ Todas son reales. Las restauradas se limpiaron con IA. Las demás se agrandaron 
 
 Para cambiar una foto, reemplaza los dos archivos (`-800.webp` y `-1600.webp`) manteniendo el nombre.
 
+## Servicios
+
+- **Principal: construcción de casas desde cero**, de principio a fin. Tiene su bloque propio al inicio de Servicios con las etapas: terreno y fundaciones, estructura (tradicional o panel SIP), techumbre, instalaciones (eléctrica, agua, fosa séptica), terminaciones y entrega.
+- Tarjetas: panel SIP, ampliaciones, techumbres, instalaciones eléctricas, fosa séptica, baños, cocinas, escaleras y carpintería, pisos y revestimientos.
+- **Instalaciones eléctricas**: Miguel e Ignacio hacen la instalación completa; el certificado SEC (TE1) lo emite un electricista autorizado con quien trabajan. No decir que ellos son instaladores autorizados SEC.
+
 ## Animaciones
 
 - **Intro del logo**: al entrar por primera vez en la visita, el logo se dibuja, los martillos dan un golpe con chispas y se abre la portada (unos 2 segundos). No vuelve a salir hasta cerrar la pestaña. Está en el `<script>` del `<head>` y en el CSS (`.intro`), así que nunca bloquea la página aunque falle `app.js`.

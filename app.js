@@ -288,6 +288,9 @@
     ui();
   })();
 
+  // house stages start lit; with motion they light up one by one below
+  var stageLis=$$('.stages li'); stageLis.forEach(function(li){li.classList.add('on');});
+
   if(reduce || !window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
   var ease='power3.out';
@@ -370,6 +373,17 @@
   gsap.utils.toArray('.morph').forEach(function(sec){
     gsap.fromTo(sec,{clipPath:'inset(0% 4% 0% 4% round 28px)'},{clipPath:'inset(0% 0% 0% 0% round 0px)',ease:'none',scrollTrigger:{trigger:sec,start:'top bottom',end:'top 25%',scrub:true}});
   });
+  // house stages: the line fills with scroll and each stage lights up as it is reached
+  var stagesEl=$('#stages');
+  if(stagesEl){
+    stageLis.forEach(function(li){li.classList.remove('on');});
+    stagesEl.style.setProperty('--f',0);
+    ScrollTrigger.create({trigger:stagesEl,start:'top 72%',end:'bottom 52%',scrub:.4,onUpdate:function(self){
+      var pr=self.progress; stagesEl.style.setProperty('--f',pr.toFixed(3));
+      stageLis.forEach(function(li,k){ li.classList.toggle('on', pr>=k/(stageLis.length-1)-.02); });
+    }});
+    gsap.fromTo(stageLis,{x:-12,opacity:.4},{x:0,opacity:1,duration:.7,ease:ease,stagger:.07,scrollTrigger:{trigger:stagesEl,start:'top 80%',once:true}});
+  }
   // process steps light up one after another
   $$('.steps li').forEach(function(li){
     gsap.fromTo(li.querySelector('.n'),{opacity:.3},{opacity:1,scrollTrigger:{trigger:li,start:'top 75%',end:'top 55%',scrub:true}});
