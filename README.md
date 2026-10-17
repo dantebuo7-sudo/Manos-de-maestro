@@ -1,6 +1,6 @@
 # Manos de Maestro · sitio web
 
-Sitio de una sola página para **Manos de Maestro**, de Miguel Saldivia e Ignacio Mora: construcción y remodelaciones en la Región de Los Ríos. WhatsApp: +56 9 7710 7052 (número principal, el del formulario y los botones) e Ignacio: +56 9 6583 6682 (en su tarjeta de Nosotros, en el contacto y en el pie de página).
+Sitio de una sola página para **Manos de Maestro**, de Miguel Saldivia e Ignacio Mora: construcción y remodelaciones en la Región de Los Ríos. WhatsApp de los dos socios, ambos principales: Miguel Saldivia +56 9 7710 7052 e Ignacio Mora +56 9 6583 6682. Los botones de WhatsApp y el formulario muestran un menú para elegir a quién escribirle; en contacto, pie de página y en la tarjeta de cada uno están los dos números.
 
 Es HTML, CSS y JavaScript estático. No hay que compilar nada: Vercel lo publica tal cual.
 
@@ -43,7 +43,7 @@ Para cambiar una foto, reemplaza los dos archivos (`-800.webp` y `-1600.webp`) m
 
 ## Formulario de cotización
 
-Sección `#cotizar`, antes del contacto. Son 4 pasos: tipo de trabajo, comuna (Valdivia marcada), tamaño y plazo, nombre y descripción. Como la web no tiene servidor, al final se abre WhatsApp al +56 9 7710 7052 con el mensaje escrito y ordenado, terminando en "Te envío fotos del espacio por aquí". No se guarda ningún dato en la web.
+Sección `#cotizar`, antes del contacto. Son 4 pasos: tipo de trabajo, comuna (Valdivia marcada), tamaño y plazo, nombre y descripción. Como la web no tiene servidor, al final la persona elige si escribirle a Miguel o a Ignacio y se abre WhatsApp con el mensaje escrito y ordenado, terminando en "Te envío fotos del espacio por aquí". No se guarda ningún dato en la web.
 
 ## Antes de usar un dominio propio
 

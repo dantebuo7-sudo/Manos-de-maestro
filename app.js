@@ -142,13 +142,46 @@
   });
 
 
+
+  // WhatsApp: Miguel and Ignacio are both main contacts, so buttons ask who to write to
+  var who=$('#who'), whoOpts=$$('.who-opt'), whoCb=null;
+  function personal(text,name){ return text.replace(/^Hola,?/, 'Hola '+name+','); }
+  function closeWho(){
+    if(!who.open) return;
+    if(reduce){ who.close(); return; }
+    who.classList.add('closing');
+    setTimeout(function(){ who.classList.remove('closing'); who.close(); },220);
+  }
+  function openWho(text, cb){
+    whoOpts.forEach(function(a){ a.href='https://wa.me/'+a.getAttribute('data-n')+'?text='+encodeURIComponent(personal(text,a.getAttribute('data-name'))); });
+    whoCb=cb||null; who.showModal(); if(lenis) lenis.stop();
+  }
+  var canSheet=typeof who.showModal==='function';
+  if(canSheet){
+    $$('a[data-who]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        var t=''; try{ t=new URL(a.href).searchParams.get('text')||''; }catch(x){}
+        openWho(t);
+      });
+    });
+    whoOpts.forEach(function(a){ a.addEventListener('click', function(){ var cb=whoCb; whoCb=null; setTimeout(closeWho,120); if(cb) cb(a.href); }); });
+    $('#whoX').addEventListener('click', closeWho);
+    who.addEventListener('click', function(e){ if(e.target===who) closeWho(); });
+    who.addEventListener('cancel', function(e){ e.preventDefault(); closeWho(); });
+    who.addEventListener('close', function(){ if(lenis && !document.body.classList.contains('lb-open')) lenis.start(); });
+    // swipe the sheet down to dismiss on phones
+    var sy=null, inner=$('.who-in');
+    inner.addEventListener('touchstart', function(e){ sy=e.touches[0].clientY; }, {passive:true});
+    inner.addEventListener('touchend', function(e){ if(sy!==null && e.changedTouches[0].clientY-sy>70) closeWho(); sy=null; }, {passive:true});
+  }
+
   // quote form: four short steps, ends by opening WhatsApp with the answers written out
   (function(){
     var f=$('#qf'); if(!f) return;
     var steps=$$('.qs',f), last=steps.length-2, cur=0, busy=false;
     var bar=$('#qBar'), count=$('#qCount'), title=$('#qTitle'), back=$('#qBack'), nextT=$('#qNextT'), box=$('#qSteps'), sum=$('#qSum');
     var m2=$('#qM2'), nose=$('#qNose'), name=$('#qName'), desc=$('#qDesc');
-    var WA='https://wa.me/56977107052?text=';
 
     function checked(n){ return $$('input[name="'+n+'"]:checked',f).map(function(i){return i.value;}); }
     function m2Val(){ var v=parseFloat(m2.value.replace(',','.')); return isFinite(v)?v:NaN; }
@@ -232,11 +265,10 @@
       e.preventDefault();
       if(cur>last || !valid(cur)) return;
       if(cur<last){ go(cur+1); return; }
-      var url=WA+encodeURIComponent(message());
-      $('#qAgain').href=url;
-      var w=window.open(url,'_blank'); if(w){ try{ w.opener=null; }catch(x){} }
-      go(last+1);
-      if(!w) setTimeout(function(){ location.href=url; },400);
+      var done=function(url){ $('#qAgain').href=url; go(last+1); };
+      if(canSheet){ openWho(message(), done); return; }
+      var url='https://wa.me/56977107052?text='+encodeURIComponent(message());
+      done(url); location.href=url;
     });
     back.addEventListener('click', function(){ if(cur>0) go(cur-1); });
     $('#qReset').addEventListener('click', function(){ f.reset(); err(3,''); go(0); });
