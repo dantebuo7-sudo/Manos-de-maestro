@@ -6,6 +6,25 @@
   // the intro (head script + CSS) lasts ~1.1s before the hero is uncovered
   var introDelay=document.documentElement.classList.contains('intro-on')?.95:0;
 
+  // photos inside each work fade in once loaded; strips load all their photos as they come near
+  $$('.cs-ph img, .cc img, .ph img, .gal img, .story-mobile img, .casa-fin img, .campo-hero img, .campo-more img, .bq-hero img, .techo-fin img').forEach(function(img){
+    function ld(){ img.classList.add('is-ld'); }
+    img.classList.add('fade-img'); if(img.complete && img.naturalWidth) ld(); else { img.addEventListener('load', ld); img.addEventListener('error', ld); }
+  });
+  $$('.casa-steps, .campo-pin, .story-mobile, .gal').forEach(function(strip){
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ $$('img[loading="lazy"]',strip).forEach(function(i){i.loading='eager';}); io.disconnect(); } },{rootMargin:'400px 0px'});
+      io.observe(strip);
+    }
+    if(strip.classList.contains('story-mobile') || strip.classList.contains('gal')) return;
+    var bar=document.createElement('div'); bar.className='rail-prog'; bar.setAttribute('aria-hidden','true'); bar.innerHTML='<i></i>';
+    strip.parentNode.insertBefore(bar, strip.nextSibling);
+    var fill=bar.firstChild, raf=0;
+    function upd(){ raf=0; var m=strip.scrollWidth-strip.clientWidth; fill.style.transform='scaleX('+(m>0?.15+.85*strip.scrollLeft/m:1).toFixed(3)+')'; }
+    strip.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(upd); }, {passive:true});
+    upd();
+  });
+
   // header: solid after hero top, hides on scroll down, returns on scroll up
   var hdr=$('#hdr'), lastY=0, docEl=document.documentElement;
   function onScroll(){

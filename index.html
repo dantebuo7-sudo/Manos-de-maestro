@@ -718,6 +718,17 @@ html.js .qs+.qs{margin-top:0}
   .ficha>div:nth-child(2n){padding-left:14px;border-left:1px solid var(--line)}
   .ficha>div:last-child{grid-column:1/-1;padding-left:0;border-left:0}
 }
+/* photos fade in as they load, so the strips never "pop" (fallback shows them after 2.5s) */
+html.js .fade-img{opacity:0;transition:opacity .7s var(--ease);animation:ldShow 0s 2.5s forwards}
+html.js .fade-img.is-ld{opacity:1;animation:none}
+@keyframes ldShow{to{opacity:1}}
+/* thin progress line under the swipe strips on phones */
+.rail-prog{display:none}
+@media (max-width:899px){
+  .rail-prog{display:block;height:2px;margin-top:16px;background:var(--line);border-radius:2px;overflow:hidden}
+  .rail-prog i{display:block;height:100%;background:linear-gradient(90deg,var(--wood),var(--wood-soft));transform-origin:0 50%;transform:scaleX(.15)}
+  .campo .rail-prog{margin-inline:var(--gutter) var(--gutter-r)}
+}
 </style>
 </head>
 <body>

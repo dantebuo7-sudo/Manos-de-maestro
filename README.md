@@ -49,6 +49,7 @@ Las 4 obras grandes (casa en Valdivia, Pichihuape, Punucapa y techumbre) tienen 
 - **Intro del logo**: al entrar por primera vez en la visita, los dos martillos se cruzan, salta una chispa y aparece la MM; en 1,15 segundos se abre la portada. No vuelve a salir hasta cerrar la pestaña. Está en el `<script>` del `<head>` y en el CSS (`.intro`), así que nunca bloquea la página aunque falle `app.js`.
 - **Logo del encabezado**: se achica suavemente al bajar. Un brillo pasa por el logo cada tanto y al pasar el mouse se inclina apenas. El brillo usa el mismo logo como máscara, así que el dibujo no cambia.
 - **Portada**: el título aparece línea por línea y a la derecha hay un indicador de "Baja". Las fotos grandes de cada casa terminada tienen un paralaje suave (solo `transform`, sin recalcular el diseño).
+- **Fotos de cada obra**: aparecen con un fundido suave al cargar. Cuando una tira de etapas se acerca a la pantalla, se cargan todas sus fotos para que al deslizar ninguna aparezca de golpe. En celular, cada tira tiene una línea fina que muestra cuánto se ha recorrido.
 - Quien tenga activado "reducir movimiento" en su teléfono o computador ve la web sin animaciones.
 
 ## Formulario de cotización
