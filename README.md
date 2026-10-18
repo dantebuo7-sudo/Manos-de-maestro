@@ -9,7 +9,7 @@ Es HTML, CSS y JavaScript estático. No hay que compilar nada: Vercel lo publica
 | Ruta | Qué es |
 |---|---|
 | `index.html` | La página completa, con el CSS dentro |
-| `app.js` | Animaciones, galería, visor de fotos, comparador, preguntas frecuentes y formulario de cotización |
+| `app.js` | Animaciones, galería, visor de fotos, preguntas frecuentes y formulario de cotización |
 | `vendor/` | GSAP 3.12.5, ScrollTrigger y Lenis 1.1.13 (dentro del proyecto, no dependen de otros servidores) |
 | `fonts/` | Geist, Geist Mono y Bodoni Moda (woff2, solo caracteres latinos) |
 | `img/` | Fotos en `.webp`, en dos tamaños: `-800` (celular) y `-1600` (computador). Hero también en `-2400` |
@@ -31,9 +31,12 @@ Todas son reales. Las restauradas se limpiaron con IA. Las demás se agrandaron 
 | `pasillo-1/2/3` | Obra 03 · Pisos y carpintería | Pasillo, puerta granero, taller |
 | `obra-1/2/3` | Obra 04 · Ampliaciones | Maestros en la techumbre, interior del segundo piso, casa con la estructura |
 | `g-*` | Galería "Hecho a mano" | Escalera, vanitorio, muro de madera, cielo de madera, fachada de madera café con alero negro |
-| `antes` / `despues` | Comparador | Baño rosado y el mismo baño remodelado |
 
 Para cambiar una foto, reemplaza los dos archivos (`-800.webp` y `-1600.webp`) manteniendo el nombre.
+
+## Fichas de obra
+
+Las 4 obras grandes (casa en Valdivia, Pichihuape, Punucapa y techumbre) tienen una ficha con ubicación, estructura, superficie, plazo y etapas. Los datos que faltan aparecen como `[DATO: …]` con borde punteado: hay que reemplazarlos en `index.html` (buscar `class="dato"`) cuando se tengan los datos reales.
 
 ## Servicios
 

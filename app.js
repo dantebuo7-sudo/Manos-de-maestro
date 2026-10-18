@@ -17,16 +17,6 @@
   }
   window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-  // before / after comparator
-  var cmp=$('#cmp'), rng=$('#cmpRange');
-  function setPos(v){cmp.style.setProperty('--pos', v+'%'); rng.value=v;}
-  rng.addEventListener('input', function(){setPos(rng.value);});
-  function animTo(v){
-    if(window.gsap && !reduce){var o={v:+rng.value}; gsap.to(o,{v:v,duration:.8,ease:'power3.inOut',onUpdate:function(){setPos(o.v.toFixed(1));}});} else setPos(v);
-  }
-  $('#btnAntes').addEventListener('click', function(){animTo(100);});
-  $('#btnDespues').addEventListener('click', function(){animTo(0);});
-
   // video: plays only while visible
   var vid=$('#procVid'), vb=$('#vidBtn'), userPaused=false;
   vb.addEventListener('click', function(){ if(vid.paused){vid.play().catch(function(){}); userPaused=false; vb.textContent='Pausar';} else {vid.pause(); userPaused=true; vb.textContent='Reproducir';} });
