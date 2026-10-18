@@ -216,13 +216,14 @@
     }
     function message(){
       var d=data();
-      return 'Hola, soy '+d.nombre+'. Quiero cotizar un proyecto con Manos de Maestro.\n\n'+
-        '*Trabajo:* '+d.tipo.join(', ')+'\n'+
-        '*Comuna:* '+d.comuna+'\n'+
-        '*Tamaño aproximado:* '+d.m2+'\n'+
-        '*¿Cuándo empezar?:* '+d.cuando+'\n'+
-        '*Proyecto:* '+d.desc+'\n\n'+
-        'Te envío fotos del espacio por aquí.';
+      return 'Hola, buenas tardes 👋 Vi la página de Manos de Maestro y me gustaría cotizar, por favor.\n\n'+
+        '🏠 Trabajo: '+d.tipo.join(', ')+'\n'+
+        '📍 Comuna: '+d.comuna+'\n'+
+        '📐 Tamaño aproximado: '+d.m2+'\n'+
+        '🗓️ Para cuándo: '+d.cuando+'\n'+
+        '👤 Nombre: '+d.nombre+'\n'+
+        '📝 Detalle: '+d.desc+'\n\n'+
+        'Les envío fotos del espacio por aquí 📸 ¡Muchas gracias!';
     }
     function ui(){
       var done=cur>last;
@@ -364,7 +365,7 @@
   });
 
   // manifesto sentence by sentence, tied to scroll
-  gsap.fromTo('#manifesto .w',{opacity:.22},{opacity:1,ease:'none',stagger:.5,scrollTrigger:{trigger:'.manifesto',start:'top 70%',end:'bottom 60%',scrub:.3}});
+  gsap.fromTo('#manifesto .w',{opacity:.4},{opacity:1,ease:'none',stagger:.5,scrollTrigger:{trigger:'.manifesto',start:'top 70%',end:'bottom 60%',scrub:.3}});
 
   // light sections rise in as a rounded card and settle full width
   gsap.utils.toArray('.morph').forEach(function(sec){
@@ -444,7 +445,7 @@
   function show(k){
     i=(k+imgs.length)%imgs.length;
     imgs.forEach(function(im,j){im.classList.toggle('on',j===i);});
-    btns.forEach(function(b,j){b.classList.toggle('on',j===i);});
+    btns.forEach(function(b,j){b.classList.toggle('on',j===i); if(j===i) b.setAttribute('aria-current','step'); else b.removeAttribute('aria-current');});
     nEl.textContent=(i<9?'0':'')+(i+1); tEl.textContent=btns[i].textContent.replace(/^\d+/,''); dEl.textContent=btns[i].getAttribute('data-d');
     var b=btns[i]; if(b.parentNode.parentNode.scrollWidth>b.parentNode.parentNode.clientWidth){ b.parentNode.parentNode.scrollTo({left:b.parentNode.offsetLeft-24,behavior:'smooth'}); }
     var nx=imgs[(i+1)%imgs.length]; if(nx.loading==='lazy') nx.loading='eager';
@@ -454,7 +455,11 @@
     if(auto && visible && !reduce){ var p=Math.min((now-t0)/DUR,1); bar.style.transform='scaleX('+p.toFixed(3)+')'; if(p>=1) show(i+1); }
     raf=requestAnimationFrame(tick);
   }
-  function stop(){ auto=false; bar.style.transform='scaleX(0)'; }
+  var play=document.getElementById('bqPlay');
+  function setAuto(v){ auto=v; play.textContent=v?'Pausar':'Reproducir'; play.setAttribute('aria-label',v?'Pausar el avance automático':'Reanudar el avance automático'); if(!v) bar.style.transform='scaleX(0)'; else t0=performance.now(); }
+  function stop(){ setAuto(false); }
+  play.addEventListener('click',function(){ setAuto(!auto); });
+  if(reduce) setAuto(false);
   btns.forEach(function(b,j){ b.addEventListener('click',function(){ stop(); show(j); }); });
   document.getElementById('bqPrev').addEventListener('click',function(){ stop(); show(i-1); });
   document.getElementById('bqNext').addEventListener('click',function(){ stop(); show(i+1); });

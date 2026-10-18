@@ -53,7 +53,28 @@ Las 4 obras grandes (casa en Valdivia, Pichihuape, Punucapa y techumbre) tienen 
 
 ## Formulario de cotización
 
-Sección `#cotizar`, antes del contacto. Son 4 pasos: tipo de trabajo, comuna (Valdivia marcada), tamaño y plazo, nombre y descripción. Como la web no tiene servidor, al final la persona elige si escribirle a Miguel o a Ignacio y se abre WhatsApp con el mensaje escrito y ordenado, terminando en "Te envío fotos del espacio por aquí". No se guarda ningún dato en la web.
+Sección `#cotizar`, antes del contacto. Son 4 pasos: tipo de trabajo, comuna (Valdivia marcada), tamaño y plazo, nombre y descripción. Como la web no tiene servidor, al final la persona elige si escribirle a Miguel o a Ignacio y se abre WhatsApp con este mensaje (no se guarda ningún dato en la web):
+
+```
+Hola Miguel, buenas tardes 👋 Vi la página de Manos de Maestro y me gustaría cotizar, por favor.
+
+🏠 Trabajo: …
+📍 Comuna: …
+📐 Tamaño aproximado: …
+🗓️ Para cuándo: …
+👤 Nombre: …
+📝 Detalle: …
+
+Les envío fotos del espacio por aquí 📸 ¡Muchas gracias!
+```
+
+Cada botón de obra (casa en Valdivia, Pichihuape, Punucapa, techumbre, baño, cocina, piso y puerta granero, segundo piso) también pasa por el menú de Miguel o Ignacio y manda un mensaje que dice qué obra vio la persona.
+
+## Garantías, cifras y testimonios
+
+- **Lo que te aseguramos**: atención directa de los socios, fotos de cada etapa, presupuesto claro antes de empezar y certificado eléctrico SEC a través de un electricista autorizado. Solo cosas ciertas.
+- **Cifras**: +25 años de oficio y 12 comunas. Las cifras de casas desde cero y obras terminadas están como `[DATO: …]` hasta tener el número real.
+- **Testimonios**: la sección `#testimonios` está en el HTML con el atributo `hidden`. Cuando haya testimonios reales (con permiso del cliente), se reemplazan los `[TESTIMONIO …]` y se borra `hidden`.
 
 ## Código QR
 
@@ -74,4 +95,4 @@ En `index.html`, `robots.txt` y `sitemap.xml` está `https://manosdemaestro.verc
 - Confirmar con Miguel e Ignacio las respuestas de **Preguntas frecuentes** (si la visita se cobra, si compran ellos los materiales, si dan garantía) y agregar esas preguntas.
 - Agregar Instagram y TikTok en el pie de página cuando existan las cuentas.
 - Agregar la sección del **food truck** cuando estén las fotos.
-- Agregar testimonios reales de clientes, con su permiso. No hay que inventarlos.
+- Agregar testimonios reales de clientes, con su permiso, en la sección oculta `#testimonios`. No hay que inventarlos.

@@ -124,7 +124,10 @@ p{margin:0}
 
 /* why */
 .why{border-bottom:1px solid var(--line)}
-.why .wrap{padding-block:clamp(72px,9vw,120px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.why .wrap{padding-block:clamp(72px,9vw,120px);display:flex;flex-direction:column;gap:clamp(36px,4vw,56px)}
+.why h2{font-size:clamp(34px,3.8vw,54px);margin-top:14px;max-width:16ch}
+.why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.why-grid>div{padding-top:22px;border-top:1px solid var(--line)}
 .why b{display:block;font-size:20px;font-weight:600;letter-spacing:-.02em;margin:14px 0 8px}
 .why p{color:var(--muted);font-size:16px}
 .why .ic{width:40px;height:40px;border-radius:8px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--wood)}
@@ -134,7 +137,19 @@ p{margin:0}
 .stats .wrap>div{padding:8px clamp(16px,2.4vw,32px);border-left:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
 .stats .wrap>div:first-child{border-left:0;padding-left:0}
 .stats strong{font-family:var(--display);font-weight:400;font-size:clamp(52px,6vw,88px);line-height:.95;letter-spacing:-.02em;font-variant-numeric:tabular-nums;font-variation-settings:"opsz" 96}
-.stats span:not(.count){color:var(--muted);font-size:15px;max-width:18ch}
+.stats .wrap>div>span{color:var(--muted);font-size:15px;max-width:18ch}
+.stats .pre{font-family:var(--sans);font-weight:300;color:var(--wood);font-size:.5em;vertical-align:.62em;margin-right:.08em}
+.stats strong.tbd{display:flex;align-items:flex-end;min-height:clamp(50px,5.7vw,84px)}
+/* testimonials: hidden until there are real ones */
+.testi{border-top:1px solid var(--line)}
+.testi .wrap{padding-block:clamp(80px,10vw,130px);display:flex;flex-direction:column;gap:44px}
+.testi h2{font-size:clamp(34px,3.8vw,54px)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.testi figure{margin:0;padding:clamp(24px,3vw,36px);border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,var(--surface-2),var(--surface));display:flex;flex-direction:column;gap:24px}
+.testi blockquote{margin:0;font-family:var(--display);font-size:clamp(22px,2vw,28px);line-height:1.25}
+.testi figcaption{display:flex;flex-direction:column;gap:2px;margin-top:auto}
+.testi figcaption span{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:899px){.testi-grid{grid-template-columns:minmax(0,1fr)}}
 
 /* story (pinned) */
 .story{background:var(--ink)}
@@ -228,7 +243,7 @@ p{margin:0}
 .svc article{position:relative;background:var(--bone);border-radius:10px;padding:30px;display:flex;flex-direction:column;gap:14px;min-height:230px;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .svc article:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(11,13,15,.35)}
 .svc svg{width:30px;height:30px;color:#7A5A38}
-.svc .sn{position:absolute;top:26px;right:28px;font-family:var(--mono);font-size:12px;color:#9A9C9E}
+.svc .sn{position:absolute;top:26px;right:28px;font-family:var(--mono);font-size:12px;color:#6F7276}
 .svc b{font-size:20px;font-weight:600;line-height:1.25;letter-spacing:-.02em;margin-top:auto}
 .svc p{font-size:15px;color:var(--muted-dark)}
 
@@ -445,7 +460,7 @@ html.js .qs+.qs{margin-top:0}
 .qinput:focus-within{border-color:var(--wood);box-shadow:0 0 0 4px rgba(194,154,107,.14)}
 .qinput input,.qinput textarea{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--bone);font:500 16px/1.5 var(--sans);padding:14px 16px;min-height:52px}
 .qinput textarea{resize:vertical;min-height:120px}
-.qinput ::placeholder{color:#5F656B}
+.qinput ::placeholder{color:#80868C}
 .qinput-m2{width:160px}
 .qinput-m2 span{padding-right:16px;color:var(--muted);font-family:var(--mono);font-size:14px}
 .qinput.off{opacity:.4}
@@ -532,8 +547,8 @@ html.js .qs+.qs{margin-top:0}
   .nav a:not(.btn){display:none}
   .brand .name{display:none}
   .nav .btn{min-height:40px;padding:0 14px;font-size:13px}
-  .story-inner,.process .wrap,.coverage .wrap,.why .wrap,.faq .wrap{grid-template-columns:minmax(0,1fr)}
-  .why .wrap{gap:32px}
+  .story-inner,.process .wrap,.coverage .wrap,.faq .wrap{grid-template-columns:minmax(0,1fr)}
+  .why-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px}
   .hero{min-height:100svh}
   .hero h1{font-size:clamp(44px,12vw,58px);line-height:1.02}
   .hero .wrap{padding-block:120px 56px}
@@ -569,7 +584,7 @@ html.js .qs+.qs{margin-top:0}
   .quote-intro{position:static}
   .quote-note{display:none}
   .qcards{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .qcard-in{min-height:104px;padding:16px}
+  .qcard-in{min-height:92px;padding:14px 16px;gap:10px}
   .qf{margin-inline:-6px}
   .qnext{flex:1;max-width:260px}
   .gal-foot{margin-top:20px}
@@ -586,6 +601,7 @@ html.js .qs+.qs{margin-top:0}
   footer{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 }
 @media (max-width:520px){
+  .why-grid{grid-template-columns:minmax(0,1fr)}
   .svc{grid-template-columns:minmax(0,1fr)}
   .svc article{min-height:0}
   .svc b{margin-top:6px}
@@ -674,12 +690,13 @@ html.js .qs+.qs{margin-top:0}
 .bq-arrow{position:absolute;z-index:3;top:50%;margin-top:-24px;width:48px;height:48px;border-radius:999px;border:1px solid rgba(245,245,243,.25);background:rgba(11,13,15,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--bone);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s var(--ease)}
 .bq-arrow:hover{background:rgba(11,13,15,.85)}
 .bq-arrow.p{left:14px}.bq-arrow.n2{right:14px}
+.bq-play{position:absolute;z-index:3;right:14px;top:14px;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid rgba(245,245,243,.25);background:rgba(11,13,15,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--bone);font:500 13px var(--sans);cursor:pointer}
 .bq-bar{position:absolute;z-index:3;left:0;right:0;bottom:0;height:3px;background:rgba(245,245,243,.18)}
 .bq-bar i{display:block;height:100%;width:100%;background:var(--wood);transform-origin:0 50%;transform:scaleX(0)}
 .bq-desc{color:#D5D8DB;font-size:clamp(16px,1.4vw,18px);min-height:1.6em}
 .bq-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px}
 .bq-steps button{width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 2px 0;border:0;border-top:2px solid var(--line);background:none;color:var(--muted);font:500 13px var(--sans);text-align:left;cursor:pointer;transition:color .2s var(--ease),border-color .2s var(--ease)}
-.bq-steps button .n{font-family:var(--mono);font-size:11px;color:#6E747A}
+.bq-steps button .n{font-family:var(--mono);font-size:11px;color:#8E949A}
 .bq-steps button:hover{color:var(--bone)}
 .bq-steps button.on{color:var(--bone);border-top-color:var(--wood)}
 .bq-steps button.on .n{color:var(--wood)}
@@ -709,7 +726,7 @@ html.js .qs+.qs{margin-top:0}
     <a class="brand" href="#inicio" aria-label="Manos de Maestro, inicio"><span class="mark"><img src="img/logo.webp" alt="" width="66" height="30"><i class="shine" aria-hidden="true"></i></span><span class="name">Manos de Maestro</span></a>
     <nav class="nav" aria-label="Principal">
       <a href="#obras">Obras</a><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#preguntas">Preguntas</a>
-      <a class="btn btn-solid" data-who href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">Hablemos por WhatsApp</a>
+      <a class="btn btn-solid" data-who href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%2C%20por%20favor." target="_blank" rel="noopener">Hablemos por WhatsApp</a>
     </nav>
   </div>
   <span class="prog" id="prog" aria-hidden="true"></span>
@@ -731,9 +748,9 @@ html.js .qs+.qs{margin-top:0}
 <section class="hero">
   <div class="hero-media"><img id="heroImg" src="img/hero-1600.webp" srcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w, img/hero-2400.webp 2400w" sizes="(max-aspect-ratio: 1/1) 170vh, 100vw" width="2400" height="1350" alt="Cocina terminada por Manos de Maestro" fetchpriority="high" decoding="async"></div>
   <div class="wrap">
-    <p class="eyebrow rv">Construcción y remodelaciones · Valdivia</p>
+    <p class="eyebrow rv">Casas desde cero y remodelaciones · Valdivia</p>
     <h1><span class="ln"><span class="li">Oficio</span></span> <span class="ln"><span class="li"><em>que se nota.</em></span></span></h1>
-    <p class="lead rv">Miguel Saldivia e Ignacio Mora. Construimos casas desde cero y remodelamos espacios en Valdivia y sus alrededores, con más de 25 años de oficio.</p>
+    <p class="lead rv">Miguel Saldivia e Ignacio Mora, maestros constructores con más de 25 años de oficio. Construimos casas desde cero en Valdivia y comunas cercanas, y también ampliaciones, techumbres y remodelaciones.</p>
     <div class="ctas rv">
       <a class="btn btn-solid magnet" href="#cotizar">Cotiza tu proyecto</a>
       <a class="link-arrow" href="#obras">Ver obras <span aria-hidden="true">→</span></a>
@@ -759,7 +776,7 @@ html.js .qs+.qs{margin-top:0}
     <dl class="ficha reveal-group"><div><dt>Ubicación</dt><dd>Valdivia</dd></div><div><dt>Estructura</dt><dd>Fundación corrida, radier y tabiquería de madera</dd></div><div><dt>Superficie</dt><dd><span class="dato">[DATO: m² de la casa]</span></dd></div><div><dt>Plazo</dt><dd><span class="dato">[DATO: plazo de la obra]</span></dd></div><div><dt>Etapas incluidas</dt><dd>Del trazado en el terreno a la casa terminada</dd></div></dl>
     <figure class="casa-fin img-reveal par"><img src="img/g-fachada-1600.webp" srcset="img/g-fachada-800.webp 800w, img/g-fachada-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Casa terminada con revestimiento café y alero oscuro" loading="lazy" decoding="async" data-lb="casa" data-full="img/g-fachada-1600.webp"><figcaption><span class="tag">Terminada · Valdivia</span></figcaption></figure>
     <ol class="casa-steps reveal-group" id="casaSteps"><li><figure class="cs-ph"><img src="img/casa-1-800.webp" width="800" height="450" alt="Excavación y moldaje de las fundaciones de la casa" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-1-1600.webp"></figure><div class="cs-t"><span class="n">01</span><b>Trazado y moldaje</b><span>Trazamos la casa en el terreno, excavamos y armamos el moldaje de las fundaciones.</span></div></li><li><figure class="cs-ph"><img src="img/casa-2-800.webp" width="800" height="1422" alt="Maestro rellenando el interior de las fundaciones" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-2-1600.webp"></figure><div class="cs-t"><span class="n">02</span><b>Fundaciones</b><span>Fundación corrida de hormigón y relleno interior, nivelado a pala.</span></div></li><li><figure class="cs-ph"><img src="img/casa-3-800.webp" width="800" height="450" alt="Compactación del terreno dentro de las fundaciones" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-3-1600.webp"></figure><div class="cs-t"><span class="n">03</span><b>Compactación</b><span>Base compactada con placa vibradora para que el piso no se mueva nunca.</span></div></li><li><figure class="cs-ph"><img src="img/casa-4-800.webp" width="800" height="450" alt="Base de ripio y bolón lista para el radier" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-4-1600.webp"></figure><div class="cs-t"><span class="n">04</span><b>Base y cañerías</b><span>Cama de ripio y bolón, con las cañerías de agua y alcantarillado ya instaladas.</span></div></li><li><figure class="cs-ph"><img src="img/casa-5-800.webp" width="800" height="450" alt="Radier recién hormigonado" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-5-1600.webp"></figure><div class="cs-t"><span class="n">05</span><b>Radier</b><span>Radier hormigonado y afinado: la base firme de toda la casa.</span></div></li><li><figure class="cs-ph"><img src="img/casa-6-800.webp" width="800" height="450" alt="Tabiques de madera del segundo piso en construcción" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-6-1600.webp"></figure><div class="cs-t"><span class="n">06</span><b>Estructura</b><span>Tabiques de madera armados y levantados piso por piso.</span></div></li></ol>
-    <div class="casa-cta reveal"><a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20casa%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20construir%20una%20casa%20desde%20cero." target="_blank" rel="noopener">Quiero construir mi casa</a><span>Tradicional o con panel SIP · Valdivia y alrededores</span></div>
+    <div class="casa-cta reveal"><a class="btn btn-solid" data-who data-obra="Casa en Valdivia" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20la%20casa%20que%20construyeron%20desde%20cero%20en%20Valdivia%20y%20me%20gustar%C3%ADa%20cotizar%20la%20construcci%C3%B3n%20de%20mi%20casa." target="_blank" rel="noopener">Quiero construir mi casa</a><span>Tradicional o con panel SIP · Valdivia y alrededores</span></div>
   </div>
 </section>
 
@@ -770,8 +787,8 @@ html.js .qs+.qs{margin-top:0}
   </div>
   <div class="wrap campo-ficha"><dl class="ficha reveal-group"><div><dt>Ubicación</dt><dd>Sector Pichihuape</dd></div><div><dt>Estructura</dt><dd>Madera y OSB sobre radier, cerchas a la vista</dd></div><div><dt>Superficie</dt><dd><span class="dato">[DATO: m² de la casa]</span></dd></div><div><dt>Plazo</dt><dd><span class="dato">[DATO: plazo de la obra]</span></dd></div><div><dt>Etapas incluidas</dt><dd>Muros, cerchas, aislación, terminaciones e interiores</dd></div></dl></div>
   <figure class="campo-hero img-reveal par"><div><img src="img/campo-ext-1600.webp" srcset="img/campo-ext-800.webp 800w, img/campo-ext-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Casa de campo terminada con revestimiento blanco y ventanas de madera" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-ext-1600.webp"><span class="tag">Terminada · Pichihuape</span></div></figure>
-  <div class="campo-pin"><ol class="campo-track" id="campoTrack"><li class="cc" style="--ar:4/3"><figure><img src="img/campo-1-800.webp" width="1600" height="1200" alt="Muros de madera y OSB levantados sobre el radier, con el bosque detrás" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-1-1600.webp"></figure><div class="cs-t"><span class="n">01</span><b>Muros en pie</b><span>Muros de estructura de madera y OSB, levantados sobre el radier.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-2-800.webp" width="1200" height="1600" alt="Vano del ventanal grande mirando al campo" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-2-1600.webp"></figure><div class="cs-t"><span class="n">02</span><b>Vanos</b><span>Los vanos de los ventanales, abiertos hacia el campo.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-3-800.webp" width="1200" height="1600" alt="Cerchas de madera de la techumbre contra el cielo azul" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-3-1600.webp"></figure><div class="cs-t"><span class="n">03</span><b>Cerchas</b><span>Cerchas de madera para un cielo alto y a la vista.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-4-800.webp" width="1200" height="1600" alt="Interior con la techumbre aislada y un maestro trabajando" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-4-1600.webp"></figure><div class="cs-t"><span class="n">04</span><b>Aislación</b><span>Techumbre aislada y estructura lista para revestir.</span></div></li><li class="cc" style="--ar:16/9"><figure><img src="img/campo-5-800.webp" width="1600" height="899" alt="Interior con cielo alto, vigas a la vista y ventanas instaladas" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-5-1600.webp"></figure><div class="cs-t"><span class="n">05</span><b>Terminaciones</b><span>Muros terminados, vigas a la vista y ventanas instaladas.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-6-800.webp" width="1200" height="1600" alt="Acceso de la casa revestido en madera con puerta de madera" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-6-1600.webp"></figure><div class="cs-t"><span class="n">06</span><b>Acceso</b><span>Acceso revestido en madera, iluminado y listo para entrar.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-int-800.webp" width="867" height="1156" alt="Living terminado con piso de madera, vigas a la vista y baldosa decorativa" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-int-1600.webp"></figure><div class="cs-t"><span class="n">07</span><b>Living terminado</b><span>Piso de madera, vigas a la vista y baldosa decorativa.</span></div></li><li class="cc cc-cta"><div><p class="eyebrow">Tu casa de campo</p><b>¿Tienes terreno? La construimos contigo.</b><a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20casa%20de%20campo%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20construir%20una." target="_blank" rel="noopener">Quiero una casa así</a></div></li></ol></div>
-  <div class="campo-more"><figure class="img-reveal"><img src="img/campo-casa2-1600.webp" srcset="img/campo-casa2-800.webp 800w, img/campo-casa2-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 720px" width="1600" height="900" alt="Otra casa de campo terminada en el sector Pichihuape, con el cerro detrás" loading="lazy" decoding="async" data-lb="campo2" data-full="img/campo-casa2-1600.webp"></figure><div class="reveal"><p class="eyebrow">También en Pichihuape</p><h3 style="margin-top:12px">Otra casa, <em>en el mismo sector.</em></h3><p>Una segunda casa de campo construida por nosotros en Pichihuape: estructura de madera, revestimiento blanco y ventanas de madera mirando al cerro.</p><a class="btn btn-ghost" style="margin-top:22px" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20las%20casas%20de%20Pichihuape%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20cotizar%20una%20casa." target="_blank" rel="noopener">Cotizar mi casa</a></div></div>
+  <div class="campo-pin"><ol class="campo-track" id="campoTrack"><li class="cc" style="--ar:4/3"><figure><img src="img/campo-1-800.webp" width="1600" height="1200" alt="Muros de madera y OSB levantados sobre el radier, con el bosque detrás" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-1-1600.webp"></figure><div class="cs-t"><span class="n">01</span><b>Muros en pie</b><span>Muros de estructura de madera y OSB, levantados sobre el radier.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-2-800.webp" width="1200" height="1600" alt="Vano del ventanal grande mirando al campo" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-2-1600.webp"></figure><div class="cs-t"><span class="n">02</span><b>Vanos</b><span>Los vanos de los ventanales, abiertos hacia el campo.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-3-800.webp" width="1200" height="1600" alt="Cerchas de madera de la techumbre contra el cielo azul" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-3-1600.webp"></figure><div class="cs-t"><span class="n">03</span><b>Cerchas</b><span>Cerchas de madera para un cielo alto y a la vista.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-4-800.webp" width="1200" height="1600" alt="Interior con la techumbre aislada y un maestro trabajando" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-4-1600.webp"></figure><div class="cs-t"><span class="n">04</span><b>Aislación</b><span>Techumbre aislada y estructura lista para revestir.</span></div></li><li class="cc" style="--ar:16/9"><figure><img src="img/campo-5-800.webp" width="1600" height="899" alt="Interior con cielo alto, vigas a la vista y ventanas instaladas" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-5-1600.webp"></figure><div class="cs-t"><span class="n">05</span><b>Terminaciones</b><span>Muros terminados, vigas a la vista y ventanas instaladas.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-6-800.webp" width="1200" height="1600" alt="Acceso de la casa revestido en madera con puerta de madera" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-6-1600.webp"></figure><div class="cs-t"><span class="n">06</span><b>Acceso</b><span>Acceso revestido en madera, iluminado y listo para entrar.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-int-800.webp" width="867" height="1156" alt="Living terminado con piso de madera, vigas a la vista y baldosa decorativa" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-int-1600.webp"></figure><div class="cs-t"><span class="n">07</span><b>Living terminado</b><span>Piso de madera, vigas a la vista y baldosa decorativa.</span></div></li><li class="cc cc-cta"><div><p class="eyebrow">Tu casa de campo</p><b>¿Tienes terreno? La construimos contigo.</b><a class="btn btn-solid" data-who data-obra="Casa de campo Pichihuape" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20la%20casa%20de%20campo%20de%20Pichihuape%20y%20me%20gustar%C3%ADa%20cotizar%20una%20casa%20as%C3%AD." target="_blank" rel="noopener">Quiero una casa así</a></div></li></ol></div>
+  <div class="campo-more"><figure class="img-reveal"><img src="img/campo-casa2-1600.webp" srcset="img/campo-casa2-800.webp 800w, img/campo-casa2-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 720px" width="1600" height="900" alt="Otra casa de campo terminada en el sector Pichihuape, con el cerro detrás" loading="lazy" decoding="async" data-lb="campo2" data-full="img/campo-casa2-1600.webp"></figure><div class="reveal"><p class="eyebrow">También en Pichihuape</p><h3 style="margin-top:12px">Otra casa, <em>en el mismo sector.</em></h3><p>Una segunda casa de campo construida por nosotros en Pichihuape: estructura de madera, revestimiento blanco y ventanas de madera mirando al cerro.</p><a class="btn btn-ghost" style="margin-top:22px" data-who data-obra="Segunda casa Pichihuape" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20las%20casas%20de%20Pichihuape%20y%20me%20gustar%C3%ADa%20cotizar%20una%20casa." target="_blank" rel="noopener">Cotizar mi casa</a></div></div>
 </section>
 
 <section class="bosque" id="bosque" aria-label="Casa sobre pilotes en el bosque, Punucapa" data-chap="03|Punucapa">
@@ -787,12 +804,13 @@ html.js .qs+.qs{margin-top:0}
         <div class="bq-cap"><span class="n" id="bqN">01</span><b id="bqT">Excavación</b></div>
         <button type="button" class="bq-arrow p" id="bqPrev" aria-label="Etapa anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
         <button type="button" class="bq-arrow n2" id="bqNext" aria-label="Etapa siguiente"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button type="button" class="bq-play" id="bqPlay" aria-label="Pausar el avance automático">Pausar</button>
         <span class="bq-bar"><i id="bqBar"></i></span>
       </div>
       <p class="bq-desc" id="bqDesc" aria-live="polite">Trazado y excavación de los poyos en el terreno en pendiente.</p>
       <ol class="bq-steps" id="bqSteps"><li><button type="button" class="on" data-i="0" data-d="Trazado y excavación de los poyos en el terreno en pendiente."><span class="n">01</span>Excavación</button></li><li><button type="button" class="" data-i="1" data-d="Pilotes de hormigón armado para levantar la casa sobre el cerro."><span class="n">02</span>Pilotes</button></li><li><button type="button" class="" data-i="2" data-d="Vigas sobre los pilotes, niveladas para recibir el piso."><span class="n">03</span>Vigas maestras</button></li><li><button type="button" class="" data-i="3" data-d="Envigado de piso, cuadriculado y nivelado pieza por pieza."><span class="n">04</span>Envigado</button></li><li><button type="button" class="" data-i="4" data-d="Piso de placas sobre el envigado: la base de toda la casa."><span class="n">05</span>Plataforma</button></li><li><button type="button" class="" data-i="5" data-d="Muros de madera y OSB levantados sobre los pilotes, en medio del bosque."><span class="n">06</span>Muros</button></li><li><button type="button" class="" data-i="6" data-d="Cerchas armadas en el piso y levantadas para la techumbre."><span class="n">07</span>Cerchas</button></li><li><button type="button" class="" data-i="7" data-d="Techo de zinc instalado y la casa cerrada entre los árboles."><span class="n">08</span>Techumbre</button></li><li><button type="button" class="" data-i="8" data-d="Revestimiento exterior en madera oscura y terraza sobre pilotes."><span class="n">09</span>Revestimiento</button></li><li><button type="button" class="" data-i="9" data-d="Pasillo terminado, iluminado y listo para vivir."><span class="n">10</span>Terminada</button></li></ol>
     </div>
-    <div class="casa-cta reveal"><a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20casa%20del%20bosque%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20construir%20en%20mi%20terreno." target="_blank" rel="noopener">Quiero construir en mi terreno</a><span>Terrenos en pendiente · Pilotes · Fosa séptica incluida</span></div>
+    <div class="casa-cta reveal"><a class="btn btn-solid" data-who data-obra="Casa sobre pilotes Punucapa" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20la%20casa%20sobre%20pilotes%20de%20Punucapa%20y%20me%20gustar%C3%ADa%20cotizar%20una%20casa%20en%20mi%20terreno." target="_blank" rel="noopener">Quiero construir en mi terreno</a><span>Terrenos en pendiente · Pilotes · Fosa séptica incluida</span></div>
   </div>
 </section>
 
@@ -805,7 +823,7 @@ html.js .qs+.qs{margin-top:0}
     <dl class="ficha reveal-group"><div><dt>Ubicación</dt><dd><span class="dato">[DATO: comuna de la techumbre]</span></dd></div><div><dt>Estructura</dt><dd>Radier armado, pilares y vigas de madera, cubierta de planchas</dd></div><div><dt>Superficie</dt><dd><span class="dato">[DATO: m² techados]</span></dd></div><div><dt>Plazo</dt><dd><span class="dato">[DATO: plazo de la obra]</span></dd></div><div><dt>Etapas incluidas</dt><dd>Radier, estructura de madera y cubierta</dd></div></dl>
     <figure class="techo-fin img-reveal par"><img src="img/techo-fin-1600.webp" srcset="img/techo-fin-800.webp 800w, img/techo-fin-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Techumbre terminada con pilares y vigas de madera sobre radier, junto a la casa" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-fin-1600.webp"><span class="tag">Terminada</span></figure>
     <ol class="casa-steps reveal-group"><li><figure class="cs-ph"><img src="img/techo-v2-1-800.webp" width="800" height="600" alt="Malla de acero y moldaje del radier" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-1-1200.webp"></figure><div class="cs-t"><span class="n">01</span><b>Enfierradura</b><span>Malla de acero y moldaje listos para el hormigón.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-2-800.webp" width="800" height="600" alt="Radier de hormigón hormigonado por paños" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-2-1200.webp"></figure><div class="cs-t"><span class="n">02</span><b>Hormigonado</b><span>Radier hormigonado por paños, con sus juntas.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-3-800.webp" width="800" height="600" alt="Radier terminado y afinado junto a la casa" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-3-1200.webp"></figure><div class="cs-t"><span class="n">03</span><b>Radier terminado</b><span>Superficie afinada y nivelada junto a la casa.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-4-800.webp" width="800" height="600" alt="Maestro nivelando los primeros pilares sobre el radier" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-4-1200.webp"></figure><div class="cs-t"><span class="n">04</span><b>Trazado de pilares</b><span>Pilares aplomados y nivelados sobre el radier.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-5-800.webp" width="800" height="600" alt="Pilares de madera y vigas maestras de la techumbre" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-5-1200.webp"></figure><div class="cs-t"><span class="n">05</span><b>Pilares y vigas</b><span>Vigas maestras montadas sobre los pilares.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-6-800.webp" width="800" height="600" alt="Costaneras de madera sobre las vigas, con cielo azul" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-6-1200.webp"></figure><div class="cs-t"><span class="n">06</span><b>Costaneras</b><span>Costaneras sobre las vigas para recibir la cubierta.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-7-800.webp" width="800" height="600" alt="Estructura de madera completa de la techumbre" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-7-1200.webp"></figure><div class="cs-t"><span class="n">07</span><b>Estructura completa</b><span>Toda la estructura de madera lista, de punta a punta.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-8-800.webp" width="800" height="600" alt="Vista desde abajo de la cubierta instalada" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-8-1200.webp"></figure><div class="cs-t"><span class="n">08</span><b>Cubierta</b><span>Planchas instaladas: la terraza ya está bajo techo.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-9-800.webp" width="800" height="600" alt="Cubierta de planchas onduladas terminada, vista desde arriba" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-9-1200.webp"></figure><div class="cs-t"><span class="n">09</span><b>Techo terminado</b><span>La cubierta terminada, vista desde arriba.</span></div></li></ol>
-    <div class="casa-cta reveal"><a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20techumbre%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20cotizar%20una." target="_blank" rel="noopener">Cotizar una techumbre</a><span>Radier · Estructura de madera · Cubierta</span></div>
+    <div class="casa-cta reveal"><a class="btn btn-solid" data-who data-obra="Techumbre" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20la%20techumbre%20con%20radier%20y%20estructura%20de%20madera%20y%20me%20gustar%C3%ADa%20cotizar%20una." target="_blank" rel="noopener">Cotizar una techumbre</a><span>Radier · Estructura de madera · Cubierta</span></div>
   </div>
 </section>
 
@@ -813,20 +831,35 @@ html.js .qs+.qs{margin-top:0}
   <div class="wrap"><p id="manifesto"><span class="w">Dos maestros al mismo nivel.</span> <span class="w">Más de veinticinco años de oficio.</span> <span class="w">Cada obra la trazamos, la cortamos y la terminamos nosotros.</span></p></div>
 </section>
 
-<section class="why" aria-label="Por qué Manos de Maestro">
-  <div class="wrap reveal-group">
-    <div><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c.6-3.4 3-5.5 6-5.5s5.4 2.1 6 5.5M14.5 15.2c.8-.4 1.6-.6 2.5-.6 2.4 0 4.3 1.7 4.8 4.4"/></svg></span><b>Hablas con los maestros</b><p>Los mismos que te cotizan son los que trabajan en tu obra.</p></div>
-    <div><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg></span><b>Ves cada etapa</b><p>Te mandamos fotos del antes, del proceso y del resultado.</p></div>
-    <div><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><b>Presupuesto claro</b><p>Qué se hace, con qué materiales y en cuánto tiempo, antes de empezar.</p></div>
+<section class="why" aria-labelledby="whyT">
+  <div class="wrap">
+    <div class="why-head reveal"><p class="eyebrow">Lo que te aseguramos</p><h2 id="whyT">Trabajo serio, <em>de principio a fin.</em></h2></div>
+    <div class="why-grid reveal-group">
+    <div><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c.6-3.4 3-5.5 6-5.5s5.4 2.1 6 5.5M14.5 15.2c.8-.4 1.6-.6 2.5-.6 2.4 0 4.3 1.7 4.8 4.4"/></svg></span><b>Atención directa de los socios</b><p>Miguel e Ignacio te cotizan, trabajan en tu obra y responden por el resultado.</p></div>
+    <div><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg></span><b>Fotos de cada etapa</b><p>Te mandamos fotos del avance, de las fundaciones a la entrega.</p></div>
+    <div><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><b>Presupuesto claro antes de empezar</b><p>Qué se hace, con qué materiales y en cuánto tiempo, por escrito y antes de partir.</p></div>
+    <div><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><b>Certificado eléctrico SEC</b><p>La instalación la hacemos nosotros y la certifica un electricista autorizado SEC con quien trabajamos.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="stats" aria-label="En números">
   <div class="wrap reveal-group">
-    <div><strong><span class="count" data-to="25">25</span>+</strong><span>años de oficio en construcción</span></div>
+    <div><strong><span class="pre" aria-hidden="true">+</span><span class="sr">más de </span><span class="count" data-to="25">25</span></strong><span>años de oficio</span></div>
+    <div><strong class="tbd"><span class="dato">[DATO: casas desde cero]</span></strong><span>casas construidas desde cero</span></div>
+    <div><strong class="tbd"><span class="dato">[DATO: obras terminadas]</span></strong><span>obras terminadas</span></div>
     <div><strong><span class="count" data-to="12">12</span></strong><span>comunas atendidas desde Valdivia</span></div>
-    <div><strong><span class="count" data-to="2">2</span></strong><span>maestros a cargo de cada obra</span></div>
-    <div><strong><span class="count" data-to="100">100</span>%</strong><span>fotos reales de nuestros trabajos</span></div>
+  </div>
+</section>
+
+<section class="testi" id="testimonios" aria-labelledby="testiT" hidden>
+  <div class="wrap">
+    <div class="reveal"><p class="eyebrow">Lo que dicen nuestros clientes</p><h2 id="testiT" style="margin-top:14px">Clientes <em>que volverían a llamarnos.</em></h2></div>
+    <div class="testi-grid reveal-group">
+      <figure><blockquote>[TESTIMONIO 1: frase]</blockquote><figcaption><b>[TESTIMONIO 1: nombre]</b><span>[TESTIMONIO 1: comuna]</span></figcaption></figure>
+      <figure><blockquote>[TESTIMONIO 2: frase]</blockquote><figcaption><b>[TESTIMONIO 2: nombre]</b><span>[TESTIMONIO 2: comuna]</span></figcaption></figure>
+      <figure><blockquote>[TESTIMONIO 3: frase]</blockquote><figcaption><b>[TESTIMONIO 3: nombre]</b><span>[TESTIMONIO 3: comuna]</span></figcaption></figure>
+    </div>
   </div>
 </section>
 
@@ -871,7 +904,7 @@ html.js .qs+.qs{margin-top:0}
         <h3>Baño de <em>mármol negro</em></h3>
         <p>Desde la base de la ducha hasta la mampara tipo industrial y el espejo con luz integrada bajo una viga de madera rústica.</p>
         <div class="chips"><span class="chip">Revestimiento</span><span class="chip">Ducha</span><span class="chip">Iluminación</span></div>
-        <a class="btn btn-ghost" data-who href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Me%20interesa%20remodelar%20un%20ba%C3%B1o." target="_blank" rel="noopener">Quiero un baño así</a>
+        <a class="btn btn-ghost" data-who data-obra="Baño de mármol negro" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20el%20ba%C3%B1o%20de%20m%C3%A1rmol%20negro%20y%20me%20gustar%C3%ADa%20cotizar%20la%20remodelaci%C3%B3n%20de%20mi%20ba%C3%B1o." target="_blank" rel="noopener">Quiero un baño así</a>
       </div>
     </article>
 
@@ -886,7 +919,7 @@ html.js .qs+.qs{margin-top:0}
         <h3>Cocina <em>completa</em></h3>
         <p>Muebles, cerámica de muro, cubierta e iluminación. Cada pieza nivelada antes de fraguar y la cocina entregada lista para usar.</p>
         <div class="chips"><span class="chip">Muebles</span><span class="chip">Cerámica</span><span class="chip">Cubierta</span></div>
-        <a class="btn btn-ghost" data-who href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Me%20interesa%20remodelar%20una%20cocina." target="_blank" rel="noopener">Quiero una cocina así</a>
+        <a class="btn btn-ghost" data-who data-obra="Cocina completa" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20la%20cocina%20completa%20y%20me%20gustar%C3%ADa%20cotizar%20la%20remodelaci%C3%B3n%20de%20mi%20cocina." target="_blank" rel="noopener">Quiero una cocina así</a>
       </div>
     </article>
 
@@ -901,7 +934,7 @@ html.js .qs+.qs{margin-top:0}
         <h3>Alfombra de cerámica y <em>puerta granero</em></h3>
         <p>Cerámica tipo madera nivelada pieza por pieza, con un centro de baldosa decorativa. La puerta corredera la diseñamos, cortamos y armamos nosotros.</p>
         <div class="chips"><span class="chip">Cerámica</span><span class="chip">Carpintería</span><span class="chip">Hecho a mano</span></div>
-        <a class="btn btn-ghost" data-who href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Me%20interesa%20un%20piso%20o%20una%20puerta%20a%20medida." target="_blank" rel="noopener">Cotizar algo así</a>
+        <a class="btn btn-ghost" data-who data-obra="Piso y puerta granero" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20el%20piso%20de%20cer%C3%A1mica%20con%20la%20puerta%20granero%20y%20me%20gustar%C3%ADa%20cotizar%20algo%20as%C3%AD." target="_blank" rel="noopener">Cotizar algo así</a>
       </div>
     </article>
 
@@ -916,7 +949,7 @@ html.js .qs+.qs{margin-top:0}
         <h3>Segundo piso <em>y techumbre</em></h3>
         <p>Retiramos el techo antiguo, levantamos la estructura de madera del segundo piso y la cerramos con placas. Una ampliación completa, hecha por los mismos dos maestros.</p>
         <div class="chips"><span class="chip">Estructura</span><span class="chip">Techumbre</span><span class="chip">Ampliación</span></div>
-        <a class="btn btn-ghost" data-who href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Me%20interesa%20cotizar%20una%20ampliaci%C3%B3n%20o%20un%20cambio%20de%20techo." target="_blank" rel="noopener">Cotizar una ampliación</a>
+        <a class="btn btn-ghost" data-who data-obra="Segundo piso y techumbre" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20el%20segundo%20piso%20con%20techumbre%20nueva%20y%20me%20gustar%C3%ADa%20cotizar%20una%20ampliaci%C3%B3n." target="_blank" rel="noopener">Cotizar una ampliación</a>
       </div>
     </article>
   </div>
@@ -941,7 +974,7 @@ html.js .qs+.qs{margin-top:0}
   <div class="wrap">
     <p class="eyebrow">¿Tienes un espacio parecido?</p>
     <h2 class="split">Mándanos una foto. <em>Te decimos cómo lo haríamos.</em></h2>
-    <a class="btn btn-solid btn-lg magnet" data-who href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Les%20env%C3%ADo%20fotos%20de%20un%20espacio%20que%20quiero%20remodelar." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/></svg>Enviar fotos por WhatsApp</a>
+    <a class="btn btn-solid btn-lg magnet" data-who data-obra="Enviar fotos" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro.%20Les%20env%C3%ADo%20fotos%20de%20un%20espacio%20para%20que%20me%20digan%20c%C3%B3mo%20lo%20har%C3%ADan%20%F0%9F%93%B8" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/></svg>Enviar fotos por WhatsApp</a>
   </div>
 </section>
 
@@ -967,14 +1000,14 @@ html.js .qs+.qs{margin-top:0}
 
 <section class="services morph" id="servicios" data-chap="08|Servicios">
   <div class="wrap">
-    <div class="svc-head"><h2 class="split">Todo lo que <em>hacemos.</em></h2><p class="reveal">Desde una casa completa hasta un baño. Si no ves lo que buscas, escríbenos igual.</p></div>
+    <div class="svc-head"><h2 class="split">Todo lo que <em>hacemos.</em></h2><p class="reveal">Nuestro fuerte son las casas desde cero en Valdivia. También hacemos ampliaciones, techumbres y remodelaciones. Si no ves lo que buscas, escríbenos igual.</p></div>
     <article class="svc-main" id="casas">
       <div class="svc-main-text">
         <p class="eyebrow">Servicio principal</p>
         <h3 class="split">Construcción de casas <em>desde cero.</em></h3>
-        <p>Construimos tu casa de principio a fin. Desde el terreno hasta la entrega, con los mismos dos maestros a cargo de cada etapa.</p>
+        <p>Construimos tu casa en Valdivia o en las comunas cercanas, de principio a fin: del terreno a la entrega, con los dos socios a cargo de cada etapa.</p>
         <div class="chips"><span class="chip">Tradicional</span><span class="chip">Panel SIP</span><span class="chip">Llave en mano</span></div>
-        <a class="btn btn-solid magnet" data-who href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Me%20interesa%20construir%20una%20casa%20desde%20cero." target="_blank" rel="noopener">Cotizar una casa</a>
+        <a class="btn btn-solid magnet" data-who data-obra="Servicio casas desde cero" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20que%20construyen%20casas%20desde%20cero%20y%20me%20gustar%C3%ADa%20cotizar%20la%20m%C3%ADa." target="_blank" rel="noopener">Cotizar una casa</a>
       </div>
       <ol class="stages" id="stages"><li><span class="n">01</span><div><b>Terreno y fundaciones</b><span>Trazado, excavación y fundaciones.</span></div></li><li><span class="n">02</span><div><b>Estructura</b><span>Tradicional o con panel SIP.</span></div></li><li><span class="n">03</span><div><b>Techumbre</b><span>Estructura de techo y cubierta.</span></div></li><li><span class="n">04</span><div><b>Instalaciones</b><span>Eléctrica, agua y fosa séptica.</span></div></li><li><span class="n">05</span><div><b>Terminaciones</b><span>Revestimientos, pisos, cocina y baños.</span></div></li><li><span class="n">06</span><div><b>Entrega</b><span>Tu casa lista para vivir.</span></div></li></ol>
     </article>
@@ -997,8 +1030,8 @@ html.js .qs+.qs{margin-top:0}
     <p class="eyebrow">Nosotros</p>
     <h2 class="split">Dos maestros. <em>Un mismo estándar.</em></h2>
     <div class="pair reveal-group">
-      <article class="pcard"><span class="mono" aria-hidden="true">MS</span><h3>Miguel Saldivia</h3><p class="role">Socio y maestro constructor.</p><a class="pphone" data-direct href="https://wa.me/56977107052?text=Hola%20Miguel%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>+56 9 7710 7052</a></article>
-      <article class="pcard"><span class="mono" aria-hidden="true">IM</span><h3>Ignacio Mora</h3><p class="role">Socio y maestro constructor.</p><a class="pphone" data-direct href="https://wa.me/56965836682?text=Hola%20Ignacio%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>+56 9 6583 6682</a></article>
+      <article class="pcard"><span class="mono" aria-hidden="true">MS</span><h3>Miguel Saldivia</h3><p class="role">Socio y maestro constructor.</p><a class="pphone" data-direct href="https://wa.me/56977107052?text=Hola%20Miguel%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%2C%20por%20favor." target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>+56 9 7710 7052</a></article>
+      <article class="pcard"><span class="mono" aria-hidden="true">IM</span><h3>Ignacio Mora</h3><p class="role">Socio y maestro constructor.</p><a class="pphone" data-direct href="https://wa.me/56965836682?text=Hola%20Ignacio%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%2C%20por%20favor." target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>+56 9 6583 6682</a></article>
     </div>
     <p class="pair-note reveal">Socios en partes iguales. Ninguno trabaja debajo del otro: los dos cotizan, los dos trabajan en obra y los dos responden por el resultado.</p>
   </div>
@@ -1083,7 +1116,7 @@ html.js .qs+.qs{margin-top:0}
         <div class="qs qdone" data-title="Listo">
           <span class="qdone-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <h3 tabindex="-1">Tu mensaje está listo en WhatsApp.</h3>
-          <p>Envíalo y adjunta fotos del espacio. Te respondemos personalmente.</p>
+          <p>Envíalo y adjunta fotos del espacio. Te responde Miguel o Ignacio, personalmente.</p>
           <div class="qdone-btns"><a class="btn btn-solid" id="qAgain" href="https://wa.me/56977107052" target="_blank" rel="noopener">¿No se abrió? Abrir de nuevo</a><button type="button" class="qlink" id="qReset">Empezar de nuevo</button></div>
         </div>
       </div>
@@ -1101,8 +1134,8 @@ html.js .qs+.qs{margin-top:0}
     <h2 class="split">Conversemos <em>tu proyecto.</em></h2>
     <p class="reveal">Escríbenos con fotos del espacio, la comuna y lo que tienes en mente. Te respondemos personalmente.</p>
     <div class="duo reveal">
-      <a class="duo-btn magnet" data-direct href="https://wa.me/56977107052?text=Hola%20Miguel%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><span class="mono" aria-hidden="true">MS</span><span><b>Miguel Saldivia</b><small>+56 9 7710 7052</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
-      <a class="duo-btn magnet" data-direct href="https://wa.me/56965836682?text=Hola%20Ignacio%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><span class="mono" aria-hidden="true">IM</span><span><b>Ignacio Mora</b><small>+56 9 6583 6682</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+      <a class="duo-btn magnet" data-direct href="https://wa.me/56977107052?text=Hola%20Miguel%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%2C%20por%20favor." target="_blank" rel="noopener"><span class="mono" aria-hidden="true">MS</span><span><b>Miguel Saldivia</b><small>+56 9 7710 7052</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+      <a class="duo-btn magnet" data-direct href="https://wa.me/56965836682?text=Hola%20Ignacio%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%2C%20por%20favor." target="_blank" rel="noopener"><span class="mono" aria-hidden="true">IM</span><span><b>Ignacio Mora</b><small>+56 9 6583 6682</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
     </div>
   </div>
 </section>
@@ -1112,12 +1145,12 @@ html.js .qs+.qs{margin-top:0}
   <div class="wrap foot">
     <div class="foot-brand"><img src="img/logo.webp" alt="" width="88" height="40" loading="lazy"><p>Construcción y remodelaciones en Valdivia. Miguel Saldivia e Ignacio Mora, maestros constructores.</p></div>
     <nav aria-label="Pie de página"><b>Sitio</b><a href="#obras">Obras</a><a href="#cotizar">Cotizar</a><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#preguntas">Preguntas</a></nav>
-    <div><b>Contacto</b><a class="mono-t" data-direct href="https://wa.me/56977107052?text=Hola%20Miguel%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">Miguel: +56 9 7710 7052</a><a class="mono-t" data-direct href="https://wa.me/56965836682?text=Hola%20Ignacio%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener">Ignacio: +56 9 6583 6682</a><span>Valdivia, Región de Los Ríos</span></div>
+    <div><b>Contacto</b><a class="mono-t" data-direct href="https://wa.me/56977107052?text=Hola%20Miguel%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%2C%20por%20favor." target="_blank" rel="noopener">Miguel: +56 9 7710 7052</a><a class="mono-t" data-direct href="https://wa.me/56965836682?text=Hola%20Ignacio%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%2C%20por%20favor." target="_blank" rel="noopener">Ignacio: +56 9 6583 6682</a><span>Valdivia, Región de Los Ríos</span></div>
   </div>
   <div class="wrap foot-end"><span>© 2026 Manos de Maestro</span><span>Fotos reales de nuestras obras</span></div>
 </footer>
 
-<div class="mbar" id="mbar"><a class="btn btn-solid" data-who href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Cotizar por WhatsApp</a></div>
+<div class="mbar" id="mbar"><a class="btn btn-solid" data-who href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%2C%20por%20favor." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Cotizar por WhatsApp</a></div>
 
 <dialog class="who" id="who" aria-labelledby="whoT">
   <div class="who-in">
@@ -1126,8 +1159,8 @@ html.js .qs+.qs{margin-top:0}
     <h3 id="whoT">¿Con quién quieres hablar?</h3>
     <p class="who-sub">Los dos son socios y trabajan en cada obra. Escríbele al que prefieras.</p>
     <div class="who-opts">
-      <a class="who-opt" data-n="56977107052" data-name="Miguel" href="https://wa.me/56977107052?text=Hola%20Miguel%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><span class="mono" aria-hidden="true">MS</span><span><b>Miguel Saldivia</b><small>+56 9 7710 7052</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-      <a class="who-opt" data-n="56965836682" data-name="Ignacio" href="https://wa.me/56965836682?text=Hola%20Ignacio%2C%20buenas%20tardes.%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"><span class="mono" aria-hidden="true">IM</span><span><b>Ignacio Mora</b><small>+56 9 6583 6682</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="who-opt" data-n="56977107052" data-name="Miguel" href="https://wa.me/56977107052?text=Hola%20Miguel%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%2C%20por%20favor." target="_blank" rel="noopener"><span class="mono" aria-hidden="true">MS</span><span><b>Miguel Saldivia</b><small>+56 9 7710 7052</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="who-opt" data-n="56965836682" data-name="Ignacio" href="https://wa.me/56965836682?text=Hola%20Ignacio%2C%20buenas%20tardes%20%F0%9F%91%8B%20Vi%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20gustar%C3%ADa%20cotizar%2C%20por%20favor." target="_blank" rel="noopener"><span class="mono" aria-hidden="true">IM</span><span><b>Ignacio Mora</b><small>+56 9 6583 6682</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
     </div>
     <button type="button" class="who-x" id="whoX">Cancelar</button>
   </div>
