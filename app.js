@@ -436,10 +436,3 @@
   });
   window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
 })();
-
-// escalera: video plays only while on screen
-(function(){
-  var v=document.getElementById('escVid'); if(!v || !('IntersectionObserver' in window)) return;
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ if(v.preload!=='auto'){v.preload='auto'; v.load();} v.play().catch(function(){}); } else v.pause(); }); },{threshold:.3}).observe(v);
-})();

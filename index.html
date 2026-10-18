@@ -663,14 +663,6 @@ html.js .qs+.qs{margin-top:0}
   .cc-cta>div{height:min(100vw,420px)}
   .campo-more{grid-template-columns:minmax(0,1fr)}
 }
-
-/* escalera en movimiento */
-.esc-film .wrap{padding-block:0 clamp(72px,9vw,120px);display:flex;flex-direction:column;gap:22px}
-.esc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 32px}
-.esc-head p:not(.eyebrow){color:var(--muted);max-width:52ch}
-.esc-vid{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--surface)}
-.esc-vid video{width:100%;height:100%;object-fit:cover;display:block}
-.esc-vid .tag{position:absolute;left:16px;bottom:16px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:rgba(11,13,15,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px}
 </style>
 </head>
 <body>
@@ -785,19 +777,6 @@ html.js .qs+.qs{margin-top:0}
       <img src="img/story-3-1600.webp" alt="" decoding="async">
       <span class="story-tag" id="storyTag">Antes</span>
       <span class="story-bar"><i id="storyBar"></i></span>
-    </div>
-  </div>
-</section>
-
-<section class="esc-film" aria-label="La escalera terminada en movimiento">
-  <div class="wrap">
-    <div class="esc-head reveal"><p class="eyebrow">La escalera terminada</p><p>Peldaños, baranda de barrotes negros, pilar de piedra y muro revestido en madera. Hecha a medida para esta casa.</p></div>
-    <div class="esc-vid img-reveal">
-      <video id="escVid" muted loop playsinline preload="none" poster="img/escalera-poster.webp" aria-label="La escalera terminada, con un movimiento lento de cámara">
-        <source src="video/escalera-720.mp4" type="video/mp4" media="(max-width: 899px)">
-        <source src="video/escalera-1080.mp4" type="video/mp4">
-      </video>
-      <span class="tag">Terminada</span>
     </div>
   </div>
 </section>
