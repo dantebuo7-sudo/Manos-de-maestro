@@ -602,6 +602,34 @@ html.js .qs+.qs{margin-top:0}
 }
 @media (hover:none){.ph:hover img{transform:none}.svc article:hover{transform:none;box-shadow:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.ticker-track{transform:none}.intro{display:none!important}}
+
+/* casa desde cero */
+.casa{border-bottom:1px solid var(--line)}
+.casa .wrap{padding-block:clamp(80px,10vw,140px);display:flex;flex-direction:column;gap:clamp(28px,4vw,48px)}
+.casa-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+.casa-head h2{font-size:clamp(40px,5vw,72px);max-width:13ch}
+.casa-head p{color:var(--muted);max-width:42ch}
+.casa-fin{position:relative;margin:0;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--surface);cursor:zoom-in}
+.casa-fin img{width:100%;height:100%;object-fit:cover}
+.casa-fin .tag{position:absolute;left:16px;bottom:16px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:rgba(11,13,15,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px}
+.casa-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 16px;counter-reset:cs}
+.casa-steps li{display:flex;flex-direction:column;gap:14px;min-width:0}
+.cs-ph{margin:0;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:var(--surface);cursor:zoom-in}
+.cs-ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.casa-steps li:hover .cs-ph img{transform:scale(1.04)}
+.cs-t{display:grid;grid-template-columns:34px minmax(0,1fr);gap:2px 8px;padding-top:12px;border-top:1px solid var(--line)}
+.cs-t .n{grid-row:span 2;font-family:var(--mono);font-size:13px;color:var(--wood);padding-top:3px}
+.cs-t b{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.cs-t span:not(.n){color:var(--muted);font-size:14.5px;line-height:1.5}
+.cs-end .cs-t{border-top-color:var(--wood)}
+.casa-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.casa-cta span{color:var(--muted);font-size:14px}
+@media (max-width:1099px){.casa-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:899px){
+  .casa-steps{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(var(--gutter) * -1) calc(var(--gutter-r) * -1);padding-inline:var(--gutter) var(--gutter-r);scroll-padding-inline:var(--gutter);scrollbar-width:none;overscroll-behavior-x:contain}
+  .casa-steps::-webkit-scrollbar{display:none}
+  .casa-steps li{flex:0 0 78%;scroll-snap-align:start}
+}
 </style>
 </head>
 <body>
@@ -651,7 +679,19 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </div>
 
-<section class="manifesto morph" id="manifiesto" aria-label="Quiénes somos" data-chap="01|El oficio">
+<section class="casa" id="casa" aria-label="Casa construida desde cero" data-chap="01|La casa">
+  <div class="wrap">
+    <div class="casa-head">
+      <div class="reveal"><p class="eyebrow">Obra destacada · Casa desde cero</p><h2 style="margin-top:14px">Una casa, <em>desde los cimientos.</em></h2></div>
+      <p class="reveal">Esta casa en Valdivia la construimos nosotros de principio a fin: del terreno vacío a la casa terminada. Así se ve cada etapa.</p>
+    </div>
+    <figure class="casa-fin img-reveal"><img src="img/g-fachada-1600.webp" srcset="img/g-fachada-800.webp 800w, img/g-fachada-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Casa terminada con revestimiento café y alero oscuro" loading="lazy" decoding="async" data-lb="casa" data-full="img/g-fachada-1600.webp"><figcaption><span class="tag">Terminada · Valdivia</span></figcaption></figure>
+    <ol class="casa-steps reveal-group" id="casaSteps"><li><figure class="cs-ph"><img src="img/casa-1-800.webp" width="800" height="450" alt="Excavación y moldaje de las fundaciones de la casa" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-1-1600.webp"></figure><div class="cs-t"><span class="n">01</span><b>Trazado y moldaje</b><span>Trazamos la casa en el terreno, excavamos y armamos el moldaje de las fundaciones.</span></div></li><li><figure class="cs-ph"><img src="img/casa-2-800.webp" width="800" height="1422" alt="Maestro rellenando el interior de las fundaciones" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-2-1600.webp"></figure><div class="cs-t"><span class="n">02</span><b>Fundaciones</b><span>Fundación corrida de hormigón y relleno interior, nivelado a pala.</span></div></li><li><figure class="cs-ph"><img src="img/casa-3-800.webp" width="800" height="450" alt="Compactación del terreno dentro de las fundaciones" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-3-1600.webp"></figure><div class="cs-t"><span class="n">03</span><b>Compactación</b><span>Base compactada con placa vibradora para que el piso no se mueva nunca.</span></div></li><li><figure class="cs-ph"><img src="img/casa-4-800.webp" width="800" height="450" alt="Base de ripio y bolón lista para el radier" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-4-1600.webp"></figure><div class="cs-t"><span class="n">04</span><b>Base y cañerías</b><span>Cama de ripio y bolón, con las cañerías de agua y alcantarillado ya instaladas.</span></div></li><li><figure class="cs-ph"><img src="img/casa-5-800.webp" width="800" height="450" alt="Radier recién hormigonado" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-5-1600.webp"></figure><div class="cs-t"><span class="n">05</span><b>Radier</b><span>Radier hormigonado y afinado: la base firme de toda la casa.</span></div></li><li><figure class="cs-ph"><img src="img/casa-6-800.webp" width="800" height="450" alt="Tabiques de madera del segundo piso en construcción" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-6-1600.webp"></figure><div class="cs-t"><span class="n">06</span><b>Estructura</b><span>Tabiques de madera armados y levantados piso por piso.</span></div></li><li class="cs-end"><figure class="cs-ph"><img src="img/casa-fin-800.webp" width="720" height="1030" alt="La casa terminada vista desde la calle" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-fin-1600.webp"></figure><div class="cs-t"><span class="n">07</span><b>Entrega</b><span>Revestimiento, ventanas, terminaciones y la casa lista para vivir.</span></div></li></ol>
+    <div class="casa-cta reveal"><a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20casa%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20construir%20una%20casa%20desde%20cero." target="_blank" rel="noopener">Quiero construir mi casa</a><span>Tradicional o con panel SIP · Valdivia y alrededores</span></div>
+  </div>
+</section>
+
+<section class="manifesto morph" id="manifiesto" aria-label="Quiénes somos" data-chap="02|El oficio">
   <div class="wrap"><p id="manifesto"><span class="w">Dos maestros al mismo nivel.</span> <span class="w">Más de veinticinco años de oficio.</span> <span class="w">Cada obra la trazamos, la cortamos y la terminamos nosotros.</span></p></div>
 </section>
 
@@ -672,7 +712,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="story" id="obras" aria-label="Obra destacada: escalera a medida" data-chap="02|Las obras">
+<section class="story" id="obras" aria-label="Obra destacada: escalera a medida" data-chap="03|Las obras">
   <div class="wrap story-inner" id="story">
     <div class="story-steps">
       <p class="eyebrow">Obra destacada · Carpintería</p>
@@ -774,7 +814,6 @@ html.js .qs+.qs{margin-top:0}
     <figure><img src="img/g-bano-800.webp" width="800" height="1067" alt="Baño con mueble vanitorio de madera y grifería negra" loading="lazy" decoding="async" data-lb="gal" data-full="img/g-bano-1600.webp"><figcaption><b>Vanitorio de madera</b><span>Baños</span></figcaption></figure>
     <figure><img src="img/g-muro-800.webp" width="800" height="327" alt="Muro revestido con tablas de madera en distintos tonos" loading="lazy" decoding="async" data-lb="gal" data-full="img/g-muro-1600.webp" style="object-position:40% 50%"><figcaption><b>Muro de madera</b><span>Revestimientos</span></figcaption></figure>
     <figure><img src="img/g-pieza-800.webp" width="800" height="1497" alt="Dormitorio con cielo de madera a la vista y piso flotante" loading="lazy" decoding="async" data-lb="gal" data-full="img/g-pieza-1600.webp"><figcaption><b>Cielo de madera</b><span>Interiores</span></figcaption></figure>
-    <figure><img src="img/g-fachada-800.webp" srcset="img/g-fachada-800.webp 800w, img/g-fachada-1600.webp 1600w" sizes="(max-width: 899px) 140vw, 50vw" width="800" height="450" alt="Fachada con revestimiento de madera café, alero negro, pilar de madera y puerta de madera" loading="lazy" decoding="async" data-lb="gal" data-full="img/g-fachada-1600.webp" style="object-position:42% 50%"><figcaption><b>Fachada revestida</b><span>Exteriores</span></figcaption></figure>
     <figure><img src="img/bano-2-800.webp" width="800" height="1422" alt="Ducha con muros negros veteados" loading="lazy" decoding="async" data-lb="gal" data-full="img/bano-2-1600.webp"><figcaption><b>Ducha de mármol negro</b><span>Baños</span></figcaption></figure>
   </div></div>
   <div class="wrap gal-foot"><span class="gal-prog" aria-hidden="true"><i id="galProg"></i></span><span class="gal-hint">Toca una foto para verla en grande</span></div>
@@ -807,7 +846,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="process" aria-label="Cómo trabajamos" data-chap="03|Cómo trabajamos">
+<section class="process" aria-label="Cómo trabajamos" data-chap="04|Cómo trabajamos">
   <div class="wrap">
     <div class="vid img-reveal">
       <video id="procVid" src="video/empaste.mp4" poster="img/empaste-poster.webp" muted loop playsinline preload="none" aria-label="Timelapse real de empaste de un cielo"></video>
@@ -827,7 +866,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="services morph" id="servicios" data-chap="04|Servicios">
+<section class="services morph" id="servicios" data-chap="05|Servicios">
   <div class="wrap">
     <div class="svc-head"><h2 class="split">Todo lo que <em>hacemos.</em></h2><p class="reveal">Desde una casa completa hasta un baño. Si no ves lo que buscas, escríbenos igual.</p></div>
     <article class="svc-main" id="casas">
@@ -854,7 +893,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="partners" id="nosotros" data-chap="05|Nosotros">
+<section class="partners" id="nosotros" data-chap="06|Nosotros">
   <div class="wrap">
     <p class="eyebrow">Nosotros</p>
     <h2 class="split">Dos maestros. <em>Un mismo estándar.</em></h2>
@@ -866,14 +905,14 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="coverage" id="valdivia" aria-label="Zona de trabajo" data-chap="06|Valdivia">
+<section class="coverage" id="valdivia" aria-label="Zona de trabajo" data-chap="07|Valdivia">
   <div class="wrap">
     <div class="reveal"><p class="eyebrow">Dónde trabajamos</p><h2 class="split" style="margin-top:14px">Valdivia <em>y alrededores.</em></h2><p class="cov-sub">Trabajamos principalmente en Valdivia. También vamos a las comunas cercanas de la Región de Los Ríos.</p></div>
     <ol class="comunas reveal-group"><li class="main">Valdivia</li><li>Corral</li><li>Lanco</li><li>Los Lagos</li><li>Máfil</li><li>Mariquina</li><li>Paillaco</li><li>Panguipulli</li><li>La Unión</li><li>Futrono</li><li>Lago Ranco</li><li>Río Bueno</li></ol>
   </div>
 </section>
 
-<section class="faq" id="preguntas" aria-label="Preguntas frecuentes" data-chap="07|Preguntas">
+<section class="faq" id="preguntas" aria-label="Preguntas frecuentes" data-chap="08|Preguntas">
   <div class="wrap">
     <div class="reveal"><p class="eyebrow">Preguntas frecuentes</p><h2 class="split" style="margin-top:14px">Antes de <em>escribirnos.</em></h2></div>
     <div class="qa reveal-group">
@@ -887,7 +926,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="quote" id="cotizar" aria-label="Formulario de cotización" data-chap="08|Cotiza">
+<section class="quote" id="cotizar" aria-label="Formulario de cotización" data-chap="09|Cotiza">
   <div class="wrap">
     <div class="quote-intro">
       <p class="eyebrow">Cotiza en 4 pasos</p>
@@ -957,7 +996,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="contact" id="contacto" data-chap="09|Hablemos">
+<section class="contact" id="contacto" data-chap="10|Hablemos">
   <div class="wrap">
     <span class="mark mark-lg" id="contactMark"><img src="img/logo.webp" alt="Logo Manos de Maestro" width="200" height="91" loading="lazy"><i class="shine" aria-hidden="true"></i></span>
     <h2 class="split">Conversemos <em>tu proyecto.</em></h2>
