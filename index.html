@@ -663,6 +663,37 @@ html.js .qs+.qs{margin-top:0}
   .cc-cta>div{height:min(100vw,420px)}
   .campo-more{grid-template-columns:minmax(0,1fr)}
 }
+
+/* casa en el bosque */
+.bosque{border-bottom:1px solid var(--line)}
+.bosque .wrap{padding-block:clamp(80px,10vw,140px);display:flex;flex-direction:column;gap:clamp(24px,3.5vw,40px)}
+.bq-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+.bq-head h2{font-size:clamp(40px,5vw,72px);max-width:14ch}
+.bq-head p{color:var(--muted);max-width:44ch}
+.bq-hero{position:relative;margin:0;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--surface);cursor:zoom-in}
+.bq-hero img{width:100%;height:100%;object-fit:cover}
+.bq-hero .tag,.bq-cap{position:absolute;left:16px;bottom:16px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:rgba(11,13,15,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px}
+.bq{display:flex;flex-direction:column;gap:16px}
+.bq-stage{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--surface);outline-offset:4px}
+.bq-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .7s var(--ease),transform 1.6s var(--ease);cursor:zoom-in}
+.bq-stage img.on{opacity:1;transform:none;z-index:1}
+.bq-cap{z-index:3;display:flex;gap:10px;align-items:center;left:16px;top:16px;bottom:auto}
+.bq-cap .n{color:var(--wood)}
+.bq-cap b{font-family:var(--sans);font-weight:600;letter-spacing:.02em;text-transform:none;font-size:14px}
+.bq-arrow{position:absolute;z-index:3;top:50%;margin-top:-24px;width:48px;height:48px;border-radius:999px;border:1px solid rgba(245,245,243,.25);background:rgba(11,13,15,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--bone);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s var(--ease)}
+.bq-arrow:hover{background:rgba(11,13,15,.85)}
+.bq-arrow.p{left:14px}.bq-arrow.n2{right:14px}
+.bq-bar{position:absolute;z-index:3;left:0;right:0;bottom:0;height:3px;background:rgba(245,245,243,.18)}
+.bq-bar i{display:block;height:100%;width:100%;background:var(--wood);transform-origin:0 50%;transform:scaleX(0)}
+.bq-desc{color:#D5D8DB;font-size:clamp(16px,1.4vw,18px);min-height:1.6em}
+.bq-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:6px}
+.bq-steps button{width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 2px 0;border:0;border-top:2px solid var(--line);background:none;color:var(--muted);font:500 13px var(--sans);text-align:left;cursor:pointer;transition:color .2s var(--ease),border-color .2s var(--ease)}
+.bq-steps button .n{font-family:var(--mono);font-size:11px;color:#6E747A}
+.bq-steps button:hover{color:var(--bone)}
+.bq-steps button.on{color:var(--bone);border-top-color:var(--wood)}
+.bq-steps button.on .n{color:var(--wood)}
+@media (max-width:1099px){.bq-steps{display:flex;overflow-x:auto;scrollbar-width:none;gap:14px}.bq-steps::-webkit-scrollbar{display:none}.bq-steps li{flex:none}.bq-steps button{white-space:nowrap;padding-right:6px}}
+@media (max-width:899px){.bq-arrow{width:40px;height:40px;margin-top:-20px}.bq-steps{margin-inline:calc(var(--gutter) * -1) calc(var(--gutter-r) * -1);padding-inline:var(--gutter) var(--gutter-r)}}
 </style>
 </head>
 <body>
@@ -734,7 +765,28 @@ html.js .qs+.qs{margin-top:0}
   <div class="campo-more"><figure class="img-reveal"><img src="img/campo-casa2-1600.webp" srcset="img/campo-casa2-800.webp 800w, img/campo-casa2-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 720px" width="1600" height="900" alt="Otra casa de campo terminada en el sector Pichihuape, con el cerro detrás" loading="lazy" decoding="async" data-lb="campo2" data-full="img/campo-casa2-1600.webp"></figure><div class="reveal"><p class="eyebrow">También en Pichihuape</p><h3 style="margin-top:12px">Otra casa, <em>en el mismo sector.</em></h3><p>Una segunda casa de campo construida por nosotros en Pichihuape: estructura de madera, revestimiento blanco y ventanas de madera mirando al cerro.</p><a class="btn btn-ghost" style="margin-top:22px" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20las%20casas%20de%20Pichihuape%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20cotizar%20una%20casa." target="_blank" rel="noopener">Cotizar mi casa</a></div></div>
 </section>
 
-<section class="manifesto morph" id="manifiesto" aria-label="Quiénes somos" data-chap="03|El oficio">
+<section class="bosque" id="bosque" aria-label="Casa sobre pilotes en el bosque, Cunucapa" data-chap="03|Cunucapa">
+  <div class="wrap">
+    <div class="bq-head">
+      <div class="reveal"><p class="eyebrow">Obra destacada · Casa en el bosque · Cunucapa</p><h2 style="margin-top:14px">Una casa sobre pilotes, <em>en pleno bosque.</em></h2></div>
+      <p class="reveal">Un terreno en pendiente, rodeado de árboles. La levantamos sobre pilotes de hormigón y la construimos completa, de la excavación a la fosa séptica y las terminaciones.</p>
+    </div>
+    <!--BOSQUE-HERO-->
+    <div class="bq" id="bq">
+      <div class="bq-stage" tabindex="0" aria-label="Etapas de la obra; usa las flechas para avanzar"><img class="on" src="img/cunu-1-800.webp" srcset="img/cunu-1-800.webp 800w, img/cunu-1-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Excavación: Trazado y excavación de los poyos en el terreno en pendiente." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-1-1600.webp"><img class="" src="img/cunu-2-800.webp" srcset="img/cunu-2-800.webp 800w, img/cunu-2-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Pilotes: Pilotes de hormigón armado para levantar la casa sobre el cerro." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-2-1600.webp"><img class="" src="img/cunu-3-800.webp" srcset="img/cunu-3-800.webp 800w, img/cunu-3-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Vigas maestras: Vigas sobre los pilotes, niveladas para recibir el piso." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-3-1600.webp"><img class="" src="img/cunu-4-800.webp" srcset="img/cunu-4-800.webp 800w, img/cunu-4-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Envigado: Envigado de piso, cuadriculado y nivelado pieza por pieza." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-4-1600.webp"><img class="" src="img/cunu-5-800.webp" srcset="img/cunu-5-800.webp 800w, img/cunu-5-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Plataforma: Piso de placas sobre el envigado: la base de toda la casa." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-5-1600.webp"><img class="" src="img/cunu-6-800.webp" srcset="img/cunu-6-800.webp 800w, img/cunu-6-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Muros: Muros de estructura de madera y OSB, con los vanos de puertas y ventanas." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-6-1600.webp"><img class="" src="img/cunu-7-800.webp" srcset="img/cunu-7-800.webp 800w, img/cunu-7-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Cerchas: Cerchas armadas en el piso y levantadas para la techumbre." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-7-1600.webp"><img class="" src="img/cunu-8-800.webp" srcset="img/cunu-8-800.webp 800w, img/cunu-8-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Techumbre: Techo de zinc instalado entre los árboles." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-8-1600.webp"><img class="" src="img/cunu-9-800.webp" srcset="img/cunu-9-800.webp 800w, img/cunu-9-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Interiores: Revestimiento interior de madera y ventanales hacia el bosque." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-9-1600.webp"><img class="" src="img/cunu-10-800.webp" srcset="img/cunu-10-800.webp 800w, img/cunu-10-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Fosa séptica: Instalación de la fosa séptica y su red de alcantarillado." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-10-1600.webp"><img class="" src="img/cunu-11-800.webp" srcset="img/cunu-11-800.webp 800w, img/cunu-11-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Terminaciones: Piezas terminadas con piso de madera, listas para vivir." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-11-1600.webp">
+        <div class="bq-cap"><span class="n" id="bqN">01</span><b id="bqT">Excavación</b></div>
+        <button type="button" class="bq-arrow p" id="bqPrev" aria-label="Etapa anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button type="button" class="bq-arrow n2" id="bqNext" aria-label="Etapa siguiente"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <span class="bq-bar"><i id="bqBar"></i></span>
+      </div>
+      <p class="bq-desc" id="bqDesc" aria-live="polite">Trazado y excavación de los poyos en el terreno en pendiente.</p>
+      <ol class="bq-steps" id="bqSteps"><li><button type="button" class="on" data-i="0" data-d="Trazado y excavación de los poyos en el terreno en pendiente."><span class="n">01</span>Excavación</button></li><li><button type="button" class="" data-i="1" data-d="Pilotes de hormigón armado para levantar la casa sobre el cerro."><span class="n">02</span>Pilotes</button></li><li><button type="button" class="" data-i="2" data-d="Vigas sobre los pilotes, niveladas para recibir el piso."><span class="n">03</span>Vigas maestras</button></li><li><button type="button" class="" data-i="3" data-d="Envigado de piso, cuadriculado y nivelado pieza por pieza."><span class="n">04</span>Envigado</button></li><li><button type="button" class="" data-i="4" data-d="Piso de placas sobre el envigado: la base de toda la casa."><span class="n">05</span>Plataforma</button></li><li><button type="button" class="" data-i="5" data-d="Muros de estructura de madera y OSB, con los vanos de puertas y ventanas."><span class="n">06</span>Muros</button></li><li><button type="button" class="" data-i="6" data-d="Cerchas armadas en el piso y levantadas para la techumbre."><span class="n">07</span>Cerchas</button></li><li><button type="button" class="" data-i="7" data-d="Techo de zinc instalado entre los árboles."><span class="n">08</span>Techumbre</button></li><li><button type="button" class="" data-i="8" data-d="Revestimiento interior de madera y ventanales hacia el bosque."><span class="n">09</span>Interiores</button></li><li><button type="button" class="" data-i="9" data-d="Instalación de la fosa séptica y su red de alcantarillado."><span class="n">10</span>Fosa séptica</button></li><li><button type="button" class="" data-i="10" data-d="Piezas terminadas con piso de madera, listas para vivir."><span class="n">11</span>Terminaciones</button></li></ol>
+    </div>
+    <div class="casa-cta reveal"><a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20casa%20del%20bosque%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20construir%20en%20mi%20terreno." target="_blank" rel="noopener">Quiero construir en mi terreno</a><span>Terrenos en pendiente · Pilotes · Fosa séptica</span></div>
+  </div>
+</section>
+
+<section class="manifesto morph" id="manifiesto" aria-label="Quiénes somos" data-chap="04|El oficio">
   <div class="wrap"><p id="manifesto"><span class="w">Dos maestros al mismo nivel.</span> <span class="w">Más de veinticinco años de oficio.</span> <span class="w">Cada obra la trazamos, la cortamos y la terminamos nosotros.</span></p></div>
 </section>
 
@@ -755,7 +807,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="story" id="obras" aria-label="Obra destacada: escalera a medida" data-chap="04|Las obras">
+<section class="story" id="obras" aria-label="Obra destacada: escalera a medida" data-chap="05|Las obras">
   <div class="wrap story-inner" id="story">
     <div class="story-steps">
       <p class="eyebrow">Obra destacada · Carpintería</p>
@@ -889,7 +941,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="process" aria-label="Cómo trabajamos" data-chap="05|Cómo trabajamos">
+<section class="process" aria-label="Cómo trabajamos" data-chap="06|Cómo trabajamos">
   <div class="wrap">
     <div class="vid img-reveal">
       <video id="procVid" src="video/empaste.mp4" poster="img/empaste-poster.webp" muted loop playsinline preload="none" aria-label="Timelapse real de empaste de un cielo"></video>
@@ -909,7 +961,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="services morph" id="servicios" data-chap="06|Servicios">
+<section class="services morph" id="servicios" data-chap="07|Servicios">
   <div class="wrap">
     <div class="svc-head"><h2 class="split">Todo lo que <em>hacemos.</em></h2><p class="reveal">Desde una casa completa hasta un baño. Si no ves lo que buscas, escríbenos igual.</p></div>
     <article class="svc-main" id="casas">
@@ -936,7 +988,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="partners" id="nosotros" data-chap="07|Nosotros">
+<section class="partners" id="nosotros" data-chap="08|Nosotros">
   <div class="wrap">
     <p class="eyebrow">Nosotros</p>
     <h2 class="split">Dos maestros. <em>Un mismo estándar.</em></h2>
@@ -948,14 +1000,14 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="coverage" id="valdivia" aria-label="Zona de trabajo" data-chap="08|Valdivia">
+<section class="coverage" id="valdivia" aria-label="Zona de trabajo" data-chap="09|Valdivia">
   <div class="wrap">
     <div class="reveal"><p class="eyebrow">Dónde trabajamos</p><h2 class="split" style="margin-top:14px">Valdivia <em>y alrededores.</em></h2><p class="cov-sub">Trabajamos principalmente en Valdivia. También vamos a las comunas cercanas de la Región de Los Ríos.</p></div>
     <ol class="comunas reveal-group"><li class="main">Valdivia</li><li>Corral</li><li>Lanco</li><li>Los Lagos</li><li>Máfil</li><li>Mariquina</li><li>Paillaco</li><li>Panguipulli</li><li>La Unión</li><li>Futrono</li><li>Lago Ranco</li><li>Río Bueno</li></ol>
   </div>
 </section>
 
-<section class="faq" id="preguntas" aria-label="Preguntas frecuentes" data-chap="09|Preguntas">
+<section class="faq" id="preguntas" aria-label="Preguntas frecuentes" data-chap="10|Preguntas">
   <div class="wrap">
     <div class="reveal"><p class="eyebrow">Preguntas frecuentes</p><h2 class="split" style="margin-top:14px">Antes de <em>escribirnos.</em></h2></div>
     <div class="qa reveal-group">
@@ -969,7 +1021,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="quote" id="cotizar" aria-label="Formulario de cotización" data-chap="10|Cotiza">
+<section class="quote" id="cotizar" aria-label="Formulario de cotización" data-chap="11|Cotiza">
   <div class="wrap">
     <div class="quote-intro">
       <p class="eyebrow">Cotiza en 4 pasos</p>
@@ -1039,7 +1091,7 @@ html.js .qs+.qs{margin-top:0}
   </div>
 </section>
 
-<section class="contact" id="contacto" data-chap="11|Hablemos">
+<section class="contact" id="contacto" data-chap="12|Hablemos">
   <div class="wrap">
     <span class="mark mark-lg" id="contactMark"><img src="img/logo.webp" alt="Logo Manos de Maestro" width="200" height="91" loading="lazy"><i class="shine" aria-hidden="true"></i></span>
     <h2 class="split">Conversemos <em>tu proyecto.</em></h2>

@@ -436,3 +436,34 @@
   });
   window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
 })();
+
+// casa en el bosque: stage viewer with autoplay while visible
+(function(){
+  var root=document.getElementById('bq'); if(!root) return;
+  var imgs=[].slice.call(root.querySelectorAll('.bq-stage img')), btns=[].slice.call(root.querySelectorAll('.bq-steps button'));
+  var nEl=document.getElementById('bqN'), tEl=document.getElementById('bqT'), dEl=document.getElementById('bqDesc'), bar=document.getElementById('bqBar'), stage=root.querySelector('.bq-stage');
+  var i=0, timer=null, auto=true, visible=false, DUR=4200, t0=0, raf=0;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(k){
+    i=(k+imgs.length)%imgs.length;
+    imgs.forEach(function(im,j){im.classList.toggle('on',j===i);});
+    btns.forEach(function(b,j){b.classList.toggle('on',j===i);});
+    nEl.textContent=(i<9?'0':'')+(i+1); tEl.textContent=btns[i].textContent.replace(/^\d+/,''); dEl.textContent=btns[i].getAttribute('data-d');
+    var b=btns[i]; if(b.parentNode.parentNode.scrollWidth>b.parentNode.parentNode.clientWidth){ b.parentNode.parentNode.scrollTo({left:b.parentNode.offsetLeft-24,behavior:'smooth'}); }
+    var nx=imgs[(i+1)%imgs.length]; if(nx.loading==='lazy') nx.loading='eager';
+    t0=performance.now();
+  }
+  function tick(now){
+    if(auto && visible && !reduce){ var p=Math.min((now-t0)/DUR,1); bar.style.transform='scaleX('+p.toFixed(3)+')'; if(p>=1) show(i+1); }
+    raf=requestAnimationFrame(tick);
+  }
+  function stop(){ auto=false; bar.style.transform='scaleX(0)'; }
+  btns.forEach(function(b,j){ b.addEventListener('click',function(){ stop(); show(j); }); });
+  document.getElementById('bqPrev').addEventListener('click',function(){ stop(); show(i-1); });
+  document.getElementById('bqNext').addEventListener('click',function(){ stop(); show(i+1); });
+  stage.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){stop();show(i+1);} if(e.key==='ArrowLeft'){stop();show(i-1);} });
+  var sx=null; stage.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+  stage.addEventListener('touchend',function(e){ if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>45){ stop(); show(i+(dx<0?1:-1)); } sx=null; },{passive:true});
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ var was=visible; visible=e.isIntersecting; if(visible && !was) t0=performance.now(); }); },{threshold:.5}).observe(stage); }
+  raf=requestAnimationFrame(tick);
+})();
