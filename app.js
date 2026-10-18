@@ -152,6 +152,19 @@
 
 
 
+  // analytics: every WhatsApp tap and every quote sent (Vercel Web Analytics custom events)
+  function track(name,data){ try{ if(window.va) window.va('event',{name:name,data:data}); }catch(x){} }
+  function origin(a){ var s=a.closest('section,header,footer,.mbar'); return a.getAttribute('data-obra')||(s&&(s.id||s.className.split(' ')[0]))||'otro'; }
+  var lastOrigin='';
+  document.addEventListener('click', function(e){
+    var a=e.target.closest && e.target.closest('a[href*="wa.me"]'); if(!a) return;
+    if(a.classList.contains('who-opt')){ track('WhatsApp abierto',{socio:a.getAttribute('data-name'),origen:lastOrigin||'menú'}); return; }
+    if(a.id==='qAgain'){ track('WhatsApp abierto',{socio:'reintento',origen:'formulario'}); return; }
+    lastOrigin=origin(a);
+    track('Botón WhatsApp',{origen:lastOrigin});
+    if(a.hasAttribute('data-direct')) track('WhatsApp abierto',{socio:(a.href.indexOf('56965836682')>-1?'Ignacio':'Miguel'),origen:lastOrigin});
+  }, true);
+
   // WhatsApp: Miguel and Ignacio are both main contacts, so buttons ask who to write to
   var who=$('#who'), whoOpts=$$('.who-opt'), whoCb=null;
   function personal(text,name){ return text.replace(/^Hola,?/, 'Hola '+name+','); }
@@ -275,6 +288,7 @@
       e.preventDefault();
       if(cur>last || !valid(cur)) return;
       if(cur<last){ go(cur+1); return; }
+      var dq=data(); track('Formulario enviado',{tipo:dq.tipo.join(', '),comuna:dq.comuna}); lastOrigin='formulario';
       var done=function(url){ $('#qAgain').href=url; go(last+1); };
       if(canSheet){ openWho(message(), done); return; }
       var url='https://wa.me/56977107052?text='+encodeURIComponent(message());
@@ -346,7 +360,7 @@
   gsap.fromTo('#heroImg',{scale:1.14},{scale:1,duration:2.6,ease:'power2.out',delay:introDelay*.6});
   gsap.fromTo('.hero .li',{yPercent:112},{yPercent:0,duration:1.15,ease:'expo.out',stagger:.12,delay:introDelay+.1});
   gsap.from('.cue',{opacity:0,y:-10,duration:.8,ease:ease,delay:introDelay+.9});
-  gsap.from('.hero .rv',{y:24,opacity:0,duration:.8,ease:ease,stagger:.09,delay:introDelay+.3});
+  gsap.from('.hero .rv',{y:24,duration:.9,ease:ease,stagger:.09,delay:introDelay+.2});
   gsap.to('.hero-media',{yPercent:14,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
   gsap.to('.hero .wrap',{yPercent:-10,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'center center',end:'bottom top',scrub:true}});
 
@@ -357,12 +371,12 @@
     if(anim){ ScrollTrigger.create({trigger:'.ticker',start:'top bottom',end:'bottom top',onUpdate:function(self){ var v=Math.min(Math.abs(self.getVelocity())/600,4); anim.playbackRate=1+v; gsap.to(anim,{playbackRate:1,duration:.8,overwrite:true}); }}); }
   }
 
-  // reveals (start visible-ish, never fully hidden)
+  // reveals: a soft rise, always fully visible (transform only)
   gsap.utils.toArray('.reveal').forEach(function(el){
-    gsap.fromTo(el,{y:18,opacity:.35},{y:0,opacity:1,duration:.7,ease:ease,scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+    gsap.fromTo(el,{y:26},{y:0,duration:.9,ease:ease,scrollTrigger:{trigger:el,start:'top 88%',once:true}});
   });
   gsap.utils.toArray('.reveal-group').forEach(function(g){
-    gsap.fromTo(g.children,{y:18,opacity:.35},{y:0,opacity:1,duration:.7,ease:ease,stagger:.07,scrollTrigger:{trigger:g,start:'top 86%',once:true}});
+    gsap.fromTo(g.children,{y:26},{y:0,duration:.9,ease:ease,stagger:.07,scrollTrigger:{trigger:g,start:'top 86%',once:true}});
   });
   gsap.utils.toArray('.img-reveal').forEach(function(box){
     var img=box.querySelector('img,video');
@@ -471,11 +485,13 @@
     t0=performance.now();
   }
   function tick(now){
-    if(auto && visible && !reduce){ var p=Math.min((now-t0)/DUR,1); bar.style.transform='scaleX('+p.toFixed(3)+')'; if(p>=1) show(i+1); }
+    raf=0; if(!(auto && visible && !reduce)) return;
+    var p=Math.min((now-t0)/DUR,1); bar.style.transform='scaleX('+p.toFixed(3)+')'; if(p>=1) show(i+1);
     raf=requestAnimationFrame(tick);
   }
+  function kick(){ if(!raf && auto && visible && !reduce) raf=requestAnimationFrame(tick); }
   var play=document.getElementById('bqPlay');
-  function setAuto(v){ auto=v; play.textContent=v?'Pausar':'Reproducir'; play.setAttribute('aria-label',v?'Pausar el avance automático':'Reanudar el avance automático'); if(!v) bar.style.transform='scaleX(0)'; else t0=performance.now(); }
+  function setAuto(v){ auto=v; play.textContent=v?'Pausar':'Reproducir'; play.setAttribute('aria-label',v?'Pausar el avance automático':'Reanudar el avance automático'); if(!v) bar.style.transform='scaleX(0)'; else { t0=performance.now(); kick(); } }
   function stop(){ setAuto(false); }
   play.addEventListener('click',function(){ setAuto(!auto); });
   if(reduce) setAuto(false);
@@ -485,6 +501,5 @@
   stage.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){stop();show(i+1);} if(e.key==='ArrowLeft'){stop();show(i-1);} });
   var sx=null; stage.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
   stage.addEventListener('touchend',function(e){ if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>45){ stop(); show(i+(dx<0?1:-1)); } sx=null; },{passive:true});
-  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ var was=visible; visible=e.isIntersecting; if(visible && !was) t0=performance.now(); }); },{threshold:.5}).observe(stage); }
-  raf=requestAnimationFrame(tick);
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ var was=visible; visible=e.isIntersecting; if(visible && !was){ t0=performance.now(); kick(); } }); },{threshold:.5}).observe(stage); }
 })();

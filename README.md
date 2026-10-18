@@ -15,7 +15,8 @@ Es HTML, CSS y JavaScript estático. No hay que compilar nada: Vercel lo publica
 | `img/` | Fotos en `.webp`, en dos tamaños: `-800` (celular) y `-1600` (computador). Hero también en `-2400` |
 | `video/empaste.mp4` | Timelapse real del empaste de un cielo |
 | `og.jpg` | Imagen que aparece al compartir el link por WhatsApp o redes |
-| `favicon.png`, `apple-touch-icon.png`, `icon-512.png` | Íconos |
+| `favicon-32.png`, `favicon.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `site.webmanifest` | Íconos y manifest |
+| `img/logo.webp` | Logo original (no se modifica). `img/logo-160.webp` es la misma imagen reducida para el encabezado y el pie |
 | `404.html`, `robots.txt`, `sitemap.xml`, `vercel.json` | Página de error, SEO y caché |
 
 ## Fotos
@@ -32,7 +33,9 @@ Todas son reales. Las restauradas se limpiaron con IA. Las demás se agrandaron 
 | `obra-1/2/3` | Obra 04 · Ampliaciones | Maestros en la techumbre, interior del segundo piso, casa con la estructura |
 | `g-*` | Galería "Hecho a mano" | Escalera, vanitorio, muro de madera, cielo de madera, fachada de madera café con alero negro |
 
-Para cambiar una foto, reemplaza los dos archivos (`-800.webp` y `-1600.webp`) manteniendo el nombre.
+Para cambiar una foto, súbela con un **nombre nuevo** (por ejemplo `casa-1-v2-800.webp` y `casa-1-v2-1600.webp`) y cambia el nombre en `index.html`. Las fotos se guardan en caché por un año (`vercel.json`), así que si se reemplaza un archivo con el mismo nombre, los visitantes seguirán viendo la foto vieja.
+
+Las fotos de las tiras de etapas tienen además una versión `-480.webp` para celular. Los archivos con `-v2` son las mismas fotos recomprimidas (pesan entre 18 y 33 % menos).
 
 ## Fichas de obra
 
@@ -76,6 +79,22 @@ Cada botón de obra (casa en Valdivia, Pichihuape, Punucapa, techumbre, baño, c
 - **Lo que te aseguramos**: atención directa de los socios, fotos de cada etapa, presupuesto claro antes de empezar y certificado eléctrico SEC a través de un electricista autorizado. Solo cosas ciertas.
 - **Cifras**: +25 años de oficio y 12 comunas. Las cifras de casas desde cero y obras terminadas están como `[DATO: …]` hasta tener el número real.
 - **Testimonios**: la sección `#testimonios` está en el HTML con el atributo `hidden`. Cuando haya testimonios reales (con permiso del cliente), se reemplazan los `[TESTIMONIO …]` y se borra `hidden`.
+
+## Medición (Vercel Analytics)
+
+La página carga `/_vercel/insights/script.js`. Para que funcione hay que activar **Analytics** en el proyecto de Vercel (pestaña Analytics → Enable). Los eventos que registra:
+
+- `Botón WhatsApp`: cada vez que alguien toca un botón de WhatsApp, con el `origen` (la obra o la sección).
+- `WhatsApp abierto`: cuando elige a Miguel o a Ignacio y se abre WhatsApp, con el `socio` y el `origen`.
+- `Formulario enviado`: al terminar el formulario de cotización, con el `tipo` de trabajo y la `comuna`.
+
+Las visitas se cuentan en el plan gratis. Los eventos personalizados solo se ven en los planes pagados de Vercel; en el plan gratis se envían, pero no aparecen en el panel.
+
+## SEO
+
+- Datos estructurados (JSON-LD): `GeneralContractor` con las 12 comunas (Valdivia primero) y los dos socios, `FAQPage` con las preguntas frecuentes y las 4 obras grandes como `CreativeWork` con su ubicación.
+- Título y descripción con foco en casas desde cero en Valdivia. `og.jpg` es la imagen al compartir.
+- `sitemap.xml` con fecha de actualización, `robots.txt` y página `404.html` con `noindex`.
 
 ## Código QR
 
