@@ -422,3 +422,17 @@
   ScrollTrigger.sort(); ScrollTrigger.refresh();
   window.addEventListener('load', function(){ScrollTrigger.sort(); ScrollTrigger.refresh();});
 })();
+
+// casa de campo: horizontal walk-through pinned on desktop
+(function(){
+  if(!window.gsap || !window.ScrollTrigger) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+  var mm=gsap.matchMedia();
+  mm.add('(min-width: 900px)', function(){
+    var pin=document.querySelector('.campo-pin'), track=document.getElementById('campoTrack'); if(!pin||!track) return;
+    function dist(){ return Math.max(0, track.scrollWidth - pin.clientWidth); }
+    gsap.to(track,{x:function(){return -dist();},ease:'none',scrollTrigger:{trigger:pin,start:'center center',end:function(){return '+='+dist();},pin:true,scrub:.5,invalidateOnRefresh:true,anticipatePin:1}});
+  });
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+})();
