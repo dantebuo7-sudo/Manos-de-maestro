@@ -3,8 +3,8 @@
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var lenis=null;
-  // the intro (head script + CSS) lasts ~1.9s before the hero is uncovered
-  var introDelay=document.documentElement.classList.contains('intro-on')?1.85:0;
+  // the intro (head script + CSS) lasts ~1.1s before the hero is uncovered
+  var introDelay=document.documentElement.classList.contains('intro-on')?.95:0;
 
   // header: solid after hero top, hides on scroll down, returns on scroll up
   var hdr=$('#hdr'), lastY=0, docEl=document.documentElement;
@@ -324,7 +324,8 @@
 
   // hero entrance (after the intro) + gentle parallax as it scrolls away
   gsap.fromTo('#heroImg',{scale:1.14},{scale:1,duration:2.6,ease:'power2.out',delay:introDelay*.6});
-  gsap.fromTo('.hero h1 .wi',{yPercent:110},{yPercent:0,duration:1.1,ease:'expo.out',stagger:.07,delay:introDelay+.1});
+  gsap.fromTo('.hero .li',{yPercent:112},{yPercent:0,duration:1.15,ease:'expo.out',stagger:.12,delay:introDelay+.1});
+  gsap.from('.cue',{opacity:0,y:-10,duration:.8,ease:ease,delay:introDelay+.9});
   gsap.from('.hero .rv',{y:24,opacity:0,duration:.8,ease:ease,stagger:.09,delay:introDelay+.3});
   gsap.to('.hero-media',{yPercent:14,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
   gsap.to('.hero .wrap',{yPercent:-10,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'center center',end:'bottom top',scrub:true}});
@@ -346,7 +347,13 @@
   gsap.utils.toArray('.img-reveal').forEach(function(box){
     var img=box.querySelector('img,video');
     gsap.fromTo(box,{clipPath:'inset(6% 6% 6% 6% round 10px)'},{clipPath:'inset(0% 0% 0% 0% round 10px)',duration:1.1,ease:'power3.inOut',scrollTrigger:{trigger:box,start:'top 90%',once:true}});
+    if(box.classList.contains('par')) return;
     gsap.fromTo(img,{scale:1.12},{scale:1,duration:1.4,ease:ease,scrollTrigger:{trigger:box,start:'top 90%',once:true},clearProps:'transform'});
+  });
+  // big finished-house photos drift gently inside their frame (transform only)
+  gsap.utils.toArray('.par').forEach(function(box){
+    var img=box.querySelector('img');
+    gsap.fromTo(img,{yPercent:-5,scale:1.12},{yPercent:5,scale:1.12,ease:'none',scrollTrigger:{trigger:box,start:'top bottom',end:'bottom top',scrub:true}});
   });
 
   // count up numbers

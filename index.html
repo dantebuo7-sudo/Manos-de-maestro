@@ -23,7 +23,7 @@
 <link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="img/hero-1600.webp" imagesrcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w, img/hero-2400.webp 2400w" imagesizes="(max-aspect-ratio: 1/1) 170vh, 100vw" fetchpriority="high">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "GeneralContractor", "name": "Manos de Maestro", "url": "https://manosdemaestro.vercel.app", "image": "https://manosdemaestro.vercel.app/og.jpg", "logo": "https://manosdemaestro.vercel.app/icon-512.png", "description": "Construcción de casas desde cero y remodelaciones en Valdivia, Región de Los Ríos, Chile.", "telephone": "+56977107052", "areaServed": [{"@type": "City", "name": "Valdivia"}, {"@type": "City", "name": "Corral"}, {"@type": "City", "name": "Lanco"}, {"@type": "City", "name": "Los Lagos"}, {"@type": "City", "name": "Máfil"}, {"@type": "City", "name": "Mariquina"}, {"@type": "City", "name": "Paillaco"}, {"@type": "City", "name": "Panguipulli"}, {"@type": "City", "name": "La Unión"}, {"@type": "City", "name": "Futrono"}, {"@type": "City", "name": "Lago Ranco"}, {"@type": "City", "name": "Río Bueno"}], "address": {"@type": "PostalAddress", "addressLocality": "Valdivia", "addressRegion": "Región de Los Ríos", "addressCountry": "CL"}, "founder": [{"@type": "Person", "name": "Miguel Saldivia", "telephone": "+56977107052"}, {"@type": "Person", "name": "Ignacio Mora", "telephone": "+56965836682"}], "knowsAbout": ["Construcción de casas", "Construcción con panel SIP", "Instalaciones eléctricas", "Instalación de fosa séptica", "Remodelación de baños", "Remodelación de cocinas", "Escaleras de madera", "Techumbres", "Ampliaciones", "Pisos y revestimientos"]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cómo pido un presupuesto?", "acceptedAnswer": {"@type": "Answer", "text": "Escríbenos por WhatsApp con fotos del espacio, la comuna y lo que quieres hacer. Con eso coordinamos una visita para medir y te enviamos un presupuesto claro."}}, {"@type": "Question", "name": "¿Quién hace el trabajo?", "acceptedAnswer": {"@type": "Answer", "text": "Nosotros mismos: Miguel Saldivia e Ignacio Mora. Los mismos que te cotizan son los que trabajan en tu obra."}}, {"@type": "Question", "name": "¿En qué comunas trabajan?", "acceptedAnswer": {"@type": "Answer", "text": "Principalmente en Valdivia. También vamos a las comunas cercanas: Corral, Lanco, Los Lagos, Máfil, Mariquina, Paillaco, Panguipulli, La Unión, Futrono, Lago Ranco y Río Bueno."}}, {"@type": "Question", "name": "¿Puedo ver cómo avanza mi obra?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Te mandamos fotos del antes, de cada etapa del proceso y del resultado final."}}, {"@type": "Question", "name": "¿Qué tipo de trabajos hacen?", "acceptedAnswer": {"@type": "Answer", "text": "Construcción de casas desde cero (tradicional o con panel SIP), ampliaciones y segundos pisos, techumbres, instalaciones eléctricas, fosa séptica, baños, cocinas, escaleras y carpintería, pisos y revestimientos."}}, {"@type": "Question", "name": "¿Entregan certificado eléctrico?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Nosotros hacemos la instalación y la certifica un electricista autorizado SEC, para que quede todo en regla."}}]}]</script>
-<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('mm-intro')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('seen');else{d.classList.add('intro-on');sessionStorage.setItem('mm-intro','1');setTimeout(function(){d.classList.remove('intro-on');d.classList.add('seen');},2600);}}catch(e){d.classList.add('seen');}})(document.documentElement);</script>
+<script>(function(d){d.classList.add('js');try{if(sessionStorage.getItem('mm-intro')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('seen');else{d.classList.add('intro-on');sessionStorage.setItem('mm-intro','1');setTimeout(function(){d.classList.remove('intro-on');d.classList.add('seen');},1200);}}catch(e){d.classList.add('seen');}})(document.documentElement);</script>
 <style>
 @font-face{font-family:'Geist';src:url(fonts/geist-latin-wght-normal.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:'Geist Mono';src:url(fonts/geist-mono-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
@@ -88,10 +88,13 @@ p{margin:0}
 .hero{position:relative;min-height:min(94svh,960px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
 .hero-media{position:absolute;inset:0;z-index:-1}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;will-change:transform}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,13,15,.74) 0%,rgba(11,13,15,.32) 42%,rgba(11,13,15,0) 70%),linear-gradient(180deg,rgba(11,13,15,.45) 0%,rgba(11,13,15,0) 20%,rgba(11,13,15,0) 74%,var(--ink) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,13,15,.86) 0%,rgba(11,13,15,.6) 38%,rgba(11,13,15,.12) 68%,rgba(11,13,15,0) 80%),linear-gradient(180deg,rgba(11,13,15,.45) 0%,rgba(11,13,15,0) 20%,rgba(11,13,15,0) 74%,var(--ink) 100%)}
 .hero .wrap{position:relative;width:100%;padding-block:140px 72px;display:flex;flex-direction:column;gap:24px}
 .hero .eyebrow{color:var(--wood-soft);font-weight:500}
 .hero h1{font-size:clamp(46px,6.8vw,104px);max-width:12ch}
+.hero h1 em{color:var(--wood-soft)}
+.hero .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero .li{display:block;will-change:transform}
 .hero .lead{font-size:clamp(17px,1.5vw,19px);line-height:1.55;color:#DADCDE;max-width:30em}
 .link-arrow{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 6px;color:var(--bone);text-decoration:none;font-weight:600;font-size:15px}
 .link-arrow span{transition:transform .2s var(--ease)}
@@ -99,9 +102,12 @@ p{margin:0}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
 .hero .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(245,245,243,.18);font-size:14px;color:#C9CCCF}
 .hero .meta b{color:var(--bone);font-weight:600}
-.cue{position:absolute;right:max(28px,env(safe-area-inset-right,0px));bottom:76px;width:26px;height:42px;border:1.5px solid rgba(245,245,243,.45);border-radius:999px;display:flex;justify-content:center}
-.cue span{width:3px;height:8px;border-radius:2px;background:var(--bone);margin-top:8px;animation:cue 1.8s var(--ease) infinite}
-@keyframes cue{0%{opacity:0;transform:translateY(-3px)}30%{opacity:1}80%{opacity:0;transform:translateY(12px)}100%{opacity:0}}
+.cue{position:absolute;right:max(28px,env(safe-area-inset-right,0px));bottom:72px;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:44px;padding:6px 0;color:rgba(245,245,243,.72);text-decoration:none;font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;transition:color .3s var(--ease)}
+.cue:hover{color:var(--bone)}
+.cue-t{writing-mode:vertical-rl}
+.cue-l{position:relative;width:1px;height:56px;background:rgba(245,245,243,.22);overflow:hidden}
+.cue-l i{position:absolute;left:0;top:0;width:100%;height:45%;background:linear-gradient(180deg,transparent,var(--wood-soft));animation:cue 2.2s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes cue{0%{transform:translateY(-100%)}100%{transform:translateY(230%)}}
 
 /* ticker */
 .ticker{border-block:1px solid var(--line);overflow:hidden;background:var(--ink);padding-block:22px}
@@ -302,11 +308,15 @@ footer{border-top:1px solid var(--line)}
 .mark{position:relative;display:block;line-height:0}
 .mark img{width:100%;height:auto}
 .mark .shine{position:absolute;inset:0;pointer-events:none;-webkit-mask:url(img/logo.webp) center/100% 100% no-repeat;mask:url(img/logo.webp) center/100% 100% no-repeat;background:linear-gradient(105deg,transparent 38%,rgba(255,236,205,.0) 42%,rgba(255,240,215,.95) 50%,rgba(255,236,205,0) 58%,transparent 62%) no-repeat;background-size:260% 100%;background-position:120% 0}
-.brand .mark{width:66px;transition:transform .5s var(--ease)}
+.brand .mark{width:66px;transform-origin:0 50%;transition:transform .55s var(--ease)}
+.hdr.solid .brand .mark{transform:scale(.8)}
+.brand .name{transition:transform .55s var(--ease),opacity .3s}
+.hdr.solid .brand .name{transform:translateX(-12px)}
 .brand .mark .shine{animation:gleam 11s var(--ease) 3s infinite}
 .brand:hover .mark .shine{animation:gleamNow .9s var(--ease)}
-.brand:hover .mark{transform:translateY(-1px)}
-.brand:active .mark{transform:scale(.94)}
+.brand:hover .mark{transform:scale(1.04) rotate(-2deg)}
+.hdr.solid .brand:hover .mark{transform:scale(.84) rotate(-2deg)}
+.brand:active .mark{transform:scale(.92)}
 @keyframes gleam{0%,90%{background-position:120% 0}100%{background-position:-20% 0}}
 @keyframes gleamNow{from{background-position:120% 0}to{background-position:-20% 0}}
 .mark-lg.on .shine{animation:gleamNow 1.2s var(--ease) .5s both}
@@ -315,25 +325,24 @@ footer{border-top:1px solid var(--line)}
 .prog{position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,var(--wood),var(--wood-soft));transform-origin:0 50%;transform:scaleX(var(--p,0));opacity:0;transition:opacity .3s}
 .hdr.solid .prog{opacity:1}
 
-/* intro: short, once per visit */
+/* intro: hammers cross, then the MM appears. Under 1.2s, once per visit */
 .intro{display:none}
-html.js.intro-on .intro{display:flex;position:fixed;inset:0;z-index:100;background:var(--ink);flex-direction:column;align-items:center;justify-content:center;gap:26px;animation:introOut .8s cubic-bezier(.76,0,.24,1) 1.75s forwards}
+html.js.intro-on .intro{display:flex;position:fixed;inset:0;z-index:100;background:var(--ink);align-items:center;justify-content:center;animation:introOut .34s cubic-bezier(.65,0,.35,1) .8s forwards}
 html.intro-on{overflow:hidden}
-.intro-logo{position:relative;width:min(230px,56vw);aspect-ratio:440/200;animation:strike .34s cubic-bezier(.3,1.6,.5,1) .82s both}
-.intro-logo img{width:100%;height:auto;clip-path:inset(0 100% 0 0);filter:blur(6px);animation:draw .9s cubic-bezier(.65,0,.35,1) .1s forwards}
-.intro-logo .shine{animation:gleamNow .8s var(--ease) 1.05s both}
-.intro .shine{position:absolute;inset:0;-webkit-mask:url(img/logo.webp) center/100% 100% no-repeat;mask:url(img/logo.webp) center/100% 100% no-repeat;background:linear-gradient(105deg,transparent 40%,rgba(255,240,215,.95) 50%,transparent 60%) no-repeat;background-size:260% 100%;background-position:120% 0}
-.spark{position:absolute;left:50%;top:76%;width:46%;margin:-23% 0 0 -23%;aspect-ratio:1;overflow:visible;fill:none;stroke:var(--wood-soft);stroke-width:2.2;opacity:0;transform:scale(.4);animation:spark .55s var(--ease) .84s}
-.intro-t{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin:0;opacity:0;animation:fadeUp .7s var(--ease) .55s forwards}
-.intro-t span{color:var(--wood)}
-.intro-line{width:120px;height:1px;background:var(--line);overflow:hidden}
-.intro-line i{display:block;height:100%;background:var(--wood);transform-origin:0 50%;transform:scaleX(0);animation:fill 1.6s cubic-bezier(.65,0,.35,1) .1s forwards}
-@keyframes draw{to{clip-path:inset(0 0 0 0);filter:blur(0)}}
-@keyframes strike{0%{transform:none}35%{transform:translateY(3px) scale(.975)}100%{transform:none}}
+.intro-logo{position:relative;width:min(240px,58vw);aspect-ratio:440/200;animation:introLogo .34s cubic-bezier(.65,0,.35,1) .8s forwards}
+.intro-logo img{position:absolute;inset:0;width:100%;height:100%}
+.il-mm{clip-path:inset(0 50% 0 50%);opacity:0;animation:mmIn .42s cubic-bezier(.22,1,.36,1) .4s forwards}
+.il-h{transform-origin:50.2% 76%;opacity:0}
+.il-a{clip-path:polygon(37% 49%,50.2% 49%,50.2% 76%,61.5% 76%,61.5% 97%,50.2% 97%,50.2% 76%,37% 76%);transform:rotate(-58deg);animation:hamA .42s cubic-bezier(.5,0,.2,1.25) .02s forwards}
+.il-b{clip-path:polygon(50.2% 49%,61.5% 49%,61.5% 76%,50.2% 76%,50.2% 97%,37% 97%,37% 76%,50.2% 76%);transform:rotate(58deg);animation:hamB .42s cubic-bezier(.5,0,.2,1.25) .02s forwards}
+.intro .shine{position:absolute;inset:0;-webkit-mask:url(img/logo.webp) center/100% 100% no-repeat;mask:url(img/logo.webp) center/100% 100% no-repeat;background:linear-gradient(105deg,transparent 40%,rgba(255,240,215,.95) 50%,transparent 60%) no-repeat;background-size:260% 100%;background-position:120% 0;animation:gleamNow .5s var(--ease) .52s both}
+.spark{position:absolute;left:50.2%;top:76%;width:40%;margin:-20% 0 0 -20%;aspect-ratio:1;overflow:visible;fill:none;stroke:var(--wood-soft);stroke-width:2.2;opacity:0;transform:scale(.4);animation:spark .4s var(--ease) .42s}
+@keyframes hamA{0%{opacity:0;transform:rotate(-58deg)}30%{opacity:1}100%{opacity:1;transform:none}}
+@keyframes hamB{0%{opacity:0;transform:rotate(58deg)}30%{opacity:1}100%{opacity:1;transform:none}}
+@keyframes mmIn{to{clip-path:inset(0 0 0 0);opacity:1}}
 @keyframes spark{0%{opacity:0;transform:scale(.4)}25%{opacity:1}100%{opacity:0;transform:scale(1.25)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@keyframes fill{to{transform:scaleX(1)}}
-@keyframes introOut{0%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 100% 0);visibility:hidden}}
+@keyframes introLogo{to{transform:scale(.92);opacity:0}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
 
 /* chapter indicator (desktop) */
 .chap{position:fixed;left:max(24px,env(safe-area-inset-left,0px));bottom:26px;z-index:40;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;mix-blend-mode:difference;opacity:0;transform:translateY(8px);transition:opacity .4s var(--ease),transform .4s var(--ease);pointer-events:none}
@@ -370,8 +379,8 @@ html.intro-on{overflow:hidden}
 .btn-solid:hover::after{transform:translateX(120%)}
 .magnet{will-change:transform}
 .ph:active img{transform:scale(.985)}
-.comunas li{transition:color .25s var(--ease),padding .35s var(--ease)}
-.comunas li:not(.main):hover{color:var(--bone);padding-left:6px}
+.comunas li{transition:color .25s var(--ease)}
+.comunas li:not(.main):hover{color:var(--bone)}
 .steps li{transition:background .3s var(--ease)}
 .qa summary{transition:color .2s}
 .qa summary:hover{color:var(--wood-soft)}
@@ -528,9 +537,10 @@ html.js .qs+.qs{margin-top:0}
   .hero{min-height:100svh}
   .hero h1{font-size:clamp(44px,12vw,58px);line-height:1.02}
   .hero .wrap{padding-block:120px 56px}
-  .hero::after{background:linear-gradient(180deg,rgba(11,13,15,.55) 0%,rgba(11,13,15,.15) 30%,rgba(11,13,15,.55) 58%,var(--ink) 100%)}
+  .hero::after{background:linear-gradient(180deg,rgba(11,13,15,.6) 0%,rgba(11,13,15,.3) 22%,rgba(11,13,15,.66) 44%,rgba(11,13,15,.82) 70%,var(--ink) 100%)}
   .hero-media img{object-position:60% 50%}
-  .cue{display:none}
+  .cue{right:max(14px,env(safe-area-inset-right,0px));bottom:30px}
+  .cue-l{height:40px}
   .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}
   .stats .wrap>div:nth-child(3){border-left:0;padding-left:0}
   .story-inner{min-height:0;gap:32px;padding-block:80px}
@@ -707,12 +717,12 @@ html.js .qs+.qs{margin-top:0}
 
 <div class="intro" id="intro" aria-hidden="true">
   <div class="intro-logo">
-    <img src="img/logo.webp" alt="" width="440" height="200">
+    <img class="il-mm" src="img/logo.webp" alt="" width="440" height="200">
+    <img class="il-h il-a" src="img/logo.webp" alt="" width="440" height="200">
+    <img class="il-h il-b" src="img/logo.webp" alt="" width="440" height="200">
     <i class="shine"></i>
     <svg class="spark" viewBox="-50 -50 100 100"><g stroke-linecap="round"><path d="M0-18V-34"/><path d="M13-13l11-11"/><path d="M18 0h16"/><path d="M13 13l11 11"/><path d="M-13-13l-11-11"/><path d="M-18 0h-16"/><path d="M-13 13l-11 11"/><path d="M0 18v16"/></g></svg>
   </div>
-  <p class="intro-t">Manos de Maestro <span>·</span> Valdivia</p>
-  <span class="intro-line"><i></i></span>
 </div>
 
 <div class="chap" id="chap" aria-hidden="true"><span id="chapN">01</span><i></i><span id="chapT">El oficio</span></div>
@@ -722,7 +732,7 @@ html.js .qs+.qs{margin-top:0}
   <div class="hero-media"><img id="heroImg" src="img/hero-1600.webp" srcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w, img/hero-2400.webp 2400w" sizes="(max-aspect-ratio: 1/1) 170vh, 100vw" width="2400" height="1350" alt="Cocina terminada por Manos de Maestro" fetchpriority="high" decoding="async"></div>
   <div class="wrap">
     <p class="eyebrow rv">Construcción y remodelaciones · Valdivia</p>
-    <h1 class="split">Oficio <em>que se nota.</em></h1>
+    <h1><span class="ln"><span class="li">Oficio</span></span> <span class="ln"><span class="li"><em>que se nota.</em></span></span></h1>
     <p class="lead rv">Miguel Saldivia e Ignacio Mora. Construimos casas desde cero y remodelamos espacios en Valdivia y sus alrededores, con más de 25 años de oficio.</p>
     <div class="ctas rv">
       <a class="btn btn-solid magnet" href="#cotizar">Cotiza tu proyecto</a>
@@ -730,7 +740,7 @@ html.js .qs+.qs{margin-top:0}
     </div>
     <div class="meta rv"><span><b>Fotos reales</b> de cada obra</span><span><b>Atención directa</b> de los socios</span><span><b>Base en Valdivia</b> y comunas cercanas</span></div>
   </div>
-  <a class="cue" href="#manifiesto" aria-label="Bajar"><span></span></a>
+  <a class="cue" href="#casa" aria-label="Bajar a las obras"><span class="cue-t" aria-hidden="true">Baja</span><span class="cue-l" aria-hidden="true"><i></i></span></a>
 </section>
 
 <div class="ticker" aria-hidden="true">
@@ -747,7 +757,7 @@ html.js .qs+.qs{margin-top:0}
       <p class="reveal">Esta casa en Valdivia la construimos nosotros de principio a fin: del terreno vacío a la casa terminada. Así se ve cada etapa.</p>
     </div>
     <dl class="ficha reveal-group"><div><dt>Ubicación</dt><dd>Valdivia</dd></div><div><dt>Estructura</dt><dd>Fundación corrida, radier y tabiquería de madera</dd></div><div><dt>Superficie</dt><dd><span class="dato">[DATO: m² de la casa]</span></dd></div><div><dt>Plazo</dt><dd><span class="dato">[DATO: plazo de la obra]</span></dd></div><div><dt>Etapas incluidas</dt><dd>Del trazado en el terreno a la casa terminada</dd></div></dl>
-    <figure class="casa-fin img-reveal"><img src="img/g-fachada-1600.webp" srcset="img/g-fachada-800.webp 800w, img/g-fachada-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Casa terminada con revestimiento café y alero oscuro" loading="lazy" decoding="async" data-lb="casa" data-full="img/g-fachada-1600.webp"><figcaption><span class="tag">Terminada · Valdivia</span></figcaption></figure>
+    <figure class="casa-fin img-reveal par"><img src="img/g-fachada-1600.webp" srcset="img/g-fachada-800.webp 800w, img/g-fachada-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Casa terminada con revestimiento café y alero oscuro" loading="lazy" decoding="async" data-lb="casa" data-full="img/g-fachada-1600.webp"><figcaption><span class="tag">Terminada · Valdivia</span></figcaption></figure>
     <ol class="casa-steps reveal-group" id="casaSteps"><li><figure class="cs-ph"><img src="img/casa-1-800.webp" width="800" height="450" alt="Excavación y moldaje de las fundaciones de la casa" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-1-1600.webp"></figure><div class="cs-t"><span class="n">01</span><b>Trazado y moldaje</b><span>Trazamos la casa en el terreno, excavamos y armamos el moldaje de las fundaciones.</span></div></li><li><figure class="cs-ph"><img src="img/casa-2-800.webp" width="800" height="1422" alt="Maestro rellenando el interior de las fundaciones" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-2-1600.webp"></figure><div class="cs-t"><span class="n">02</span><b>Fundaciones</b><span>Fundación corrida de hormigón y relleno interior, nivelado a pala.</span></div></li><li><figure class="cs-ph"><img src="img/casa-3-800.webp" width="800" height="450" alt="Compactación del terreno dentro de las fundaciones" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-3-1600.webp"></figure><div class="cs-t"><span class="n">03</span><b>Compactación</b><span>Base compactada con placa vibradora para que el piso no se mueva nunca.</span></div></li><li><figure class="cs-ph"><img src="img/casa-4-800.webp" width="800" height="450" alt="Base de ripio y bolón lista para el radier" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-4-1600.webp"></figure><div class="cs-t"><span class="n">04</span><b>Base y cañerías</b><span>Cama de ripio y bolón, con las cañerías de agua y alcantarillado ya instaladas.</span></div></li><li><figure class="cs-ph"><img src="img/casa-5-800.webp" width="800" height="450" alt="Radier recién hormigonado" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-5-1600.webp"></figure><div class="cs-t"><span class="n">05</span><b>Radier</b><span>Radier hormigonado y afinado: la base firme de toda la casa.</span></div></li><li><figure class="cs-ph"><img src="img/casa-6-800.webp" width="800" height="450" alt="Tabiques de madera del segundo piso en construcción" loading="lazy" decoding="async" data-lb="casa" data-full="img/casa-6-1600.webp"></figure><div class="cs-t"><span class="n">06</span><b>Estructura</b><span>Tabiques de madera armados y levantados piso por piso.</span></div></li></ol>
     <div class="casa-cta reveal"><a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20casa%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20construir%20una%20casa%20desde%20cero." target="_blank" rel="noopener">Quiero construir mi casa</a><span>Tradicional o con panel SIP · Valdivia y alrededores</span></div>
   </div>
@@ -759,7 +769,7 @@ html.js .qs+.qs{margin-top:0}
     <p class="reveal">Estructura de madera, cerchas a la vista y ventanales hacia el bosque. La levantamos desde el radier hasta la última terminación. Desliza para recorrer la obra.</p>
   </div>
   <div class="wrap campo-ficha"><dl class="ficha reveal-group"><div><dt>Ubicación</dt><dd>Sector Pichihuape</dd></div><div><dt>Estructura</dt><dd>Madera y OSB sobre radier, cerchas a la vista</dd></div><div><dt>Superficie</dt><dd><span class="dato">[DATO: m² de la casa]</span></dd></div><div><dt>Plazo</dt><dd><span class="dato">[DATO: plazo de la obra]</span></dd></div><div><dt>Etapas incluidas</dt><dd>Muros, cerchas, aislación, terminaciones e interiores</dd></div></dl></div>
-  <figure class="campo-hero img-reveal"><div><img src="img/campo-ext-1600.webp" srcset="img/campo-ext-800.webp 800w, img/campo-ext-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Casa de campo terminada con revestimiento blanco y ventanas de madera" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-ext-1600.webp"><span class="tag">Terminada · Pichihuape</span></div></figure>
+  <figure class="campo-hero img-reveal par"><div><img src="img/campo-ext-1600.webp" srcset="img/campo-ext-800.webp 800w, img/campo-ext-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Casa de campo terminada con revestimiento blanco y ventanas de madera" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-ext-1600.webp"><span class="tag">Terminada · Pichihuape</span></div></figure>
   <div class="campo-pin"><ol class="campo-track" id="campoTrack"><li class="cc" style="--ar:4/3"><figure><img src="img/campo-1-800.webp" width="1600" height="1200" alt="Muros de madera y OSB levantados sobre el radier, con el bosque detrás" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-1-1600.webp"></figure><div class="cs-t"><span class="n">01</span><b>Muros en pie</b><span>Muros de estructura de madera y OSB, levantados sobre el radier.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-2-800.webp" width="1200" height="1600" alt="Vano del ventanal grande mirando al campo" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-2-1600.webp"></figure><div class="cs-t"><span class="n">02</span><b>Vanos</b><span>Los vanos de los ventanales, abiertos hacia el campo.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-3-800.webp" width="1200" height="1600" alt="Cerchas de madera de la techumbre contra el cielo azul" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-3-1600.webp"></figure><div class="cs-t"><span class="n">03</span><b>Cerchas</b><span>Cerchas de madera para un cielo alto y a la vista.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-4-800.webp" width="1200" height="1600" alt="Interior con la techumbre aislada y un maestro trabajando" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-4-1600.webp"></figure><div class="cs-t"><span class="n">04</span><b>Aislación</b><span>Techumbre aislada y estructura lista para revestir.</span></div></li><li class="cc" style="--ar:16/9"><figure><img src="img/campo-5-800.webp" width="1600" height="899" alt="Interior con cielo alto, vigas a la vista y ventanas instaladas" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-5-1600.webp"></figure><div class="cs-t"><span class="n">05</span><b>Terminaciones</b><span>Muros terminados, vigas a la vista y ventanas instaladas.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-6-800.webp" width="1200" height="1600" alt="Acceso de la casa revestido en madera con puerta de madera" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-6-1600.webp"></figure><div class="cs-t"><span class="n">06</span><b>Acceso</b><span>Acceso revestido en madera, iluminado y listo para entrar.</span></div></li><li class="cc" style="--ar:3/4"><figure><img src="img/campo-int-800.webp" width="867" height="1156" alt="Living terminado con piso de madera, vigas a la vista y baldosa decorativa" loading="lazy" decoding="async" data-lb="campo" data-full="img/campo-int-1600.webp"></figure><div class="cs-t"><span class="n">07</span><b>Living terminado</b><span>Piso de madera, vigas a la vista y baldosa decorativa.</span></div></li><li class="cc cc-cta"><div><p class="eyebrow">Tu casa de campo</p><b>¿Tienes terreno? La construimos contigo.</b><a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20casa%20de%20campo%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20construir%20una." target="_blank" rel="noopener">Quiero una casa así</a></div></li></ol></div>
   <div class="campo-more"><figure class="img-reveal"><img src="img/campo-casa2-1600.webp" srcset="img/campo-casa2-800.webp 800w, img/campo-casa2-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 720px" width="1600" height="900" alt="Otra casa de campo terminada en el sector Pichihuape, con el cerro detrás" loading="lazy" decoding="async" data-lb="campo2" data-full="img/campo-casa2-1600.webp"></figure><div class="reveal"><p class="eyebrow">También en Pichihuape</p><h3 style="margin-top:12px">Otra casa, <em>en el mismo sector.</em></h3><p>Una segunda casa de campo construida por nosotros en Pichihuape: estructura de madera, revestimiento blanco y ventanas de madera mirando al cerro.</p><a class="btn btn-ghost" style="margin-top:22px" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20las%20casas%20de%20Pichihuape%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20cotizar%20una%20casa." target="_blank" rel="noopener">Cotizar mi casa</a></div></div>
 </section>
@@ -771,7 +781,7 @@ html.js .qs+.qs{margin-top:0}
       <p class="reveal">Un terreno en pendiente, rodeado de árboles. La levantamos sobre pilotes de hormigón y la construimos completa: de la excavación de los pilotes a las terminaciones, incluida la instalación de la fosa séptica.</p>
     </div>
     <dl class="ficha reveal-group"><div><dt>Ubicación</dt><dd>Sector Punucapa</dd></div><div><dt>Estructura</dt><dd>Pilotes de hormigón armado, madera y OSB, techo de zinc</dd></div><div><dt>Superficie</dt><dd><span class="dato">[DATO: m² de la casa]</span></dd></div><div><dt>Plazo</dt><dd><span class="dato">[DATO: plazo de la obra]</span></dd></div><div><dt>Etapas incluidas</dt><dd>De la excavación a las terminaciones, con fosa séptica</dd></div></dl>
-    <figure class="bq-hero img-reveal"><img src="img/bosque-ext-1600.webp" srcset="img/bosque-ext-800.webp 800w, img/bosque-ext-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Casa sobre pilotes terminada en medio del bosque, sector Punucapa" loading="lazy" decoding="async" data-lb="bosque" data-full="img/bosque-ext-1600.webp"><span class="tag">Punucapa · en el bosque</span></figure>
+    <figure class="bq-hero img-reveal par"><img src="img/bosque-ext-1600.webp" srcset="img/bosque-ext-800.webp 800w, img/bosque-ext-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Casa sobre pilotes terminada en medio del bosque, sector Punucapa" loading="lazy" decoding="async" data-lb="bosque" data-full="img/bosque-ext-1600.webp"><span class="tag">Punucapa · en el bosque</span></figure>
     <div class="bq" id="bq">
       <div class="bq-stage" tabindex="0" aria-label="Etapas de la obra; usa las flechas para avanzar"><img class="on" src="img/cunu-1-v3-800.webp" srcset="img/cunu-1-v3-800.webp 800w, img/cunu-1-v3-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Excavación: Trazado y excavación de los poyos en el terreno en pendiente." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-1-v3-1600.webp"><img class="" src="img/cunu-2-800.webp" srcset="img/cunu-2-800.webp 800w, img/cunu-2-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Pilotes: Pilotes de hormigón armado para levantar la casa sobre el cerro." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-2-1600.webp"><img class="" src="img/cunu-3-800.webp" srcset="img/cunu-3-800.webp 800w, img/cunu-3-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Vigas maestras: Vigas sobre los pilotes, niveladas para recibir el piso." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-3-1600.webp"><img class="" src="img/cunu-4-v3-800.webp" srcset="img/cunu-4-v3-800.webp 800w, img/cunu-4-v3-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Envigado: Envigado de piso, cuadriculado y nivelado pieza por pieza." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-4-v3-1600.webp"><img class="" src="img/cunu-5-v3-800.webp" srcset="img/cunu-5-v3-800.webp 800w, img/cunu-5-v3-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Plataforma: Piso de placas sobre el envigado: la base de toda la casa." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-5-v3-1600.webp"><img class="" src="img/cunu-6-v4-800.webp" srcset="img/cunu-6-v4-800.webp 800w, img/cunu-6-v4-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Muros: Muros de madera y OSB levantados sobre los pilotes, en medio del bosque." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-6-v4-1600.webp"><img class="" src="img/cunu-7-800.webp" srcset="img/cunu-7-800.webp 800w, img/cunu-7-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Cerchas: Cerchas armadas en el piso y levantadas para la techumbre." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-7-1600.webp"><img class="" src="img/cunu-8-v3-800.webp" srcset="img/cunu-8-v3-800.webp 800w, img/cunu-8-v3-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Techumbre: Techo de zinc instalado y la casa cerrada entre los árboles." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-8-v3-1600.webp"><img class="" src="img/cunu-9-v3-800.webp" srcset="img/cunu-9-v3-800.webp 800w, img/cunu-9-v3-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Revestimiento: Revestimiento exterior en madera oscura y terraza sobre pilotes." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-9-v3-1600.webp"><img class="" src="img/cunu-pasillo-800.webp" srcset="img/cunu-pasillo-800.webp 800w, img/cunu-pasillo-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Terminada por dentro: Pasillo terminado, iluminado y listo para vivir." loading="lazy" decoding="async" data-lb="bosque" data-full="img/cunu-pasillo-1600.webp">
         <div class="bq-cap"><span class="n" id="bqN">01</span><b id="bqT">Excavación</b></div>
@@ -793,7 +803,7 @@ html.js .qs+.qs{margin-top:0}
       <p class="reveal">Una terraza techada junto a la casa, hecha desde el suelo: radier de hormigón armado, estructura de madera y cubierta. Lista para el auto, el quincho o la lluvia del sur.</p>
     </div>
     <dl class="ficha reveal-group"><div><dt>Ubicación</dt><dd><span class="dato">[DATO: comuna de la techumbre]</span></dd></div><div><dt>Estructura</dt><dd>Radier armado, pilares y vigas de madera, cubierta de planchas</dd></div><div><dt>Superficie</dt><dd><span class="dato">[DATO: m² techados]</span></dd></div><div><dt>Plazo</dt><dd><span class="dato">[DATO: plazo de la obra]</span></dd></div><div><dt>Etapas incluidas</dt><dd>Radier, estructura de madera y cubierta</dd></div></dl>
-    <figure class="techo-fin img-reveal"><img src="img/techo-fin-1600.webp" srcset="img/techo-fin-800.webp 800w, img/techo-fin-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Techumbre terminada con pilares y vigas de madera sobre radier, junto a la casa" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-fin-1600.webp"><span class="tag">Terminada</span></figure>
+    <figure class="techo-fin img-reveal par"><img src="img/techo-fin-1600.webp" srcset="img/techo-fin-800.webp 800w, img/techo-fin-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 1240px" width="1600" height="900" alt="Techumbre terminada con pilares y vigas de madera sobre radier, junto a la casa" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-fin-1600.webp"><span class="tag">Terminada</span></figure>
     <ol class="casa-steps reveal-group"><li><figure class="cs-ph"><img src="img/techo-v2-1-800.webp" width="800" height="600" alt="Malla de acero y moldaje del radier" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-1-1200.webp"></figure><div class="cs-t"><span class="n">01</span><b>Enfierradura</b><span>Malla de acero y moldaje listos para el hormigón.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-2-800.webp" width="800" height="600" alt="Radier de hormigón hormigonado por paños" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-2-1200.webp"></figure><div class="cs-t"><span class="n">02</span><b>Hormigonado</b><span>Radier hormigonado por paños, con sus juntas.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-3-800.webp" width="800" height="600" alt="Radier terminado y afinado junto a la casa" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-3-1200.webp"></figure><div class="cs-t"><span class="n">03</span><b>Radier terminado</b><span>Superficie afinada y nivelada junto a la casa.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-4-800.webp" width="800" height="600" alt="Maestro nivelando los primeros pilares sobre el radier" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-4-1200.webp"></figure><div class="cs-t"><span class="n">04</span><b>Trazado de pilares</b><span>Pilares aplomados y nivelados sobre el radier.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-5-800.webp" width="800" height="600" alt="Pilares de madera y vigas maestras de la techumbre" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-5-1200.webp"></figure><div class="cs-t"><span class="n">05</span><b>Pilares y vigas</b><span>Vigas maestras montadas sobre los pilares.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-6-800.webp" width="800" height="600" alt="Costaneras de madera sobre las vigas, con cielo azul" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-6-1200.webp"></figure><div class="cs-t"><span class="n">06</span><b>Costaneras</b><span>Costaneras sobre las vigas para recibir la cubierta.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-7-800.webp" width="800" height="600" alt="Estructura de madera completa de la techumbre" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-7-1200.webp"></figure><div class="cs-t"><span class="n">07</span><b>Estructura completa</b><span>Toda la estructura de madera lista, de punta a punta.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-8-800.webp" width="800" height="600" alt="Vista desde abajo de la cubierta instalada" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-8-1200.webp"></figure><div class="cs-t"><span class="n">08</span><b>Cubierta</b><span>Planchas instaladas: la terraza ya está bajo techo.</span></div></li><li><figure class="cs-ph"><img src="img/techo-v2-9-800.webp" width="800" height="600" alt="Cubierta de planchas onduladas terminada, vista desde arriba" loading="lazy" decoding="async" data-lb="techo" data-full="img/techo-v2-9-1200.webp"></figure><div class="cs-t"><span class="n">09</span><b>Techo terminado</b><span>La cubierta terminada, vista desde arriba.</span></div></li></ol>
     <div class="casa-cta reveal"><a class="btn btn-solid" href="https://wa.me/56977107052?text=Hola%2C%20buenas%20tardes.%20Vi%20la%20techumbre%20en%20la%20p%C3%A1gina%20de%20Manos%20de%20Maestro%20y%20me%20interesa%20cotizar%20una." target="_blank" rel="noopener">Cotizar una techumbre</a><span>Radier · Estructura de madera · Cubierta</span></div>
   </div>
