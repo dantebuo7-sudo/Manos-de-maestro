@@ -398,7 +398,21 @@
   });
 
   // manifesto sentence by sentence, tied to scroll
-  gsap.fromTo('#manifesto .w',{backgroundSize:'0% 100%'},{backgroundSize:'100% 100%',ease:'none',stagger:.5,scrollTrigger:{trigger:'.manifesto',start:'top 80%',end:'center 55%',scrub:.3}});
+  (function(){
+    var ws=document.querySelectorAll('#manifesto .w');
+    ws.forEach(function(w){
+      var words=w.textContent.split(' ');
+      var gap=w.nextSibling&&w.nextSibling.nodeType===3;
+      w.innerHTML=words.map(function(t,i){return '<span class="k">'+t+(i<words.length-1||gap?' ':'')+'</span>';}).join('');
+      if(gap) w.nextSibling.textContent='';
+    });
+    var ks=document.querySelectorAll('#manifesto .k');
+    gsap.set(ks,{backgroundSize:'0% 78%',color:'#4a4f55'});
+    var tl=gsap.timeline({paused:true});
+    tl.to(ks,{backgroundSize:'100% 78%',color:'#0B0D0F',duration:.55,ease:'power2.out',stagger:.09})
+      .add(function(){document.querySelector('.manifesto').classList.add('lit');});
+    ScrollTrigger.create({trigger:'#manifesto',start:'top 75%',once:true,onEnter:function(){tl.play();}});
+  })();
 
   // light sections rise in as a rounded card and settle full width
   gsap.utils.toArray('.morph').forEach(function(sec){
