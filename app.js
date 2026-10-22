@@ -398,7 +398,7 @@
   });
 
   // manifesto sentence by sentence, tied to scroll
-  gsap.fromTo('#manifesto .w',{opacity:.4},{opacity:1,ease:'none',stagger:.5,scrollTrigger:{trigger:'.manifesto',start:'top 70%',end:'bottom 60%',scrub:.3}});
+  gsap.fromTo('#manifesto .w',{backgroundSize:'0% 100%'},{backgroundSize:'100% 100%',ease:'none',stagger:.5,scrollTrigger:{trigger:'.manifesto',start:'top 80%',end:'center 55%',scrub:.3}});
 
   // light sections rise in as a rounded card and settle full width
   gsap.utils.toArray('.morph').forEach(function(sec){
