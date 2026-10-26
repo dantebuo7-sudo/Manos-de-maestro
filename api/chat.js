@@ -1,6 +1,6 @@
 // Asistente IA de Manos de Maestro — función de Vercel (POST /api/chat)
 // Necesita la variable de entorno GEMINI_API_KEY (clave gratis de Google AI Studio).
-// Opcional: GEMINI_MODEL para cambiar el modelo (por defecto gemini-3.8-flash).
+// Opcional: GEMINI_MODEL para elegir el modelo principal (si falla, prueba otros).
 
 const SYSTEM = `Eres el asistente virtual de la página web de "Manos de Maestro", maestros constructores de Valdivia, Región de Los Ríos, Chile.
 
@@ -43,7 +43,9 @@ module.exports = async function handler(req, res) {
 
   const key = process.env.GEMINI_API_KEY;
   if (!key) return res.status(500).json({ error: 'Falta configurar GEMINI_API_KEY' });
-  const model = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+  // Si un modelo está saturado o no existe, se prueba el siguiente
+  const models = [process.env.GEMINI_MODEL, 'gemini-3.8-flash', 'gemini-3.5-flash', 'gemini-flash-latest', 'gemini-3.5-flash-lite', 'gemini-flash-lite-latest']
+    .filter((m, i, a) => m && a.indexOf(m) === i);
 
   let body = req.body;
   if (typeof body === 'string') {
@@ -61,31 +63,33 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Mensaje vacío' });
   }
 
-  try {
-    const r = await fetch(
-      'https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(model) + ':generateContent',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: SYSTEM }] },
-          contents,
-          generationConfig: { temperature: 0.6, maxOutputTokens: 2048 },
-        }),
+  const payload = JSON.stringify({
+    systemInstruction: { parts: [{ text: SYSTEM }] },
+    contents,
+    generationConfig: { temperature: 0.6, maxOutputTokens: 2048 },
+  });
+
+  for (const model of models) {
+    try {
+      const r = await fetch(
+        'https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(model) + ':generateContent',
+        { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: payload }
+      );
+      const data = await r.json();
+      if (!r.ok) {
+        console.error('Gemini error', model, r.status, JSON.stringify(data));
+        if ([404, 429, 500, 503].includes(r.status)) continue;
+        return res.status(502).json({ error: 'IA no disponible' });
       }
-    );
-    const data = await r.json();
-    if (!r.ok) {
-      console.error('Gemini error', r.status, JSON.stringify(data));
-      return res.status(502).json({ error: 'IA no disponible' });
+      const parts = (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) || [];
+      const text = parts.filter((p) => !p.thought).map((p) => p.text || '').join('').trim();
+      console.log('Respondió', model);
+      return res.status(200).json({
+        reply: text || 'Disculpa, no te entendí bien. ¿Me lo cuentas de otra forma, por favor? 😊',
+      });
+    } catch (e) {
+      console.error('Fallo', model, e);
     }
-    const parts = (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) || [];
-    const text = parts.map((p) => p.text || '').join('').trim();
-    return res.status(200).json({
-      reply: text || 'Disculpa, no te entendí bien. ¿Me lo cuentas de otra forma, por favor? 😊',
-    });
-  } catch (e) {
-    console.error(e);
-    return res.status(502).json({ error: 'IA no disponible' });
   }
+  return res.status(502).json({ error: 'IA no disponible' });
 };
