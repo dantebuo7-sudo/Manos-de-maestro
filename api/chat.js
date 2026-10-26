@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
   const key = process.env.GEMINI_API_KEY;
   if (!key) return res.status(500).json({ error: 'Falta configurar GEMINI_API_KEY' });
   // Si un modelo está saturado o no existe, se prueba el siguiente
-  const models = [process.env.GEMINI_MODEL, 'gemini-3.8-flash', 'gemini-3.5-flash', 'gemini-flash-latest', 'gemini-3.5-flash-lite', 'gemini-flash-lite-latest']
+  const models = [process.env.GEMINI_MODEL, 'gemini-3.5-flash', 'gemini-3.8-flash', 'gemini-flash-latest', 'gemini-3.5-flash-lite', 'gemini-flash-lite-latest']
     .filter((m, i, a) => m && a.indexOf(m) === i);
 
   let body = req.body;
