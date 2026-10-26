@@ -1,6 +1,6 @@
 // Asistente IA de Manos de Maestro — función de Vercel (POST /api/chat)
 // Necesita la variable de entorno GEMINI_API_KEY (clave gratis de Google AI Studio).
-// Opcional: GEMINI_MODEL para cambiar el modelo (por defecto gemini-2.5-flash).
+// Opcional: GEMINI_MODEL para cambiar el modelo (por defecto gemini-3.8-flash).
 
 const SYSTEM = `Eres el asistente virtual de la página web de "Manos de Maestro", maestros constructores de Valdivia, Región de Los Ríos, Chile.
 
@@ -43,7 +43,7 @@ module.exports = async function handler(req, res) {
 
   const key = process.env.GEMINI_API_KEY;
   if (!key) return res.status(500).json({ error: 'Falta configurar GEMINI_API_KEY' });
-  const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+  const model = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 
   let body = req.body;
   if (typeof body === 'string') {
@@ -70,7 +70,7 @@ module.exports = async function handler(req, res) {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: SYSTEM }] },
           contents,
-          generationConfig: { temperature: 0.6, maxOutputTokens: 1024 },
+          generationConfig: { temperature: 0.6, maxOutputTokens: 2048 },
         }),
       }
     );
