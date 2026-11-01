@@ -1,7 +1,7 @@
 /* Asistente IA de Manos de Maestro: burbuja de chat con el emblema, respuestas en vivo desde /api/chat */
 (function(){
   if (window.__mdmChat) return; window.__mdmChat = true;
-  var LOGO = '/img/logo-160.webp';
+  var LOGO = '/img/don-manolo-160.webp';
   var SOCIOS = [
     { name: 'Miguel', full: 'Miguel Saldivia', n: '56977107052' },
     { name: 'Ignacio', full: 'Ignacio Mora', n: '56965836682' }
@@ -16,7 +16,7 @@
   + '.mdm-emb{position:relative;flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center}'
   + '.mdm-emb::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,#8A6A45,#F3DDB8,#C29A6B,#5E4630,#C29A6B,#F3DDB8,#8A6A45);animation:mdmSpin 7s linear infinite}'
   + '.mdm-emb::after{content:"";position:absolute;inset:2px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#1C2024,' + INK + ' 70%)}'
-  + '.mdm-emb img{position:relative;z-index:1;width:68%;height:auto;display:block}'
+  + '.mdm-emb img{position:absolute;z-index:1;inset:2px;width:calc(100% - 4px);height:calc(100% - 4px);border-radius:50%;object-fit:cover;display:block}'
   + '.mdm-emb.sm{width:40px;height:40px}'
   + '.mdm-emb.xs{width:28px;height:28px}.mdm-emb.xs::before{animation:none}'
   + '.mdm-chat-btn{position:fixed;right:20px;bottom:20px;z-index:58;display:flex;align-items:center;gap:12px;padding:6px 20px 6px 6px;border-radius:999px;border:1px solid rgba(194,154,107,.45);background:rgba(11,13,15,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:' + BONE + ';font-family:' + SANS + ';cursor:pointer;text-align:left;box-shadow:0 14px 40px rgba(0,0,0,.5);transition:transform .2s ease,border-color .2s ease}'
@@ -63,19 +63,19 @@
   + 'html.intro-on .mdm-chat-btn{opacity:0}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
-  function emb(size){ return '<span class="mdm-emb' + (size ? ' ' + size : '') + '" aria-hidden="true"><img src="' + LOGO + '" alt="" width="160" height="73"></span>'; }
+  function emb(size){ return '<span class="mdm-emb' + (size ? ' ' + size : '') + '" aria-hidden="true"><img src="' + LOGO + '" alt="" width="160" height="160"></span>'; }
 
   var btn = document.createElement('button');
   btn.type = 'button'; btn.className = 'mdm-chat-btn';
   btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-controls', 'mdmChat');
-  btn.setAttribute('aria-label', 'Pregúntale al Maestro: asistente de Manos de Maestro');
-  btn.innerHTML = emb('') + '<span class="mdm-lbl"><b>Pregúntale al Maestro</b><small><span class="mdm-live"></span>En línea · responde al tiro</small></span>';
+  btn.setAttribute('aria-label', 'Pregúntale a Don Manolo: asistente de Manos de Maestro');
+  btn.innerHTML = emb('') + '<span class="mdm-lbl"><b>Pregúntale a Don Manolo</b><small><span class="mdm-live"></span>En línea · responde al tiro</small></span>';
 
   var box = document.createElement('section');
   box.className = 'mdm-chat'; box.id = 'mdmChat'; box.hidden = true;
-  box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', 'Asistente de Manos de Maestro');
+  box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', 'Don Manolo, asistente de Manos de Maestro');
   box.innerHTML = ''
-    + '<div class="mdm-head">' + emb('sm') + '<div><b>Manos de Maestro</b><small><span class="mdm-live"></span>Asistente con IA · en línea</small></div>'
+    + '<div class="mdm-head">' + emb('sm') + '<div><b>Don Manolo</b><small><span class="mdm-live"></span>Asistente con IA · en línea</small></div>'
     + '<button type="button" class="mdm-close" aria-label="Cerrar asistente">×</button></div>'
     + '<div class="mdm-log" aria-live="polite"></div>'
     + '<div class="mdm-chips"><button type="button">Quiero construir una casa</button><button type="button">¿Qué es el panel SIP?</button><button type="button">¿Trabajan en mi comuna?</button></div>'
@@ -115,7 +115,7 @@
     box.hidden = false; btn.setAttribute('aria-expanded', 'true');
     if (!started) {
       started = true; track('Asistente abierto');
-      var hi = '¡Hola, buenas tardes! 👋 Soy el asistente de Manos de Maestro. Pregúntame lo que quieras sobre tu casa o tu proyecto, y con gusto te oriento.';
+      var hi = '¡Hola, buenas! 👋 Soy Don Manolo, el asistente virtual de Manos de Maestro. Cuéntame qué tienes en mente para tu casa y con gusto te oriento, paso a paso. Como digo yo: primero el cimiento, después el sueño. 🔨';
       bot(hi); history.push({ role: 'assistant', text: hi });
     }
     setTimeout(function(){ input.focus(); }, 60);
@@ -160,7 +160,7 @@
       })
       .catch(function(){
         if (gotAny && full.trim()) { paint(); history.push({ role: 'assistant', text: full.split(WA_RE)[0].trim() }); return; }
-        b.el.textContent = 'Uy, el asistente no está disponible en este momento 🙏 Escríbenos directo por WhatsApp y te respondemos personalmente.';
+        b.el.textContent = 'Uy, Don Manolo salió a la obra un ratito 🙏 Escríbenos directo por WhatsApp y te respondemos personalmente.';
         addWa(null);
       })
       .then(function(){ clearTimeout(stop); busy = false; send.disabled = false; input.focus(); });
