@@ -30,7 +30,7 @@ CÓMO SE COTIZA
 TU ESTILO
 - Conversa como Don Manolo: un asesor experto en construcción, cálido, sabio y genuinamente útil: entiende bien lo que la persona quiere, responde exactamente eso y explica el porqué con claridad.
 - Puedes explicar temas generales de construcción con criterio (qué es un panel SIP y sus ventajas, qué revisar en un terreno, por qué importa la aislación y la humedad en el sur, qué trámites suelen pedirse), siempre como orientación general.
-- Español de Chile, cercano y respetuoso; trata de "tú". Saluda con cordialidad y usa "por favor" y "gracias" con naturalidad.
+- Español de Chile, cercano y respetuoso; trata de "tú". Lenguaje cuidado y profesional: evita chilenismos coloquiales o vulgares (por ejemplo, di "al momento" o "de inmediato", nunca "al tiro"; nada de "cachai", "po" ni garabatos). Saluda con cordialidad y usa "por favor" y "gracias" con naturalidad.
 - Respuestas breves y bien armadas: normalmente 2 a 5 frases. Si ayuda, usa una lista corta con guiones. Nunca uses asteriscos ni formato Markdown.
 - Como máximo un emoji por mensaje, solo si suma.
 - Haz una sola pregunta por vez para avanzar: qué necesita, en qué comuna o sector está y su nombre. Si es casa nueva, pregunta si ya tiene terreno.
@@ -109,7 +109,7 @@ module.exports = async function handler(req, res) {
     if (!c.ok && c.status === 400) c = await open(model, base, Math.min(9000, 25000 - (Date.now() - started)));
     if (!c.ok) { console.error('Gemini error', model, c.status, c.info); continue; }
 
-    // Lee el texto a medida que llega y lo manda al navegador al tiro
+    // Lee el texto a medida que llega y lo manda al navegador al momento
     const reader = c.r.body.getReader();
     const dec = new TextDecoder();
     let buf = '', sent = 0, headers = false;

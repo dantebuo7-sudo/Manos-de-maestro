@@ -69,7 +69,7 @@
   btn.type = 'button'; btn.className = 'mdm-chat-btn';
   btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-controls', 'mdmChat');
   btn.setAttribute('aria-label', 'Pregúntale a Don Manolo: asistente de Manos de Maestro');
-  btn.innerHTML = emb('') + '<span class="mdm-lbl"><b>Pregúntale a Don Manolo</b><small><span class="mdm-live"></span>En línea · responde al tiro</small></span>';
+  btn.innerHTML = emb('') + '<span class="mdm-lbl"><b>Pregúntale a Don Manolo</b><small><span class="mdm-live"></span>En línea · responde al momento</small></span>';
 
   var box = document.createElement('section');
   box.className = 'mdm-chat'; box.id = 'mdmChat'; box.hidden = true;
