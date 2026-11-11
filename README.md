@@ -25,7 +25,8 @@ Todas son reales. Las restauradas se limpiaron con IA. Las demás se agrandaron 
 
 | Archivo | Sección | Foto |
 |---|---|---|
-| `hero` | Portada | Cocina terminada (restaurada) |
+| `hero` | Galería "Hecho a mano" (antes fue la portada) | Cocina terminada (restaurada) |
+| `bosque-ext-v2` | Portada y obra de Punucapa | Casa sobre pilotes terminada en el bosque |
 | `story-1/2/3` | Escalera destacada | Antes, proceso, terminado |
 | `bano-1/2/3` | Obra 01 · Baños | Mampara, ducha negra, espejo con viga |
 | `cocina-1/2/3` | Obra 02 · Cocinas | Cocina con cielo de doble nivel y ventanal, campana y encimera, cerámica en proceso |
@@ -39,7 +40,7 @@ Las fotos de las tiras de etapas tienen además una versión `-480.webp` para ce
 
 ## Fichas de obra
 
-Las 4 obras grandes (casa en Valdivia, Pichihuape, Punucapa y techumbre) tienen una ficha con ubicación, estructura, superficie, plazo y etapas. Los datos que faltan aparecen como `[DATO: …]` con borde punteado: hay que reemplazarlos en `index.html` (buscar `class="dato"`) cuando se tengan los datos reales.
+Las 4 obras grandes (casa en Valdivia, Pichihuape, Punucapa y techumbre) tienen una ficha con ubicación, estructura, superficie, plazo y etapas. Nov-2026: se quitaron de la vista las filas sin datos (superficie, plazo y la comuna de la terraza techada). Cuando Miguel e Ignacio tengan los m² y plazos reales, se agregan como `<div><dt>Superficie</dt><dd>…</dd></div>` dentro de cada `<dl class="ficha">`; la grilla se ajusta sola al número de columnas.
 
 ## Servicios
 
@@ -77,7 +78,7 @@ Cada botón de obra (casa en Valdivia, Pichihuape, Punucapa, techumbre, baño, c
 ## Garantías, cifras y testimonios
 
 - **Lo que te aseguramos**: atención directa de los socios, fotos de cada etapa, presupuesto claro antes de empezar y certificado eléctrico SEC a través de un electricista autorizado. Solo cosas ciertas.
-- **Cifras**: +25 años de oficio y 12 comunas. Las cifras de casas desde cero y obras terminadas están como `[DATO: …]` hasta tener el número real.
+- **Cifras**: +25 años de oficio, 2 socios a cargo de cada obra, $0 consulta y visita a terreno en la zona urbana de Valdivia, y 12 comunas. Si más adelante se tienen los números reales de casas desde cero y obras terminadas, se pueden sumar.
 - **Testimonios**: la sección `#testimonios` está en el HTML con el atributo `hidden`. Cuando haya testimonios reales (con permiso del cliente), se reemplazan los `[TESTIMONIO …]` y se borra `hidden`.
 
 ## Medición (Vercel Analytics)
@@ -112,7 +113,8 @@ En `index.html`, `robots.txt` y `sitemap.xml` está `https://manosdemaestro.verc
 
 ## Pendiente
 
-- Confirmar con Miguel e Ignacio las respuestas de **Preguntas frecuentes** (si la visita se cobra, si compran ellos los materiales, si dan garantía) y agregar esas preguntas.
-- Agregar Instagram y TikTok en el pie de página cuando existan las cuentas.
+- La visita gratis en zona urbana y la compra de materiales a convenir ya están en Preguntas frecuentes. Falta confirmar si dan garantía.
+- Conseguir los m² y plazos reales de las 4 obras grandes.
+- Instagram (@manosdemaestro.vald) ya está en el pie de página. Falta agregar Facebook y TikTok con su link.
 - Agregar la sección del **food truck** cuando estén las fotos.
 - Agregar testimonios reales de clientes, con su permiso, en la sección oculta `#testimonios`. No hay que inventarlos.
